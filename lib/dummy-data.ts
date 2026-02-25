@@ -112,3 +112,48 @@ export const customers = [
   { id: "c4", name: "Diana Prince", company: "Themyscira Imports", email: "diana@themyscira.com", activeShipments: 8, totalSpend: "$89,000", status: "Active" },
   { id: "c5", name: "Evan Wright", company: "Wright & Co.", email: "evan@wrightco.com", activeShipments: 2, totalSpend: "$5,600", status: "Active" },
 ];
+
+export const dummyAlerts = [
+  { id: 1, type: "critical", message: "Vehicle FL-1029 Engine Overheat", time: "2 mins ago" },
+  { id: 2, type: "warning", message: "Geofence Exit: FL-2291", time: "15 mins ago" },
+  { id: 3, type: "info", message: "Scheduled Maintenance Due: FL-3382", time: "1 hour ago" },
+];
+
+export const dummyUsers = [
+  { id: 1, name: "Admin User", email: "admin@example.com", role: "admin", status: "active", lastLogin: "2 mins ago" },
+  { id: 2, name: "Support Agent", email: "support@example.com", role: "support", status: "active", lastLogin: "1 hour ago" },
+  { id: 3, name: "John Customer", email: "john@customer.com", role: "customer", status: "inactive", lastLogin: "2 days ago" },
+];
+
+export const dummyVehicles = [
+  { 
+    id: 1, 
+    name: "Truck 001", 
+    plate: "KHI-1234", 
+    status: "moving", 
+    location: { address: "Clifton, Karachi", lat: 24.8607, lng: 67.0011 },
+    speed: 65,
+    fuel: 78,
+    driver: "Ali Khan"
+  },
+  { 
+    id: 2, 
+    name: "Van 002", 
+    plate: "LHR-5678", 
+    status: "stopped", 
+    location: { address: "Gulberg, Lahore", lat: 31.5204, lng: 74.3587 },
+    speed: 0,
+    fuel: 45,
+    driver: "Ahmed Raza"
+  },
+  { 
+    id: 3, 
+    name: "Bike 003", 
+    plate: "ISL-9012", 
+    status: "idle", 
+    location: { address: "F-10, Islamabad", lat: 33.6844, lng: 73.0479 },
+    speed: 0,
+    fuel: 92,
+    driver: "Bilal Ahmed"
+  },
+];
