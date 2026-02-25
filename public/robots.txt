@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://crescenttracking.com
+
+# Sitemaps
+Sitemap: https://crescenttracking.com/sitemap.xml
