@@ -21,7 +21,8 @@ export default function Scene() {
             minPolarAngle={Math.PI / 3}
             maxPolarAngle={Math.PI / 1.5}
           />
-          <Environment preset="city" />
+          {/* <Environment preset="city" /> */}
+          <directionalLight position={[5, 5, 5]} intensity={2} />
           <ContactShadows position={[0, -2.5, 0]} opacity={0.4} scale={10} blur={2.5} far={4} />
         </Suspense>
       </Canvas>

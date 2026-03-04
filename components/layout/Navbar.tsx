@@ -175,11 +175,11 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 top-0 lg:hidden bg-background/98 backdrop-blur-2xl z-40 flex flex-col pt-24 pb-8 px-6 overflow-y-auto"
+            className="fixed inset-0 lg:hidden bg-background/98 backdrop-blur-2xl z-40 flex flex-col pt-24 pb-8 px-6 overflow-y-auto"
           >
             <div className="flex flex-col gap-2 mb-8">
               {navLinks.map((link, i) => (
@@ -191,14 +191,19 @@ export default function Navbar() {
                 >
                   {link.children ? (
                     <div className="space-y-3">
-                      <div className="text-lg font-semibold text-foreground px-4 py-2">
+                      <Link 
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="text-lg font-semibold text-foreground px-4 py-2 block hover:text-primary transition-colors"
+                      >
                         {link.label}
-                      </div>
+                      </Link>
                       <div className="grid gap-1 pl-4 border-l-2 border-border/50 ml-4">
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
+                            onClick={() => setMobileOpen(false)}
                             className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                           >
                             {child.label}
@@ -209,6 +214,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
+                      onClick={() => setMobileOpen(false)}
                       className={cn(
                         "block px-4 py-3 rounded-xl text-lg font-medium transition-all",
                         pathname === link.href
