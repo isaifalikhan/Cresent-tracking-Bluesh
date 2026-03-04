@@ -40,6 +40,11 @@ export const metadata: Metadata = {
     "geo-fencing",
   ],
   authors: [{ name: "Crescent Tracking (Pvt) Ltd" }],
+  icons: {
+    icon: "/Logo.png",
+    shortcut: "/Logo.png",
+    apple: "/Logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
