@@ -25,14 +25,14 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Settings</h1>
-        <p className="text-slate-400 text-sm mt-1">Manage your account preferences and system configuration.</p>
+        <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+        <p className="text-muted-foreground text-sm mt-1">Manage your account preferences and system configuration.</p>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar Tabs */}
         <div className="lg:w-64 flex-shrink-0">
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-2 space-y-1">
+          <div className="bg-card/50 border border-border rounded-xl p-2 space-y-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -40,7 +40,7 @@ export default function SettingsPage() {
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeTab === tab.id 
                     ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20" 
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -51,7 +51,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 bg-slate-900/50 border border-slate-800 rounded-xl p-6 lg:p-8 backdrop-blur-sm min-h-[500px]">
+        <div className="flex-1 bg-card/50 border border-border rounded-xl p-6 lg:p-8 backdrop-blur-sm min-h-[500px]">
           
           {activeTab === "general" && (
             <motion.div 
@@ -60,38 +60,38 @@ export default function SettingsPage() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-lg font-semibold text-white mb-4">Profile Information</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-4">Profile Information</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-400">Full Name</label>
-                    <input type="text" defaultValue="Admin User" className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 focus:outline-none focus:border-blue-500" />
+                    <label className="text-sm font-medium text-muted-foreground">Full Name</label>
+                    <input type="text" defaultValue="Admin User" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-blue-500" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-400">Email Address</label>
-                    <input type="email" defaultValue="admin@globallogistics.com" className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 focus:outline-none focus:border-blue-500" />
+                    <label className="text-sm font-medium text-muted-foreground">Email Address</label>
+                    <input type="email" defaultValue="admin@globallogistics.com" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-blue-500" />
                   </div>
                 </div>
               </div>
 
-              <div className="border-t border-slate-800 pt-8">
-                <h2 className="text-lg font-semibold text-white mb-4">Appearance</h2>
+              <div className="border-t border-border pt-8">
+                <h2 className="text-lg font-semibold text-foreground mb-4">Appearance</h2>
                 <div className="flex gap-4">
-                  <div className="flex-1 p-4 border-2 border-blue-500 bg-slate-950 rounded-xl cursor-pointer relative overflow-hidden">
+                  <div className="flex-1 p-4 border-2 border-blue-500 bg-background rounded-xl cursor-pointer relative overflow-hidden">
                     <div className="flex items-center gap-3 mb-2">
-                      <Moon className="w-5 h-5 text-blue-400" />
-                      <span className="font-medium text-white">Dark Mode</span>
+                      <Moon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <span className="font-medium text-foreground">Dark Mode</span>
                     </div>
-                    <p className="text-xs text-slate-400">Optimized for low-light environments.</p>
+                    <p className="text-xs text-muted-foreground">Optimized for low-light environments.</p>
                     <div className="absolute top-3 right-3 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
                       <Check className="w-3 h-3 text-white" />
                     </div>
                   </div>
-                  <div className="flex-1 p-4 border border-slate-800 bg-slate-950/50 rounded-xl cursor-pointer hover:border-slate-700 transition-colors opacity-50">
+                  <div className="flex-1 p-4 border border-border bg-muted/50 rounded-xl cursor-pointer hover:border-foreground/20 transition-colors opacity-50">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="w-5 h-5 rounded-full border border-slate-600 bg-white"></span>
-                      <span className="font-medium text-slate-300">Light Mode</span>
+                      <span className="font-medium text-muted-foreground">Light Mode</span>
                     </div>
-                    <p className="text-xs text-slate-500">Classic bright interface.</p>
+                    <p className="text-xs text-muted-foreground">Classic bright interface.</p>
                   </div>
                 </div>
               </div>

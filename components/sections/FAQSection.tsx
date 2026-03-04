@@ -44,31 +44,33 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-950">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 lg:py-32 bg-muted/30">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="FAQ"
-          title="Common questions, answered"
-          description="Still have questions? We're available 24/7 on WhatsApp and email."
-          centered
+          title="Common questions answered"
+          description="Everything you need to know about our tracking solutions."
         />
 
-        <div className="mt-12 space-y-3">
+        <div className="mt-16 space-y-4">
           {faqs.map((faq, i) => (
-            <div
+            <motion.div
               key={i}
-              className="border border-white/5 rounded-xl overflow-hidden bg-slate-900/50"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="border border-border rounded-2xl bg-card overflow-hidden"
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left text-white hover:text-green-400 transition-colors"
-                aria-expanded={open === i}
+                className="flex items-center justify-between w-full p-6 text-left hover:bg-accent/50 transition-colors"
               >
-                <span className="font-medium text-sm sm:text-base">{faq.q}</span>
+                <span className="font-semibold text-foreground text-lg">{faq.q}</span>
                 {open === i ? (
-                  <Minus className="w-4 h-4 flex-shrink-0 text-green-400" />
+                  <Minus className="w-5 h-5 text-muted-foreground" />
                 ) : (
-                  <Plus className="w-4 h-4 flex-shrink-0" />
+                  <Plus className="w-5 h-5 text-muted-foreground" />
                 )}
               </button>
               <AnimatePresence>
@@ -78,15 +80,14 @@ export default function FAQSection() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
                   >
-                    <p className="px-6 pb-5 text-slate-400 text-sm leading-relaxed">
+                    <div className="px-6 pb-6 text-muted-foreground leading-relaxed border-t border-border/50 pt-4">
                       {faq.a}
-                    </p>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

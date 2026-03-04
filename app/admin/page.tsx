@@ -25,10 +25,10 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-slate-900/50 border border-slate-800 p-4 rounded-xl backdrop-blur-sm"
+            className="bg-card border border-border p-4 rounded-xl backdrop-blur-sm"
           >
             <div className="flex justify-between items-start mb-2">
-              <span className="text-slate-400 text-sm font-medium">{stat.label}</span>
+              <span className="text-muted-foreground text-sm font-medium">{stat.label}</span>
               {stat.status === "success" ? (
                 <TrendingUp className="w-4 h-4 text-emerald-500" />
               ) : stat.status === "danger" ? (
@@ -38,7 +38,7 @@ export default function AdminDashboard() {
               )}
             </div>
             <div className="flex items-end justify-between">
-              <h3 className="text-2xl font-bold text-white">{stat.value}</h3>
+              <h3 className="text-2xl font-bold text-foreground">{stat.value}</h3>
               <span className={`text-xs px-2 py-1 rounded-full ${
                 stat.status === "success" ? "bg-emerald-500/10 text-emerald-400" :
                 stat.status === "danger" ? "bg-rose-500/10 text-rose-400" :
@@ -53,19 +53,19 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Table - Master Shipment List */}
-        <div className="lg:col-span-2 bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden backdrop-blur-sm">
-          <div className="p-4 border-b border-slate-800 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">Master Shipment List</h2>
+        <div className="lg:col-span-2 bg-card border border-border rounded-xl overflow-hidden backdrop-blur-sm">
+          <div className="p-4 border-b border-border flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-foreground">Master Shipment List</h2>
             <div className="flex gap-2">
               <div className="relative">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                 <input 
                   type="text" 
                   placeholder="Search shipments..." 
-                  className="bg-slate-800/50 border border-slate-700 rounded-lg pl-9 pr-4 py-1.5 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="bg-input border border-input rounded-lg pl-9 pr-4 py-1.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
-              <button className="p-1.5 bg-slate-800/50 border border-slate-700 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors">
+              <button className="p-1.5 bg-input border border-input rounded-lg hover:bg-accent text-muted-foreground hover:text-foreground transition-colors">
                 <Filter className="w-4 h-4" />
               </button>
             </div>
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
           
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-900/80 text-slate-400 font-medium">
+              <thead className="bg-muted/50 text-muted-foreground font-medium">
                 <tr>
                   <th className="px-4 py-3">ID</th>
                   <th className="px-4 py-3">Origin</th>
@@ -82,18 +82,18 @@ export default function AdminDashboard() {
                   <th className="px-4 py-3 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/50">
+              <tbody className="divide-y divide-border">
                 {shipments.map((shipment) => (
-                  <tr key={shipment.id} className="hover:bg-slate-800/30 transition-colors">
+                  <tr key={shipment.id} className="hover:bg-accent/50 transition-colors">
                     <td className="px-4 py-3 font-mono text-blue-400">{shipment.trackingNumber}</td>
-                    <td className="px-4 py-3 text-slate-300">{shipment.origin}</td>
-                    <td className="px-4 py-3 text-slate-300">{shipment.destination}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{shipment.origin}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{shipment.destination}</td>
                     <td className="px-4 py-3">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
                         shipment.status === "In Transit" ? "bg-blue-500/10 text-blue-400 border-blue-500/20" :
                         shipment.status === "Delivered" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" :
                         shipment.status === "Delayed" ? "bg-rose-500/10 text-rose-400 border-rose-500/20" :
-                        "bg-slate-500/10 text-slate-400 border-slate-500/20"
+                        "bg-muted text-muted-foreground border-border"
                       }`}>
                         {shipment.status}
                       </span>

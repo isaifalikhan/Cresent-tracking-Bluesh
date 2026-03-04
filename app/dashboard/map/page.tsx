@@ -26,9 +26,9 @@ export default function MapPage() {
          <MapContent />
        </Suspense>
        
-       <div className="absolute top-4 right-4 z-[1000] bg-white p-4 rounded-lg shadow-lg max-w-xs">
-         <h3 className="font-bold text-sm mb-2">Map Legend</h3>
-         <div className="space-y-2 text-xs">
+       <div className="absolute top-4 right-4 z-[1000] bg-card border border-border p-4 rounded-lg shadow-lg max-w-xs">
+         <h3 className="font-bold text-sm mb-2 text-foreground">Map Legend</h3>
+         <div className="space-y-2 text-xs text-muted-foreground">
            <div className="flex items-center gap-2">
              <div className="w-3 h-3 rounded-full bg-green-500"></div>
              <span>Moving</span>

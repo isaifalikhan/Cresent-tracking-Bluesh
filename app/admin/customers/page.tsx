@@ -17,8 +17,8 @@ export default function CustomersPage() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Customer Management</h1>
-          <p className="text-slate-400 text-sm mt-1">View and manage client relationships.</p>
+          <h1 className="text-2xl font-bold text-foreground">Customer Management</h1>
+          <p className="text-muted-foreground text-sm mt-1">View and manage client relationships.</p>
         </div>
         <div className="flex gap-3">
           <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors shadow-lg shadow-blue-500/20 flex items-center gap-2">
@@ -28,21 +28,21 @@ export default function CustomersPage() {
         </div>
       </div>
 
-      <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden backdrop-blur-sm">
-        <div className="p-4 border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-card border border-border rounded-xl overflow-hidden backdrop-blur-sm">
+        <div className="p-4 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="relative flex-1 max-w-md">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
             <input 
               type="text" 
               placeholder="Search customers..." 
-              className="w-full bg-slate-800/50 border border-slate-700 rounded-lg pl-9 pr-4 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full bg-input border border-input rounded-lg pl-9 pr-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-900/80 text-slate-400 font-medium border-b border-slate-800">
+            <thead className="bg-muted/50 text-muted-foreground font-medium border-b border-border">
               <tr>
                 <th className="px-6 py-4">Customer</th>
                 <th className="px-6 py-4">Company</th>
@@ -52,14 +52,14 @@ export default function CustomersPage() {
                 <th className="px-6 py-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/50">
+            <tbody className="divide-y divide-border">
               {customers.map((customer, index) => (
                 <motion.tr 
                   key={customer.id}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="hover:bg-slate-800/30 transition-colors group"
+                  className="hover:bg-accent/50 transition-colors group"
                 >
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
@@ -67,36 +67,36 @@ export default function CustomersPage() {
                         {customer.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="font-medium text-slate-200">{customer.name}</p>
-                        <div className="flex items-center gap-1 text-xs text-slate-500">
+                        <p className="font-medium text-foreground">{customer.name}</p>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Mail className="w-3 h-3" />
                           {customer.email}
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-slate-300">
+                  <td className="px-6 py-4 text-muted-foreground">
                     <div className="flex items-center gap-2">
-                      <Building className="w-3 h-3 text-slate-500" />
+                      <Building className="w-3 h-3 text-muted-foreground" />
                       {customer.company}
                     </div>
                   </td>
                   <td className="px-6 py-4">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
                       customer.status === "Active" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" :
-                      "bg-slate-500/10 text-slate-400 border-slate-500/20"
+                      "bg-muted text-muted-foreground border-border"
                     }`}>
                       {customer.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-slate-300 font-mono text-center w-32">
+                  <td className="px-6 py-4 text-muted-foreground font-mono text-center w-32">
                     {customer.activeShipments}
                   </td>
-                  <td className="px-6 py-4 text-slate-300 font-mono text-emerald-400">
+                  <td className="px-6 py-4 text-muted-foreground font-mono text-emerald-400">
                     {customer.totalSpend}
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <button className="text-slate-400 hover:text-white transition-colors p-1.5 hover:bg-slate-800 rounded-lg group-hover:bg-slate-800/50">
+                    <button className="text-muted-foreground hover:text-foreground transition-colors p-1.5 hover:bg-accent rounded-lg group-hover:bg-accent/50">
                       <MoreVertical className="w-4 h-4" />
                     </button>
                   </td>

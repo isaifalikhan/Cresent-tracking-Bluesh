@@ -89,27 +89,27 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const content = postContent[params.slug] || post.excerpt;
 
   return (
-    <div className="pt-24">
+    <div className="pt-24 bg-background min-h-screen">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Blog
         </Link>
 
         <div className="mb-3">
-          <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium border border-green-500/20">
+          <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium border border-green-500/20">
             {post.category}
           </span>
         </div>
 
-        <h1 className="font-display font-bold text-4xl lg:text-5xl text-white leading-tight mb-4">
+        <h1 className="font-display font-bold text-4xl lg:text-5xl text-foreground leading-tight mb-4">
           {post.title}
         </h1>
 
-        <div className="flex items-center gap-4 text-slate-500 text-sm mb-10 pb-8 border-b border-white/5">
+        <div className="flex items-center gap-4 text-muted-foreground text-sm mb-10 pb-8 border-b border-border">
           <span className="flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5" />
             {post.date}
@@ -120,29 +120,29 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </span>
         </div>
 
-        <div className="prose prose-invert prose-green max-w-none">
+        <div className="prose dark:prose-invert prose-green max-w-none">
           {content.split("\n").map((line, i) => {
             if (line.startsWith("## ")) {
               return (
-                <h2 key={i} className="font-display font-bold text-2xl text-white mt-10 mb-4">
+                <h2 key={i} className="font-display font-bold text-2xl text-foreground mt-10 mb-4">
                   {line.replace("## ", "")}
                 </h2>
               );
             }
             if (line.startsWith("- ")) {
               return (
-                <li key={i} className="text-slate-300 text-base leading-relaxed ml-4 mb-1">
+                <li key={i} className="text-muted-foreground text-base leading-relaxed ml-4 mb-1">
                   {line.replace("- ", "")}
                 </li>
               );
             }
             if (line.startsWith("---")) {
-              return <hr key={i} className="border-white/10 my-8" />;
+              return <hr key={i} className="border-border my-8" />;
             }
             if (line.trim() === "") return <br key={i} />;
             return (
-              <p key={i} className="text-slate-300 text-base leading-relaxed mb-4"
-                dangerouslySetInnerHTML={{ __html: line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-green-400 hover:text-green-300 underline">$1</a>') }}
+              <p key={i} className="text-muted-foreground text-base leading-relaxed mb-4"
+                dangerouslySetInnerHTML={{ __html: line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-green-600 dark:text-green-400 hover:text-green-500 dark:hover:text-green-300 underline">$1</a>') }}
               />
             );
           })}

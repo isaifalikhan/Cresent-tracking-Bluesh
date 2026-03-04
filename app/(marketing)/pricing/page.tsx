@@ -14,20 +14,20 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <div className="pt-24">
-      <section className="py-20 bg-slate-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-50 pointer-events-none" />
         <div className="absolute inset-0 z-0 opacity-40">
           <Scene />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pointer-events-none">
           <div className="pointer-events-auto">
-          <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-400 font-medium mb-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 font-medium mb-6">
             Pricing
           </span>
-          <h1 className="font-display font-bold text-5xl lg:text-6xl text-white leading-tight mb-6">
+          <h1 className="font-display font-bold text-5xl lg:text-6xl text-foreground leading-tight mb-6">
             Simple, transparent pricing
           </h1>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
             No hidden fees. No long-term lock-in on Starter. Hardware included. Cancel anytime.
           </p>
           </div>
@@ -36,9 +36,9 @@ export default function PricingPage() {
       <PricingTeaser />
       
       {/* Add-ons */}
-      <section className="py-16 bg-slate-950">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display font-bold text-2xl text-white mb-8 text-center">Available Add-ons</h2>
+          <h2 className="font-display font-bold text-2xl text-foreground mb-8 text-center">Available Add-ons</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { name: "Fuel Sensor", price: "₨1,500/mo", desc: "Per vehicle" },
@@ -46,10 +46,10 @@ export default function PricingPage() {
               { name: "Driver ID Tag", price: "₨500/mo", desc: "Per driver" },
               { name: "Remote Immobilizer", price: "₨800/mo", desc: "Per vehicle" },
             ].map((addon) => (
-              <div key={addon.name} className="p-5 rounded-xl border border-white/5 bg-slate-900/50 text-center">
-                <h4 className="text-white font-semibold mb-1">{addon.name}</h4>
-                <div className="text-green-400 font-bold text-lg">{addon.price}</div>
-                <div className="text-slate-500 text-xs mt-1">{addon.desc}</div>
+              <div key={addon.name} className="p-5 rounded-xl border border-border bg-card text-center">
+                <h4 className="text-foreground font-semibold mb-1">{addon.name}</h4>
+                <div className="text-green-600 dark:text-green-400 font-bold text-lg">{addon.price}</div>
+                <div className="text-muted-foreground text-xs mt-1">{addon.desc}</div>
               </div>
             ))}
           </div>

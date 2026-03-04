@@ -28,7 +28,7 @@ export function StatsCounter({
 
   return (
     <div ref={ref} className={`text-center ${className}`}>
-      <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-green">
+      <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-600 dark:text-green-400">
         {inView ? (
           <CountUp
             start={0}

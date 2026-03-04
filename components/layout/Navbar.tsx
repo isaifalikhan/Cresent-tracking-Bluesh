@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, MapPin } from "lucide-react";
+import { Menu, X, ChevronDown, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -34,9 +36,7 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "Tracking", href: "/tracking" },
-  { label: "Admin", href: "/admin" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -58,31 +58,30 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
         scrolled
-          ? "bg-slate-950/90 backdrop-blur-xl border-b border-white/5 shadow-2xl"
-          : "bg-transparent"
+          ? "bg-background/80 backdrop-blur-md border-border/50 shadow-sm py-2"
+          : "bg-background/50 backdrop-blur-sm border-transparent py-4"
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-green-brand to-green-dark flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-white" />
+          <Link href="/" className="flex items-center gap-3 group relative z-50">
+            <div className="relative w-24 h-16 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <Image 
+                src="/Logo.png" 
+                alt="Crescent Tracking Logo" 
+                fill 
+                className="object-contain"
+                priority
+              />
             </div>
-            <div>
-              <span className="font-display font-bold text-lg text-white leading-none block">
-                Crescent
-              </span>
-              <span className="text-[10px] text-green-400 font-mono uppercase tracking-widest leading-none">
-                Tracking
-              </span>
-            </div>
+         
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 bg-background/50 backdrop-blur-sm px-2 py-1.5 rounded-full border border-border/50 shadow-sm">
             {navLinks.map((link) => (
               <div
                 key={link.href}
@@ -93,72 +92,78 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                    "flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                     pathname === link.href
-                      ? "text-green-400 bg-green-400/10"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                      ? "text-primary-foreground bg-primary shadow-md shadow-primary/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
                 >
                   {link.label}
                   {link.children && (
                     <ChevronDown
                       className={cn(
-                        "w-3.5 h-3.5 transition-transform duration-200",
+                        "w-3.5 h-3.5 transition-transform duration-300 opacity-70",
                         activeDropdown === link.label ? "rotate-180" : ""
                       )}
                     />
                   )}
                 </Link>
 
-                {link.children && activeDropdown === link.label && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    className="absolute top-full left-0 mt-2 w-52 rounded-xl bg-slate-900 border border-white/10 shadow-2xl overflow-hidden"
-                  >
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-green-brand/20 transition-colors"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                        {child.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
+                <AnimatePresence>
+                  {link.children && activeDropdown === link.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-2 w-64 p-2 rounded-2xl bg-popover/95 backdrop-blur-xl border border-border shadow-xl overflow-hidden z-50"
+                    >
+                      <div className="grid gap-1">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-all group/item"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover/item:bg-primary transition-colors" />
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
 
-          {/* CTA */}
+          {/* CTA & Actions */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="text-sm text-slate-300 hover:text-white transition-colors px-3 py-2"
-            >
-              Contact
-            </Link>
+            <ModeToggle />
+            
+            <div className="h-6 w-px bg-border/60 mx-1" />
+
             <Link 
               href="/login" 
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-sm font-medium transition-colors shadow-lg shadow-blue-500/20"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
+              <User className="w-4 h-4" />
               Login
             </Link>
+
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-green-brand hover:bg-green-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-green-900/40"
+              className="relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0"
             >
-              Get a Quote
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:animate-shimmer" />
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+            className="lg:hidden relative z-50 p-2.5 rounded-full bg-accent/50 text-foreground hover:bg-accent transition-colors border border-border/50"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -171,48 +176,79 @@ export default function Navbar() {
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/5"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 top-0 lg:hidden bg-background/98 backdrop-blur-2xl z-40 flex flex-col pt-24 pb-8 px-6 overflow-y-auto"
           >
-            <div className="px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
-              {navLinks.map((link) => (
-                <div key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                      pathname === link.href
-                        ? "text-green-400 bg-green-400/10"
-                        : "text-slate-300 hover:text-white hover:bg-white/5"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                  {link.children && (
-                    <div className="ml-4 mt-1 space-y-0.5 border-l border-white/5 pl-3">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-3 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="pt-3 border-t border-white/5 flex flex-col gap-2">
-                <Link
-                  href="/contact"
-                  className="block text-center bg-green-brand text-white text-sm font-semibold px-5 py-3 rounded-lg"
+            <div className="flex flex-col gap-2 mb-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 + 0.1 }}
                 >
-                  Get a Quote
-                </Link>
-              </div>
+                  {link.children ? (
+                    <div className="space-y-3">
+                      <div className="text-lg font-semibold text-foreground px-4 py-2">
+                        {link.label}
+                      </div>
+                      <div className="grid gap-1 pl-4 border-l-2 border-border/50 ml-4">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "block px-4 py-3 rounded-xl text-lg font-medium transition-all",
+                        pathname === link.href
+                          ? "bg-primary/10 text-primary"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </motion.div>
+              ))}
             </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-auto flex flex-col gap-4"
+            >
+              <div className="flex items-center justify-between px-4 py-4 bg-accent/30 rounded-2xl">
+                <span className="text-sm font-medium">Switch Theme</span>
+                <ModeToggle />
+              </div>
+              
+              <Link
+                href="/login"
+                className="w-full flex items-center justify-center gap-2 px-4 py-4 rounded-xl border border-border text-foreground font-semibold hover:bg-accent transition-colors"
+              >
+                <User className="w-5 h-5" />
+                Log In
+              </Link>
+              
+              <Link
+                href="/contact"
+                className="w-full flex items-center justify-center px-4 py-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-lg shadow-primary/20"
+              >
+                Get Started Now
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

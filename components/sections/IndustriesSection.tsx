@@ -109,7 +109,7 @@ export default function IndustriesSection() {
   const current = industries.find((i) => i.id === active)!;
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-950">
+    <section className="py-24 lg:py-32 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Industries We Serve"
@@ -126,7 +126,7 @@ export default function IndustriesSection() {
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                 active === ind.id
                   ? "bg-green-brand text-white shadow-lg shadow-green-900/40"
-                  : "border border-white/10 text-slate-400 hover:text-white hover:border-white/20"
+                  : "border border-border text-muted-foreground hover:text-foreground hover:border-border/80 hover:bg-muted"
               }`}
             >
               <ind.icon className="w-4 h-4" />
@@ -147,21 +147,21 @@ export default function IndustriesSection() {
           >
             <div>
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-brand/20 border border-green-500/30 mb-6">
-                <current.icon className="w-7 h-7 text-green-400" />
+                <current.icon className="w-7 h-7 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="font-display font-bold text-3xl text-white mb-4">
+              <h3 className="font-display font-bold text-3xl text-foreground mb-4">
                 {current.headline}
               </h3>
-              <p className="text-slate-400 leading-relaxed mb-6">{current.description}</p>
-              <div className="inline-flex items-center gap-2 rounded-full bg-green-500/10 border border-green-500/20 px-4 py-2 text-sm text-green-400 font-semibold mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-6">{current.description}</p>
+              <div className="inline-flex items-center gap-2 rounded-full bg-green-500/10 border border-green-500/20 px-4 py-2 text-sm text-green-600 dark:text-green-400 font-semibold mb-8">
                 ⚡ {current.stat}
               </div>
             </div>
-            <div className="bg-slate-900/60 rounded-2xl border border-white/5 p-6 lg:p-8">
-              <h4 className="text-white font-semibold mb-5">Key Features:</h4>
+            <div className="bg-card border border-border rounded-2xl p-6 lg:p-8">
+              <h4 className="text-foreground font-semibold mb-5">Key Features:</h4>
               <ul className="space-y-3">
                 {current.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-slate-300 text-sm">
+                  <li key={f} className="flex items-start gap-3 text-muted-foreground text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0 mt-1.5" />
                     {f}
                   </li>

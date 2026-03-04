@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -87,8 +88,15 @@ export default function RootLayout({
       className={`${manrope.variable} ${syne.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased bg-slate-950 text-white overflow-x-hidden">
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      <body className="font-sans antialiased bg-background text-foreground overflow-x-hidden">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

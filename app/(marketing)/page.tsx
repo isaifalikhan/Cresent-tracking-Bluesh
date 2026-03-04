@@ -12,9 +12,9 @@ import FAQSection from "@/components/sections/FAQSection";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Crescent Tracking | GPS Fleet Management & Asset Protection Pakistan",
+  title: "Crescent Tracking Pvt Ltd | Vehicle Tracking & Fleet Management",
   description:
-    "Pakistan's leading GPS tracking and fleet management company. Real-time vehicle tracking, fuel monitoring, driver behavior analytics, and complete asset protection.",
+    "Crescent Tracking Pvt Ltd provides vehicle tracking and fleet management services in Pakistan. Monitor vehicles, assets, and fleet operations in real time.",
 };
 
 export default function HomePage() {

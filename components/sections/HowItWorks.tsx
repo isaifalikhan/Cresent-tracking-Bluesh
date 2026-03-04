@@ -66,7 +66,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 bg-slate-900/30">
+    <section ref={sectionRef} className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="How It Works"
@@ -76,7 +76,7 @@ export default function HowItWorks() {
 
         <div ref={ref} className="relative mt-16">
           {/* Connecting line */}
-          <div className="hidden lg:block absolute top-12 left-[16.67%] right-[16.67%] h-px bg-slate-800">
+          <div className="hidden lg:block absolute top-12 left-[16.67%] right-[16.67%] h-px bg-border">
             <div
               ref={lineRef}
               className="absolute inset-0 bg-gradient-to-r from-green-brand via-green-light to-green-brand origin-left"
@@ -95,19 +95,19 @@ export default function HowItWorks() {
                 {/* Step number circle */}
                 <div className="flex lg:justify-start justify-center mb-6">
                   <div className="relative">
-                    <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-green-dark to-green-brand flex items-center justify-center shadow-xl shadow-green-900/40">
+                    <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-green-dark to-green-brand flex items-center justify-center shadow-xl shadow-green-500/20 dark:shadow-green-900/40">
                       <step.icon className="w-10 h-10 text-white" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-green-brand border-2 border-slate-950 flex items-center justify-center">
+                    <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-green-brand border-2 border-background flex items-center justify-center">
                       <span className="text-white text-xs font-bold font-mono">{step.step}</span>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="font-display font-bold text-xl text-white mb-3">
+                <h3 className="font-display font-bold text-xl text-foreground mb-3">
                   {step.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>

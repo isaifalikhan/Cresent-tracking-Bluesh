@@ -32,8 +32,8 @@ export default function UserDashboard() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-white">Welcome back, John</h1>
-        <p className="text-slate-400 text-sm mt-1">Here's what's happening with your logistics today.</p>
+        <h1 className="text-2xl font-bold text-foreground">Welcome back, John</h1>
+        <p className="text-muted-foreground text-sm mt-1">Here's what's happening with your logistics today.</p>
       </div>
 
       {/* Stats Grid */}
@@ -44,7 +44,7 @@ export default function UserDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-slate-900/50 border border-slate-800 p-6 rounded-xl backdrop-blur-sm hover:border-slate-700 transition-colors"
+            className="bg-card border border-border p-6 rounded-xl backdrop-blur-sm hover:border-border/80 transition-colors"
           >
             <div className="flex items-start justify-between mb-4">
               <div className={`p-3 rounded-lg ${stat.bg}`}>
@@ -52,13 +52,13 @@ export default function UserDashboard() {
               </div>
               <span className={`text-xs px-2 py-1 rounded-full ${
                 stat.trend.includes("+") || stat.trend.includes("On") ? "bg-emerald-500/10 text-emerald-400" : 
-                stat.trend.includes("-") || stat.trend.includes("Requires") ? "bg-amber-500/10 text-amber-400" : "bg-slate-800 text-slate-400"
+                stat.trend.includes("-") || stat.trend.includes("Requires") ? "bg-amber-500/10 text-amber-400" : "bg-muted text-muted-foreground"
               }`}>
                 {stat.trend}
               </span>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-1">{stat.value}</h3>
-            <p className="text-sm text-slate-400">{stat.label}</p>
+            <h3 className="text-3xl font-bold text-foreground mb-1">{stat.value}</h3>
+            <p className="text-sm text-muted-foreground">{stat.label}</p>
           </motion.div>
         ))}
       </div>
@@ -67,23 +67,23 @@ export default function UserDashboard() {
         {/* Recent Activity */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">Recent Shipments</h2>
+            <h2 className="text-lg font-semibold text-foreground">Recent Shipments</h2>
             <Link href="/dashboard/shipments" className="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1">
               View All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
-            <div className="divide-y divide-slate-800">
+          <div className="bg-card border border-border rounded-xl overflow-hidden">
+            <div className="divide-y divide-border">
               {recentShipments.map((shipment, i) => (
-                <div key={shipment.id} className="p-4 hover:bg-slate-800/30 transition-colors flex items-center justify-between group">
+                <div key={shipment.id} className="p-4 hover:bg-accent transition-colors flex items-center justify-between group">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground group-hover:text-foreground transition-colors">
                       <Package className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-medium text-white">{shipment.id}</p>
-                      <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <p className="font-medium text-foreground">{shipment.id}</p>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <span>{shipment.origin}</span>
                         <ArrowRight className="w-3 h-3" />
                         <span>{shipment.destination}</span>

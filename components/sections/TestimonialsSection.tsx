@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
   const next = () => setCurrent((c) => (c + 1) % testimonials.length);
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-950">
+    <section className="py-24 lg:py-32 bg-muted/30">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Client Testimonials"
@@ -63,10 +63,10 @@ export default function TestimonialsSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.4 }}
-              className="bg-slate-900 border border-white/5 rounded-3xl p-8 lg:p-12"
+              className="bg-card border border-border rounded-3xl p-8 lg:p-12"
             >
               <Quote className="w-10 h-10 text-green-brand mb-6" />
-              <blockquote className="text-white text-lg lg:text-xl leading-relaxed mb-8 font-medium">
+              <blockquote className="text-foreground text-lg lg:text-xl leading-relaxed mb-8 font-medium">
                 &ldquo;{testimonials[current].quote}&rdquo;
               </blockquote>
               <div className="flex items-center gap-4">
@@ -74,8 +74,8 @@ export default function TestimonialsSection() {
                   {testimonials[current].initials}
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{testimonials[current].author}</div>
-                  <div className="text-slate-400 text-sm">
+                  <div className="font-semibold text-foreground">{testimonials[current].author}</div>
+                  <div className="text-muted-foreground text-sm">
                     {testimonials[current].role}, {testimonials[current].company}
                   </div>
                 </div>
@@ -91,7 +91,7 @@ export default function TestimonialsSection() {
                   key={i}
                   onClick={() => setCurrent(i)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === current ? "w-8 bg-green-500" : "w-3 bg-white/20"
+                    i === current ? "w-8 bg-green-500" : "w-3 bg-muted-foreground/30"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -100,14 +100,14 @@ export default function TestimonialsSection() {
             <div className="flex gap-3">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
                 aria-label="Previous"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
                 aria-label="Next"
               >
                 <ChevronRight className="w-4 h-4" />

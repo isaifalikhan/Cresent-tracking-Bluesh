@@ -34,7 +34,7 @@ export default function UserDashboardLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 flex text-slate-200 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-background flex text-foreground font-sans selection:bg-blue-500/30">
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {isSidebarOpen && (
@@ -43,27 +43,27 @@ export default function UserDashboardLayout({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsSidebarOpen(false)}
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+            className="fixed inset-0 bg-background/80 z-40 lg:hidden backdrop-blur-sm"
           />
         )}
       </AnimatePresence>
 
       {/* Sidebar */}
       <motion.aside
-        className={`fixed lg:sticky top-0 left-0 z-50 h-screen bg-slate-900 border-r border-slate-800 w-64 flex flex-col transition-transform duration-300 ease-in-out ${
+        className={`fixed lg:sticky top-0 left-0 z-50 h-screen bg-card border-r border-border w-64 flex flex-col transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
       >
-        <div className="p-6 border-b border-slate-800 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="font-bold text-white text-lg">C</span>
-            </div>
-            <span className="font-bold text-xl text-white tracking-tight">Crescent</span>
-          </Link>
+        <div className="p-6 border-b border-border flex items-center justify-between">
+              <Link href="/" className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="font-bold text-primary-foreground text-lg">C</span>
+                </div>
+                <span className="font-bold text-xl text-foreground tracking-tight">Crescent</span>
+              </Link>
           <button 
             onClick={() => setIsSidebarOpen(false)}
-            className="lg:hidden text-slate-400 hover:text-white"
+            className="lg:hidden text-muted-foreground hover:text-foreground"
           >
             <X className="w-5 h-5" />
           </button>
@@ -71,7 +71,7 @@ export default function UserDashboardLayout({
 
         <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
           <div className="mb-6 px-2">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Customer Portal</p>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Customer Portal</p>
           </div>
           {menuItems.map((item) => {
             const isActive = pathname === item.href;
@@ -81,16 +81,16 @@ export default function UserDashboardLayout({
                 href={item.href}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
                   isActive 
-                    ? "bg-blue-600/10 text-blue-400 border border-blue-600/20" 
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-primary/10 text-primary border border-primary/20" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 }`}
               >
-                <item.icon className={`w-5 h-5 ${isActive ? "text-blue-400" : "text-slate-500 group-hover:text-white"}`} />
+                <item.icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"}`} />
                 <span className="font-medium">{item.label}</span>
                 {isActive && (
                   <motion.div
                     layoutId="activeIndicator"
-                    className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-400"
+                    className="ml-auto w-1.5 h-1.5 rounded-full bg-primary"
                   />
                 )}
               </Link>
@@ -98,15 +98,15 @@ export default function UserDashboardLayout({
           })}
         </div>
 
-        <div className="p-4 border-t border-slate-800">
-          <div className="bg-slate-800/50 rounded-xl p-4 mb-4">
+        <div className="p-4 border-t border-border">
+          <div className="bg-muted/50 rounded-xl p-4 mb-4">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold">
                 JD
               </div>
               <div>
-                <p className="font-medium text-white text-sm">John Doe</p>
-                <p className="text-xs text-slate-400">Tech Innovations Inc.</p>
+                <p className="font-medium text-foreground text-sm">John Doe</p>
+                <p className="text-xs text-muted-foreground">Tech Innovations Inc.</p>
               </div>
             </div>
             <Link 
@@ -122,22 +122,22 @@ export default function UserDashboardLayout({
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-30 bg-background/80 backdrop-blur-md border-b border-border px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setIsSidebarOpen(true)}
-              className="lg:hidden text-slate-400 hover:text-white"
+              className="lg:hidden text-muted-foreground hover:text-foreground"
             >
               <Menu className="w-6 h-6" />
             </button>
-            <h2 className="text-lg font-semibold text-white">
+            <h2 className="text-lg font-semibold text-foreground">
               {menuItems.find(item => item.href === pathname)?.label || "Dashboard"}
             </h2>
           </div>
           <div className="flex items-center gap-4">
-            <button className="relative p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full transition-colors">
+            <button className="relative p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-full transition-colors">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-slate-950"></span>
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-background"></span>
             </button>
           </div>
         </header>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <div className="pt-24">
-      <section className="py-20 bg-slate-950 relative overflow-hidden">
+      <section className="py-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
         <div className="absolute inset-0 z-0 opacity-40">
           <Scene />
@@ -23,10 +23,10 @@ export default function IndustriesPage() {
             <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-400 font-medium mb-6">
               Industries
             </span>
-            <h1 className="font-display font-bold text-5xl lg:text-6xl text-white leading-tight mb-6">
+            <h1 className="font-display font-bold text-5xl lg:text-6xl text-foreground leading-tight mb-6">
               Solutions built for your industry
             </h1>
-            <p className="text-slate-400 text-xl leading-relaxed">
+            <p className="text-muted-foreground text-xl leading-relaxed">
               We understand that every industry has unique challenges. Our solutions are tailored to meet the specific needs of your sector.
             </p>
           </div>

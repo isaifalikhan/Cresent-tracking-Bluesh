@@ -28,19 +28,19 @@ export default function FleetPage() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Fleet Management</h1>
-          <p className="text-slate-400 text-sm mt-1">Monitor vehicle status and driver assignments.</p>
+          <h1 className="text-2xl font-bold text-foreground">Fleet Management</h1>
+          <p className="text-muted-foreground text-sm mt-1">Monitor vehicle status and driver assignments.</p>
         </div>
         <div className="flex gap-3">
-          <div className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 flex items-center gap-3">
+          <div className="bg-card border border-border rounded-lg px-4 py-2 flex items-center gap-3">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span className="text-sm text-slate-300">Active: 42</span>
+              <span className="text-sm text-foreground">Active: 42</span>
             </div>
-            <div className="w-px h-4 bg-slate-800"></div>
+            <div className="w-px h-4 bg-border"></div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-              <span className="text-sm text-slate-300">Maintenance: 3</span>
+              <span className="text-sm text-foreground">Maintenance: 3</span>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function FleetPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-colors group"
+            className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors group"
           >
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center gap-3">
@@ -65,45 +65,45 @@ export default function FleetPage() {
                   {getIcon(vehicle.type)}
                 </div>
                 <div>
-                  <h3 className="font-bold text-white tracking-wide">{vehicle.number}</h3>
-                  <p className="text-xs text-slate-400">{vehicle.type}</p>
+                  <h3 className="font-bold text-foreground tracking-wide">{vehicle.number}</h3>
+                  <p className="text-xs text-muted-foreground">{vehicle.type}</p>
                 </div>
               </div>
-              <button className="text-slate-500 hover:text-white transition-colors">
+              <button className="text-muted-foreground hover:text-foreground transition-colors">
                 <MoreVertical className="w-4 h-4" />
               </button>
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between text-sm border-b border-slate-800/50 pb-2">
-                <span className="text-slate-500">Status</span>
+              <div className="flex items-center justify-between text-sm border-b border-border pb-2">
+                <span className="text-muted-foreground">Status</span>
                 <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                   vehicle.status === 'Active' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
                   vehicle.status === 'Maintenance' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20' :
-                  'bg-slate-500/10 text-slate-400 border border-slate-500/20'
+                  'bg-muted text-muted-foreground border border-border'
                 }`}>
                   {vehicle.status}
                 </span>
               </div>
               
-              <div className="flex items-center justify-between text-sm border-b border-slate-800/50 pb-2">
-                <span className="text-slate-500">Driver</span>
-                <span className="text-slate-300">{vehicle.driver}</span>
+              <div className="flex items-center justify-between text-sm border-b border-border pb-2">
+                <span className="text-muted-foreground">Driver</span>
+                <span className="text-foreground">{vehicle.driver}</span>
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <span className="text-slate-500 flex items-center gap-1">
+                <span className="text-muted-foreground flex items-center gap-1">
                   <MapPin className="w-3 h-3" /> Location
                 </span>
-                <span className="text-slate-300">{vehicle.location}</span>
+                <span className="text-foreground">{vehicle.location}</span>
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <span className="text-slate-500 flex items-center gap-1">
+                <span className="text-muted-foreground flex items-center gap-1">
                   <Fuel className="w-3 h-3" /> Fuel Level
                 </span>
                 <span className={`font-mono ${
-                  vehicle.fuel === 'N/A' ? 'text-slate-500' : 
+                  vehicle.fuel === 'N/A' ? 'text-muted-foreground' : 
                   parseInt(vehicle.fuel) < 50 ? 'text-orange-400' : 'text-emerald-400'
                 }`}>
                   {vehicle.fuel}

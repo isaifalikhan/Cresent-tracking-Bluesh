@@ -24,7 +24,7 @@ export default function SocialProofStrip() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section className="bg-slate-900/50 border-y border-white/5 py-16">
+    <section className="bg-muted/30 border-y border-border py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats */}
         <div
@@ -33,7 +33,7 @@ export default function SocialProofStrip() {
         >
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display font-bold text-3xl lg:text-4xl text-white mb-1">
+              <div className="font-display font-bold text-3xl lg:text-4xl text-foreground mb-1">
                 {inView ? (
                   <CountUp
                     end={stat.value}
@@ -46,21 +46,21 @@ export default function SocialProofStrip() {
                   `0${stat.suffix}`
                 )}
               </div>
-              <div className="text-slate-500 text-sm">{stat.label}</div>
+              <div className="text-muted-foreground text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Partner logos */}
         <div className="text-center">
-          <p className="text-slate-600 text-xs uppercase tracking-widest mb-6 font-medium">
+          <p className="text-muted-foreground text-xs uppercase tracking-widest mb-6 font-medium">
             Trusted by Pakistan&apos;s leading organizations
           </p>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
             {partnerLogos.map((logo) => (
               <div
                 key={logo}
-                className="px-5 py-2.5 rounded-lg border border-white/5 bg-white/3 text-slate-500 text-sm font-medium hover:border-green-500/30 hover:text-slate-300 transition-all duration-300"
+                className="px-5 py-2.5 rounded-lg border border-border bg-card text-muted-foreground text-sm font-medium hover:border-green-500/30 hover:text-foreground transition-all duration-300"
               >
                 {logo}
               </div>

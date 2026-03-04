@@ -17,33 +17,33 @@ export function Header() {
   const user = dummyUsers[0]; // Simulate logged-in user
 
   return (
-    <header className="h-16 border-b bg-white flex items-center justify-between px-6 sticky top-0 z-30">
+    <header className="h-16 border-b border-border bg-background flex items-center justify-between px-6 sticky top-0 z-30">
       <div className="flex items-center gap-4 w-1/3">
         <div className="relative w-full max-w-sm">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search vehicles, drivers..."
-            className="pl-9 bg-slate-50 border-slate-200 focus-visible:ring-brand-green"
+            className="pl-9 bg-muted/50 border-border focus-visible:ring-brand-green"
           />
         </div>
       </div>
 
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="icon" className="relative">
-          <Bell className="w-5 h-5 text-slate-600" />
+          <Bell className="w-5 h-5 text-muted-foreground" />
           <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
         </Button>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2 pl-2 pr-4 py-1 h-auto hover:bg-slate-100 rounded-full">
+            <Button variant="ghost" className="flex items-center gap-2 pl-2 pr-4 py-1 h-auto hover:bg-accent rounded-full">
               <div className="w-8 h-8 bg-brand-green rounded-full flex items-center justify-center text-white font-medium">
                 {user.name.charAt(0)}
               </div>
               <div className="text-left hidden sm:block">
                 <p className="text-sm font-medium leading-none">{user.name}</p>
-                <p className="text-xs text-slate-500 mt-1">{user.role}</p>
+                <p className="text-xs text-muted-foreground mt-1">{user.role}</p>
               </div>
             </Button>
           </DropdownMenuTrigger>
@@ -54,7 +54,7 @@ export function Header() {
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuItem>Billing</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-600">Logout</DropdownMenuItem>
+            <DropdownMenuItem className="text-destructive">Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

@@ -76,7 +76,7 @@ export default function BenefitsSection() {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-950">
+    <section className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Why Crescent Tracking"
@@ -96,7 +96,7 @@ export default function BenefitsSection() {
               key={benefit.title}
               variants={cardVariants}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative p-6 lg:p-7 rounded-2xl border border-white/5 bg-slate-900/50 hover:border-white/10 hover:bg-slate-900/80 transition-all duration-300 cursor-default"
+              className="group relative p-6 lg:p-7 rounded-2xl border border-border bg-card hover:border-border/80 hover:bg-accent/50 transition-all duration-300 cursor-default"
             >
               {/* Icon */}
               <div
@@ -105,15 +105,15 @@ export default function BenefitsSection() {
                 <benefit.icon className="w-5 h-5 text-white" />
               </div>
 
-              <h3 className="font-display font-semibold text-white text-lg mb-3">
+              <h3 className="font-display font-semibold text-foreground text-lg mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {benefit.description}
               </p>
 
               {/* Stat pill */}
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                 {benefit.stat}
               </span>

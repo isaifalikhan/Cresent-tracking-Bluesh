@@ -68,8 +68,8 @@ const caseStudies = [
 export default function CaseStudiesPage() {
   return (
     <div className="pt-24">
-      <section className="py-20 bg-slate-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-50 pointer-events-none" />
         <div className="absolute inset-0 z-0 opacity-40">
           <Scene />
         </div>
@@ -78,25 +78,25 @@ export default function CaseStudiesPage() {
             <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-400 font-medium mb-6">
               Case Studies
             </span>
-            <h1 className="font-display font-bold text-5xl lg:text-6xl text-white leading-tight mb-6">
+            <h1 className="font-display font-bold text-5xl lg:text-6xl text-foreground leading-tight mb-6">
               Real businesses. Real results.
             </h1>
-            <p className="text-slate-400 text-xl leading-relaxed">
+            <p className="text-muted-foreground text-xl leading-relaxed">
               Numbers don&apos;t lie. See how Pakistani businesses transformed their operations with Crescent Tracking.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900/30">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {caseStudies.map((cs) => (
-            <div key={cs.company} className="rounded-3xl border border-white/5 bg-slate-900/50 p-8 lg:p-10">
+            <div key={cs.company} className="rounded-3xl border border-border bg-card p-8 lg:p-10">
               <div className="flex flex-wrap gap-3 mb-5">
                 <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium border border-green-500/20">
                   {cs.industry}
                 </span>
-                <span className="px-3 py-1 rounded-full bg-white/5 text-slate-400 text-xs">
+                <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs">
                   {cs.company}
                 </span>
               </div>

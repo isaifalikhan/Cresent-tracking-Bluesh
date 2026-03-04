@@ -38,7 +38,7 @@ export default function TrackingResult() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
@@ -47,18 +47,18 @@ export default function TrackingResult() {
   if (!shipment) return null;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans p-4 md:p-8">
+    <div className="min-h-screen bg-background text-foreground font-sans p-4 md:p-8">
       <header className="max-w-7xl mx-auto mb-8 flex items-center justify-between">
         <button 
           onClick={() => router.push('/tracking')}
-          className="flex items-center text-slate-400 hover:text-white transition-colors"
+          className="flex items-center text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Back to Search
         </button>
         <div className="flex items-center gap-3">
-          <span className="text-slate-500 text-sm">Tracking ID:</span>
-          <span className="font-mono text-blue-400 font-bold tracking-wider">{shipment.trackingNumber}</span>
+          <span className="text-muted-foreground text-sm">Tracking ID:</span>
+          <span className="font-mono text-blue-600 dark:text-blue-400 font-bold tracking-wider">{shipment.trackingNumber}</span>
         </div>
       </header>
 
@@ -71,23 +71,23 @@ export default function TrackingResult() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm"
+            className="bg-card/50 border border-border rounded-2xl p-6 backdrop-blur-sm"
           >
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h2 className="text-slate-400 text-sm font-medium uppercase tracking-wider">Current Status</h2>
+                <h2 className="text-muted-foreground text-sm font-medium uppercase tracking-wider">Current Status</h2>
                 <div className={`mt-1 text-2xl font-bold ${
-                  shipment.status === "Delivered" ? "text-emerald-400" : 
-                  shipment.status === "Delayed" ? "text-rose-400" : 
-                  "text-blue-400"
+                  shipment.status === "Delivered" ? "text-emerald-600 dark:text-emerald-400" : 
+                  shipment.status === "Delayed" ? "text-rose-600 dark:text-rose-400" : 
+                  "text-blue-600 dark:text-blue-400"
                 }`}>
                   {shipment.status}
                 </div>
               </div>
               <div className={`p-3 rounded-full ${
-                 shipment.status === "Delivered" ? "bg-emerald-500/10 text-emerald-400" : 
-                 shipment.status === "Delayed" ? "bg-rose-500/10 text-rose-400" : 
-                 "bg-blue-500/10 text-blue-400"
+                 shipment.status === "Delivered" ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" : 
+                 shipment.status === "Delayed" ? "bg-rose-500/10 text-rose-600 dark:text-rose-400" : 
+                 "bg-blue-500/10 text-blue-600 dark:text-blue-400"
               }`}>
                 {shipment.status === "Delivered" ? <CheckCircle2 className="w-6 h-6" /> : 
                  shipment.status === "Delayed" ? <AlertTriangle className="w-6 h-6" /> : 
@@ -96,25 +96,25 @@ export default function TrackingResult() {
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3 p-3 bg-slate-800/30 rounded-lg">
-                <Calendar className="w-5 h-5 text-slate-500" />
+              <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
+                <Calendar className="w-5 h-5 text-muted-foreground" />
                 <div>
-                  <p className="text-xs text-slate-500">Estimated Delivery</p>
-                  <p className="text-sm font-medium text-slate-200">{shipment.estimatedDelivery}</p>
+                  <p className="text-xs text-muted-foreground">Estimated Delivery</p>
+                  <p className="text-sm font-medium text-foreground">{shipment.estimatedDelivery}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-slate-800/30 rounded-lg">
-                <MapPin className="w-5 h-5 text-slate-500" />
+              <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
+                <MapPin className="w-5 h-5 text-muted-foreground" />
                 <div>
-                  <p className="text-xs text-slate-500">Current Location</p>
-                  <p className="text-sm font-medium text-slate-200">{shipment.currentLocation}</p>
+                  <p className="text-xs text-muted-foreground">Current Location</p>
+                  <p className="text-sm font-medium text-foreground">{shipment.currentLocation}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-slate-800/30 rounded-lg">
-                <Package className="w-5 h-5 text-slate-500" />
+              <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
+                <Package className="w-5 h-5 text-muted-foreground" />
                 <div>
-                  <p className="text-xs text-slate-500">Service</p>
-                  <p className="text-sm font-medium text-slate-200">{shipment.service}</p>
+                  <p className="text-xs text-muted-foreground">Service</p>
+                  <p className="text-sm font-medium text-foreground">{shipment.service}</p>
                 </div>
               </div>
             </div>
@@ -125,32 +125,32 @@ export default function TrackingResult() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm"
+            className="bg-card/50 border border-border rounded-2xl p-6 backdrop-blur-sm"
           >
             <h3 className="text-lg font-semibold mb-6">Package Journey</h3>
             <div className="relative pl-2">
               {/* Vertical Line */}
-              <div className="absolute left-[19px] top-2 bottom-4 w-0.5 bg-slate-800"></div>
+              <div className="absolute left-[19px] top-2 bottom-4 w-0.5 bg-border"></div>
 
               <div className="space-y-8 relative">
                 {shipment.events.map((event, index) => (
                   <div key={event.id} className="flex gap-4 relative">
                     <div className={`
-                      relative z-10 w-10 h-10 rounded-full border-4 flex items-center justify-center shrink-0 bg-slate-950
+                      relative z-10 w-10 h-10 rounded-full border-4 flex items-center justify-center shrink-0 bg-background
                       ${event.status === 'completed' ? 'border-blue-500 text-blue-500' : 
                         event.status === 'current' ? 'border-blue-500 text-white bg-blue-500' : 
-                        'border-slate-800 text-slate-600'}
+                        'border-muted text-muted-foreground'}
                     `}>
                       {event.status === 'completed' ? <CheckCircle2 className="w-5 h-5" /> : 
                        event.status === 'current' ? <Truck className="w-5 h-5" /> : 
                        <Circle className="w-5 h-5" />}
                     </div>
                     <div className={`pt-1 ${event.status === 'pending' ? 'opacity-50' : ''}`}>
-                      <p className="text-sm font-medium text-slate-200">{event.description}</p>
-                      <p className="text-xs text-slate-400 mt-0.5">{event.location}</p>
+                      <p className="text-sm font-medium text-foreground">{event.description}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{event.location}</p>
                       <div className="flex items-center gap-1 mt-1">
-                        <Clock className="w-3 h-3 text-slate-600" />
-                        <span className="text-xs text-slate-500 font-mono">{event.timestamp}</span>
+                        <Clock className="w-3 h-3 text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground font-mono">{event.timestamp}</span>
                       </div>
                     </div>
                   </div>
@@ -161,9 +161,9 @@ export default function TrackingResult() {
         </div>
 
         {/* Right Column: Map */}
-        <div className="lg:col-span-2 h-[600px] lg:h-auto bg-slate-900 rounded-2xl overflow-hidden relative border border-slate-800">
+        <div className="lg:col-span-2 h-[600px] lg:h-auto bg-muted rounded-2xl overflow-hidden relative border border-border">
           {/* Map Placeholder */}
-          <div className="absolute inset-0 bg-slate-950">
+          <div className="absolute inset-0 bg-background">
             {/* Grid Pattern */}
             <div className="absolute inset-0 opacity-10" 
                  style={{ 
@@ -173,7 +173,7 @@ export default function TrackingResult() {
             </div>
             
             {/* World Map Outline (SVG) - Simplified Representation */}
-            <svg className="absolute inset-0 w-full h-full text-slate-800 fill-current opacity-20" viewBox="0 0 100 50" preserveAspectRatio="none">
+            <svg className="absolute inset-0 w-full h-full text-muted-foreground/20 fill-current" viewBox="0 0 100 50" preserveAspectRatio="none">
                <path d="M20,15 Q30,5 40,15 T60,20 T80,15" stroke="currentColor" strokeWidth="0.5" fill="none" />
                <path d="M10,25 Q30,35 50,25 T90,25" stroke="currentColor" strokeWidth="0.5" fill="none" />
                {/* Just random shapes to simulate landmasses */}
@@ -210,19 +210,19 @@ export default function TrackingResult() {
             {/* Map Markers */}
             <div className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
               <div className="w-4 h-4 bg-blue-500 rounded-full animate-ping absolute opacity-75"></div>
-              <div className="w-4 h-4 bg-blue-500 rounded-full border-2 border-white relative z-10"></div>
-              <span className="mt-2 text-xs font-bold text-slate-300 bg-slate-900/80 px-2 py-1 rounded backdrop-blur-md">NY</span>
+              <div className="w-4 h-4 bg-blue-500 rounded-full border-2 border-background relative z-10"></div>
+              <span className="mt-2 text-xs font-bold text-primary-foreground bg-foreground/80 px-2 py-1 rounded backdrop-blur-md">NY</span>
             </div>
 
             <div className="absolute top-1/3 right-1/4 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
               <MapPin className="w-8 h-8 text-emerald-500 drop-shadow-lg mb-1" />
-              <span className="text-xs font-bold text-slate-300 bg-slate-900/80 px-2 py-1 rounded backdrop-blur-md">Singapore</span>
+              <span className="text-xs font-bold text-primary-foreground bg-foreground/80 px-2 py-1 rounded backdrop-blur-md">Singapore</span>
             </div>
 
             {/* Map Controls (Visual only) */}
             <div className="absolute bottom-6 right-6 flex flex-col gap-2">
-              <button className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">+</button>
-              <button className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">-</button>
+              <button className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors">+</button>
+              <button className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors">-</button>
             </div>
           </div>
         </div>

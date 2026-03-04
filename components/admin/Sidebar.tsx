@@ -35,10 +35,10 @@ export function AdminSidebar() {
   };
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-slate-900 text-white w-64 border-r border-slate-800">
-      <div className="p-6 border-b border-slate-800">
+    <div className="flex flex-col h-full bg-card text-foreground w-64 border-r border-border">
+      <div className="p-6 border-b border-border">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-brand-red rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-destructive rounded-lg flex items-center justify-center">
             <Shield className="w-5 h-5 text-white" />
           </div>
           <span className="font-bold text-lg">Admin Panel</span>
@@ -55,8 +55,8 @@ export function AdminSidebar() {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-brand-red text-white"
-                  : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-destructive text-white"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
               )}
               onClick={() => setIsOpen(false)}
             >
@@ -67,10 +67,10 @@ export function AdminSidebar() {
         })}
       </div>
 
-      <div className="p-4 border-t border-slate-800">
+      <div className="p-4 border-t border-border">
         <Button
           variant="ghost"
-          className="w-full justify-start text-slate-400 hover:text-white hover:bg-slate-800 gap-3"
+          className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-accent gap-3"
           onClick={handleLogout}
         >
           <LogOut className="w-5 h-5" />
@@ -94,7 +94,7 @@ export function AdminSidebar() {
             <Menu className="w-6 h-6" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="p-0 w-64 border-r-0 bg-slate-900">
+        <SheetContent side="left" className="p-0 w-64 border-r-0 bg-card">
           <SidebarContent />
         </SheetContent>
       </Sheet>

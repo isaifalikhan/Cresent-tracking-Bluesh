@@ -65,13 +65,13 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-slate-950"
+      className="relative min-h-screen flex items-center overflow-hidden bg-background"
       aria-label="Hero"
     >
       {/* Parallax background */}
       <div ref={bgRef} className="absolute inset-0 will-change-transform">
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid opacity-100 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-100 pointer-events-none" />
 
         {/* 3D Globe Scene */}
         <div className="absolute inset-0 z-0 opacity-60 lg:opacity-100">
@@ -94,8 +94,8 @@ export default function HeroSection() {
           >
             {/* Badge */}
           <motion.div variants={itemVariants}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-400 font-medium mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 font-medium mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400 animate-pulse" />
               Pakistan&apos;s #1 Fleet Management Platform
             </span>
           </motion.div>
@@ -103,22 +103,20 @@ export default function HeroSection() {
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] tracking-tight mb-6"
+            className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[1.05] tracking-tight mb-6"
           >
-            Track.{" "}
+            Protecting You &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-light">
-              Protect.
-            </span>{" "}
-            <br />
-            Optimize.
+              Your Assets
+            </span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-slate-400 text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
+            className="text-muted-foreground text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
           >
-            Real-time GPS tracking, fuel intelligence, and driver analytics — giving Pakistani businesses complete control over their fleet and assets, 24/7.
+            Crescent Tracking Pvt Ltd provides vehicle tracking and fleet management services in Pakistan with a large nationwide branch network. The company offers a powerful web-based tracking platform that allows businesses and individuals to monitor vehicles, assets, and fleet operations in real time.
           </motion.p>
 
           {/* CTAs */}
@@ -135,7 +133,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/solutions"
-              className="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-green-500/50 text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 hover:bg-green-500/5"
+              className="inline-flex items-center justify-center gap-2 border border-border hover:border-green-500/50 text-foreground font-medium px-8 py-4 rounded-xl transition-all duration-300 hover:bg-green-500/5"
             >
               View Solutions
             </Link>
@@ -146,11 +144,11 @@ export default function HeroSection() {
             variants={itemVariants}
             className="flex flex-wrap gap-5 items-center"
           >
-            <span className="text-slate-500 text-sm">Trusted by businesses across Pakistan:</span>
+            <span className="text-muted-foreground text-sm">Trusted by businesses across Pakistan:</span>
             {trustBadges.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="flex items-center gap-2 text-slate-400 text-sm"
+                className="flex items-center gap-2 text-muted-foreground text-sm"
               >
                 <Icon className="w-4 h-4 text-green-500" />
                 {text}
@@ -165,7 +163,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

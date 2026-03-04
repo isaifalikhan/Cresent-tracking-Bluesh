@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTheme } from "next-themes";
 
 interface RouteLineBackgroundProps {
   className?: string;
@@ -13,6 +14,14 @@ export function RouteLineBackground({ className }: RouteLineBackgroundProps) {
     target: containerRef,
     offset: ["start end", "end start"],
   });
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isLight = mounted && theme === "light";
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
@@ -52,9 +61,9 @@ export function RouteLineBackground({ className }: RouteLineBackgroundProps) {
 
         {/* Waypoints */}
         <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-          <circle cx="400" cy="400" r="8" fill="#0D4A3E" className="animate-pulse" />
-          <circle cx="800" cy="400" r="6" fill="#DC2626" className="animate-pulse" style={{ animationDelay: "0.5s" }} />
-          <circle cx="600" cy="450" r="5" fill="#0D4A3E" opacity="0.6" />
+          <circle cx="400" cy="400" r="8" fill={isLight ? "#16a34a" : "#0D4A3E"} className="animate-pulse" />
+          <circle cx="800" cy="400" r="6" fill={isLight ? "#ef4444" : "#DC2626"} className="animate-pulse" style={{ animationDelay: "0.5s" }} />
+          <circle cx="600" cy="450" r="5" fill={isLight ? "#16a34a" : "#0D4A3E"} opacity="0.6" />
         </motion.g>
 
         {/* Radar rings */}
@@ -63,7 +72,7 @@ export function RouteLineBackground({ className }: RouteLineBackgroundProps) {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
-          <circle cx="400" cy="400" r="30" fill="none" stroke="#0D4A3E" strokeWidth="1" opacity="0.3">
+          <circle cx="400" cy="400" r="30" fill="none" stroke={isLight ? "#16a34a" : "#0D4A3E"} strokeWidth="1" opacity="0.3">
             <animate attributeName="r" from="20" to="60" dur="2s" repeatCount="indefinite" />
             <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite" />
           </circle>
@@ -71,13 +80,13 @@ export function RouteLineBackground({ className }: RouteLineBackgroundProps) {
 
         <defs>
           <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#0D4A3E" stopOpacity="0.2" />
-            <stop offset="50%" stopColor="#0D4A3E" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#DC2626" stopOpacity="0.6" />
+            <stop offset="0%" stopColor={isLight ? "#16a34a" : "#0D4A3E"} stopOpacity="0.2" />
+            <stop offset="50%" stopColor={isLight ? "#16a34a" : "#0D4A3E"} stopOpacity="0.8" />
+            <stop offset="100%" stopColor={isLight ? "#ef4444" : "#DC2626"} stopOpacity="0.6" />
           </linearGradient>
           <linearGradient id="routeGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#1A6B5B" stopOpacity="0.1" />
-            <stop offset="100%" stopColor="#1A6B5B" stopOpacity="0.4" />
+            <stop offset="0%" stopColor={isLight ? "#15803d" : "#1A6B5B"} stopOpacity="0.1" />
+            <stop offset="100%" stopColor={isLight ? "#15803d" : "#1A6B5B"} stopOpacity="0.4" />
           </linearGradient>
         </defs>
       </svg>

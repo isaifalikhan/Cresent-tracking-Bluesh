@@ -118,14 +118,14 @@ html.lenis {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a1a0f;
+  background: hsl(var(--muted));
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a7a3c;
+  background: hsl(var(--primary));
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2ecc71;
+  background: hsl(var(--primary) / 0.8);
 }
 
 /* Animation for radar rings */
@@ -162,7 +162,7 @@ html.lenis {
 /* Gradient border utility */
 .gradient-border {
   position: relative;
-  background: linear-gradient(#0a1a0f, #0a1a0f) padding-box,
+  background: linear-gradient(var(--background), var(--background)) padding-box,
     linear-gradient(135deg, #1a7a3c, #c0392b) border-box;
   border: 1px solid transparent;
 }

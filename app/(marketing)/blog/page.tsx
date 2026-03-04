@@ -79,8 +79,8 @@ export default function BlogPage() {
 
   return (
     <div className="pt-24">
-      <section className="py-20 bg-slate-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-50 pointer-events-none" />
         <div className="absolute inset-0 z-0 opacity-40">
           <Scene />
         </div>
@@ -89,10 +89,10 @@ export default function BlogPage() {
             <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-400 font-medium mb-6">
               Blog
             </span>
-            <h1 className="font-display font-bold text-5xl text-white leading-tight mb-4">
+            <h1 className="font-display font-bold text-5xl text-foreground leading-tight mb-4">
               Fleet intelligence insights
             </h1>
-            <p className="text-slate-400 text-lg">
+            <p className="text-muted-foreground text-lg">
               Expert guides, case studies, and industry news for Pakistani fleet operators.
             </p>
           </div>

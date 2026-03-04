@@ -14,30 +14,30 @@ export default function VehiclesPage() {
         <Button>Add Vehicle</Button>
       </div>
 
-      <div className="rounded-md border bg-white">
+      <div className="rounded-md border bg-card">
         <div className="relative w-full overflow-auto">
           <table className="w-full caption-bottom text-sm">
             <thead className="[&_tr]:border-b">
-              <tr className="border-b transition-colors hover:bg-slate-100/50 data-[state=selected]:bg-slate-100">
-                <th className="h-12 px-4 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+              <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Vehicle
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Status
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Location
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Speed
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Fuel
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Driver
                 </th>
-                <th className="h-12 px-4 text-right align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0">
+                <th className="h-12 px-4 text-right align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Actions
                 </th>
               </tr>
@@ -46,12 +46,12 @@ export default function VehiclesPage() {
               {dummyVehicles.map((vehicle) => (
                 <tr
                   key={vehicle.id}
-                  className="border-b transition-colors hover:bg-slate-100/50 data-[state=selected]:bg-slate-100"
+                  className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
                 >
                   <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                     <div className="flex flex-col">
-                      <span className="font-medium">{vehicle.name}</span>
-                      <span className="text-xs text-slate-500">{vehicle.plate}</span>
+                      <span className="font-medium text-foreground">{vehicle.name}</span>
+                      <span className="text-xs text-muted-foreground">{vehicle.plate}</span>
                     </div>
                   </td>
                   <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
@@ -80,20 +80,20 @@ export default function VehiclesPage() {
                   </td>
                   <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                     <div className="flex items-center gap-2 max-w-[200px] truncate" title={vehicle.location.address}>
-                      <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
-                      <span className="truncate">{vehicle.location.address}</span>
+                      <MapPin className="w-3 h-3 text-muted-foreground shrink-0" />
+                      <span className="truncate text-foreground">{vehicle.location.address}</span>
                     </div>
                   </td>
                   <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                     <div className="flex items-center gap-2">
-                      <Activity className="w-3 h-3 text-slate-400" />
-                      <span>{vehicle.speed} km/h</span>
+                      <Activity className="w-3 h-3 text-muted-foreground" />
+                      <span className="text-foreground">{vehicle.speed} km/h</span>
                     </div>
                   </td>
                   <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
                     <div className="flex items-center gap-2">
-                      <Fuel className="w-3 h-3 text-slate-400" />
-                      <span>{vehicle.fuel}%</span>
+                      <Fuel className="w-3 h-3 text-muted-foreground" />
+                      <span className="text-foreground">{vehicle.fuel}%</span>
                     </div>
                   </td>
                   <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">

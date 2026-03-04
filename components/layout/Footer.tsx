@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 
 const footerLinks = {
@@ -32,55 +33,60 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-white/5">
+    <footer className="bg-background border-t border-border">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-6">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-green-brand to-green-dark flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-white" />
+            <Link href="/" className="flex items-center gap-3 mb-6 group">
+              <div className="relative w-10 h-10 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                <Image 
+                  src="/Logo.png" 
+                  alt="Crescent Tracking Logo" 
+                  fill 
+                  className="object-contain"
+                />
               </div>
-              <div>
-                <span className="font-display font-bold text-lg text-white leading-none block">
+              <div className="flex flex-col">
+                <span className="font-display font-bold text-lg text-foreground leading-none block">
                   Crescent
                 </span>
-                <span className="text-[10px] text-green-400 font-mono uppercase tracking-widest leading-none">
+                <span className="text-[10px] text-primary font-bold uppercase tracking-widest leading-none mt-0.5">
                   Tracking (Pvt) Ltd
                 </span>
               </div>
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Pakistan&apos;s most trusted GPS fleet tracking and asset protection company. Serving businesses across all major cities since 2012.
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Pakistan&apos;s most trusted GPS fleet tracking and asset protection company. Serving businesses across all major cities since 2011.
             </p>
             <div className="space-y-3">
               <a
-                href="tel:+92300000000"
-                className="flex items-center gap-3 text-slate-400 hover:text-green-400 transition-colors text-sm"
+                href="tel:042111111278"
+                className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 text-green-500" />
-                +92-300-000-0000
+                042-111-111-278
               </a>
               <a
                 href="mailto:info@crescenttracking.com"
-                className="flex items-center gap-3 text-slate-400 hover:text-green-400 transition-colors text-sm"
+                className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <Mail className="w-4 h-4 text-green-500" />
                 info@crescenttracking.com
               </a>
               <a
-                href="https://wa.me/92300000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-slate-400 hover:text-green-400 transition-colors text-sm"
+                href="tel:03000448888"
+                className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <MessageCircle className="w-4 h-4 text-green-500" />
-                WhatsApp Support
+                Helpline: 0300-044-8888
               </a>
-              <div className="flex items-start gap-3 text-slate-400 text-sm">
+              <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                <span>Office 123, Business Hub, Gulberg III, Lahore, Pakistan</span>
+                <span>
+                  Office No. 1, 2nd Floor, Commercial Plaza No. 194, XX Block, Phase-3, D.H.A., Lahore.
+                </span>
               </div>
             </div>
           </div>
@@ -88,7 +94,7 @@ export default function Footer() {
           {/* Links columns */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section} className="lg:col-span-1">
-              <h4 className="font-display font-semibold text-white text-sm uppercase tracking-wider mb-4">
+              <h4 className="font-display font-semibold text-foreground text-sm uppercase tracking-wider mb-4">
                 {section}
               </h4>
               <ul className="space-y-2.5">
@@ -96,7 +102,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-slate-400 hover:text-green-400 text-sm transition-colors"
+                      className="text-muted-foreground hover:text-green-500 text-sm transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -109,12 +115,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm">
+          <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Crescent Tracking (Pvt) Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-slate-500 text-sm">
+          <div className="flex items-center gap-1 text-muted-foreground text-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
             <span>Live tracking active across Pakistan</span>
           </div>
