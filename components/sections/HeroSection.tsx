@@ -114,7 +114,7 @@ export default function HeroSection() {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-muted-foreground text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
+            className="font-display text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
           >
             Crescent Tracking Pvt Ltd provides vehicle tracking and fleet management services in Pakistan with a large nationwide branch network. The company offers a powerful web-based tracking platform that allows businesses and individuals to monitor vehicles, assets, and fleet operations in real time.
           </motion.p>
