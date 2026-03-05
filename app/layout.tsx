@@ -96,8 +96,8 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-background text-foreground overflow-x-hidden">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <SmoothScrollProvider>{children}</SmoothScrollProvider>

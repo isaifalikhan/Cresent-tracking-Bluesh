@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, User } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "@/components/ui/ModeToggle";
+import { ThemeSwitch } from "@/components/ui/ThemeSwitch";
 import { createPortal } from "react-dom";
 
 const navLinks = [
@@ -155,17 +155,17 @@ export default function Navbar() {
             </div>
 
             <div className="hidden lg:flex items-center gap-3">
-              <ModeToggle />
+              <ThemeSwitch />
 
               <div className="h-6 w-px bg-border/60 mx-1" />
 
-              <Link
+              {/* <Link
                 href="/login"
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 <User className="w-4 h-4" />
                 Login
-              </Link>
+              </Link> */}
 
               <Link
                 href="/contact"
@@ -283,9 +283,9 @@ export default function Navbar() {
                         <span className="text-sm font-medium">
                           Switch Theme
                         </span>
-                        <ModeToggle />
+                        <ThemeSwitch />
                       </div>
-
+{/* 
                       <Link
                         href="/login"
                         onClick={() => setMobileOpen(false)}
@@ -293,7 +293,7 @@ export default function Navbar() {
                       >
                         <User className="w-5 h-5" />
                         Log In
-                      </Link>
+                      </Link> */}
 
                       <Link
                         href="/contact"
