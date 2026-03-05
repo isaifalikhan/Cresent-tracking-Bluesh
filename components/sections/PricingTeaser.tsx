@@ -6,58 +6,178 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const plans = [
+export const pricingPackages = [
   {
-    name: "Starter",
-    tagline: "For small fleets",
-    price: "2,500",
-    unit: "/ vehicle / month",
+    name: "Bike Tracking",
     features: [
-      "Real-time GPS tracking",
-      "Basic alerts (speed, geo-fence)",
-      "30-day trip history",
-      "Mobile & web app",
-      "Email support",
+      { name: "24/7 Real Time Tracking", available: true },
+      { name: "24/7 Call Center Facility", available: true },
+      { name: "Geo Fence & Battery Temper Call", available: false },
+      {
+        name: "Theft/Snatched Vehicle Recovery Assistance",
+        available: true,
+      },
+      { name: "Built-In Jammer detector", available: false },
+      {
+        name: "Web Access for Self Tracking (For Laptop/PC)",
+        available: true,
+      },
+      {
+        name: "Mobile Application for Self Tracking (Android/iOS)",
+        available: true,
+      },
+      {
+        name: "SMS Engine Kill Through Mobile Application",
+        available: false,
+      },
+      { name: "History & Trip Reports", available: false },
+      { name: "SMS Alerts (ACC On/Off)", available: false },
+      { name: "In-Vehicle Microphone & Speaker", available: false },
+      { name: "In-Vehicle Camera", available: false },
+      { name: "Door Alert Via SMS", available: false },
+      { name: "Panic Button", available: false },
     ],
-    cta: "Get Started",
-    popular: false,
   },
   {
-    name: "Business",
-    tagline: "Most popular",
-    price: "4,500",
-    unit: "/ vehicle / month",
+    name: "Vehicle Track - Basic",
     features: [
-      "Everything in Starter",
-      "Fuel monitoring",
-      "Driver behavior scoring",
-      "Maintenance reminders",
-      "90-day trip history",
-      "Priority support",
-      "Custom reports",
+      { name: "24/7 Real Time Tracking", available: true },
+      { name: "24/7 Call Center Facility", available: true },
+      { name: "Geo Fence & Battery Temper Call", available: true },
+      {
+        name: "Theft/Snatched Vehicle Recovery Assistance",
+        available: true,
+      },
+      { name: "Built-In Jammer detector", available: false },
+      {
+        name: "Web Access for Self Tracking (For Laptop/PC)",
+        available: true,
+      },
+      {
+        name: "Mobile Application for Self Tracking (Android/iOS)",
+        available: true,
+      },
+      {
+        name: "SMS Engine Kill Through Mobile Application",
+        available: true,
+      },
+      { name: "History & Trip Reports", available: false },
+      { name: "SMS Alerts (ACC On/Off)", available: false },
+      { name: "In-Vehicle Microphone & Speaker", available: false },
+      { name: "In-Vehicle Camera", available: false },
+      { name: "Door Alert Via SMS", available: false },
+      { name: "Panic Button", available: false },
     ],
-    cta: "Get Started",
-    popular: true,
   },
   {
-    name: "Enterprise",
-    tagline: "For large operations",
-    price: "Custom",
-    unit: "",
+    name: "Vehicle Track - VIP",
     features: [
-      "Everything in Business",
-      "Dedicated account manager",
-      "API integration",
-      "White-label option",
-      "Unlimited history",
-      "Custom integrations",
-      "24/7 phone support",
-      "On-site training",
+      { name: "24/7 Real Time Tracking", available: true },
+      { name: "24/7 Call Center Facility", available: true },
+      { name: "Geo Fence & Battery Temper Call", available: true },
+      {
+        name: "Theft/Snatched Vehicle Recovery Assistance",
+        available: true,
+      },
+      { name: "Built-In Jammer detector", available: true },
+      {
+        name: "Web Access for Self Tracking (For Laptop/PC)",
+        available: true,
+      },
+      {
+        name: "Mobile Application for Self Tracking (Android/iOS)",
+        available: true,
+      },
+      {
+        name: "SMS Engine Kill Through Mobile Application",
+        available: true,
+      },
+      { name: "History & Trip Reports", available: true },
+      { name: "SMS Alerts (ACC On/Off)", available: true },
+      { name: "In-Vehicle Microphone & Speaker", available: true },
+      { name: "In-Vehicle Camera", available: false },
+      { name: "Door Alert Via SMS", available: false },
+      { name: "Panic Button", available: true },
     ],
-    cta: "Talk to Sales",
-    popular: false,
+  },
+  {
+    name: "Vehicle Track - Executive",
+    features: [
+      { name: "24/7 Real Time Tracking", available: true },
+      { name: "24/7 Call Center Facility", available: true },
+      { name: "Geo Fence & Battery Temper Call", available: true },
+      {
+        name: "Theft/Snatched Vehicle Recovery Assistance",
+        available: true,
+      },
+      { name: "Built-In Jammer detector", available: true },
+      {
+        name: "Web Access for Self Tracking (For Laptop/PC)",
+        available: true,
+      },
+      {
+        name: "Mobile Application for Self Tracking (Android/iOS)",
+        available: true,
+      },
+      {
+        name: "SMS Engine Kill Through Mobile Application",
+        available: true,
+      },
+      { name: "History & Trip Reports", available: true },
+      { name: "SMS Alerts (ACC On/Off)", available: true },
+      { name: "In-Vehicle Microphone & Speaker", available: true },
+      { name: "In-Vehicle Camera", available: true },
+      { name: "Door Alert Via SMS", available: true },
+      { name: "Panic Button", available: true },
+    ],
   },
 ];
+
+export const pricingExtras = [
+  {
+    name: "Basic Extra",
+    type: "Yearly",
+    features: ["SMS Alerts (ACC On/Off)"],
+  },
+  {
+    name: "Basic Extra",
+    type: "One Time Cost",
+    features: [
+      "Web Access for Self Tracking (For Laptop/PC)",
+      "Mobile Application for Self Tracking (Android/iOS)",
+    ],
+  },
+  {
+    name: "Sensors",
+    type: "Per Sensor + Basic Package",
+    features: ["Fuel Level Sensor", "Axle Load Sensor"],
+  },
+  {
+    name: "Accessories",
+    type: "One Time Cost",
+    features: [
+      "Microphone - Rs. 15000",
+      "Temperature Sensors (Each) - Rs. 15000",
+      "iButton with Driver ID Keys - Rs. 15000",
+    ],
+  },
+];
+
+function getPackageTagline(name: string) {
+  if (name === "Bike Tracking") {
+    return "For individual bike and personal use";
+  }
+  if (name === "Vehicle Track - Basic") {
+    return "Essential tracking and security for vehicles";
+  }
+  if (name === "Vehicle Track - VIP") {
+    return "Advanced tracking with more security features";
+  }
+  if (name === "Vehicle Track - Executive") {
+    return "Full-featured tracking with all sensors and accessories";
+  }
+  return "";
+}
 
 export default function PricingTeaser() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -66,70 +186,63 @@ export default function PricingTeaser() {
     <section className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Simple Pricing"
-          title="Transparent pricing, no hidden fees"
-          description="All plans include hardware setup, installation, and onboarding. PKR pricing inclusive of all taxes."
+          badge="Packages & Pricing"
+          title="Choose the right tracking package"
+          description="Compare Bike Tracking and Vehicle Track packages, then talk to our team for final pricing based on your needs."
         />
 
         <div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
         >
-          {plans.map((plan, i) => (
+          {pricingPackages.map((pkg, i) => (
             <motion.div
-              key={plan.name}
+              key={pkg.name}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              className={`relative rounded-2xl p-7 flex flex-col ${
-                plan.popular
-                  ? "border-2 border-green-500 bg-gradient-to-b from-green-50 to-white dark:from-green-950/30 dark:to-slate-900 shadow-xl shadow-green-500/20 dark:shadow-green-900/20"
-                  : "border border-border bg-card"
-              }`}
+              className="relative rounded-2xl p-7 flex flex-col border border-border bg-card"
             >
-              {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-green-brand text-white text-xs font-semibold">
-                  Most Popular
-                </div>
-              )}
               <div className="mb-6">
-                <h3 className="font-display font-bold text-foreground text-xl mb-1">{plan.name}</h3>
-                <p className="text-muted-foreground text-sm">{plan.tagline}</p>
-              </div>
-              <div className="mb-6">
-                <span className="font-display font-bold text-foreground text-4xl">
-                  {plan.price}
-                </span>
-                {plan.unit && <span className="text-muted-foreground text-sm ml-1">{plan.unit}</span>}
+                <h3 className="font-display font-bold text-foreground text-xl mb-1">
+                  {pkg.name}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {getPackageTagline(pkg.name)}
+                </p>
               </div>
 
               <ul className="space-y-4 mb-8 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
+                {pkg.features
+                  .filter((feature) => feature.available)
+                  .map((feature) => (
+                    <li
+                      key={feature.name}
+                      className="flex items-start gap-3 text-sm text-muted-foreground"
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      {feature.name}
+                    </li>
+                  ))}
               </ul>
 
               <Link
                 href="/contact"
-                className={`w-full py-3 rounded-xl font-semibold text-center transition-all ${
-                  plan.popular
-                    ? "bg-green-brand text-white hover:bg-green-600 shadow-lg shadow-green-900/20"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
+                className="w-full py-3 rounded-xl font-semibold text-center transition-all bg-muted text-foreground hover:bg-muted/80"
               >
-                {plan.cta}
+                Talk to sales
               </Link>
             </motion.div>
           ))}
         </div>
 
         <p className="text-center text-muted-foreground text-sm mt-8">
-          All prices in PKR. Minimum 10 vehicles for Business plan. Annual subscriptions available with 15% discount.{" "}
-          <Link href="/pricing" className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors">
-            See full pricing →
+          Package availability and pricing may vary based on vehicle type and installation requirements.{" "}
+          <Link
+            href="/pricing"
+            className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors"
+          >
+            See full package details →
           </Link>
         </p>
       </div>

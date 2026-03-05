@@ -4,11 +4,44 @@ import PricingTeaser from "@/components/sections/PricingTeaser";
 import FAQSection from "@/components/sections/FAQSection";
 import CTABanner from "@/components/sections/CTABanner";
 
-const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
+const Scene = dynamic(() => import("@/components/three/Scene"), {
+  ssr: false,
+});
+
+const pricingExtras = [
+  {
+    name: "Basic Extra",
+    type: "Yearly",
+    features: ["SMS Alerts (ACC On/Off)"],
+  },
+  {
+    name: "Basic Extra",
+    type: "One Time Cost",
+    features: [
+      "Web Access for Self Tracking (For Laptop/PC)",
+      "Mobile Application for Self Tracking (Android/iOS)",
+    ],
+  },
+  {
+    name: "Sensors",
+    type: "Per Sensor + Basic Package",
+    features: ["Fuel Level Sensor", "Axle Load Sensor"],
+  },
+  {
+    name: "Accessories",
+    type: "One Time Cost",
+    features: [
+      "Microphone - Rs. 15000",
+      "Temperature Sensors (Each) - Rs. 15000",
+      "iButton with Driver ID Keys - Rs. 15000",
+    ],
+  },
+];
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Simple, transparent GPS tracking pricing for Pakistani businesses. Starter from PKR 2,500/vehicle/month. Enterprise custom pricing available.",
+  description:
+    "Compare Bike Tracking and Vehicle Track (Basic, VIP, Executive) packages plus available extras for Crescent Tracking services in Pakistan.",
 };
 
 export default function PricingPage() {
@@ -21,15 +54,15 @@ export default function PricingPage() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pointer-events-none">
           <div className="pointer-events-auto">
-          <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 font-medium mb-6">
-            Pricing
-          </span>
-          <h1 className="font-display font-bold text-5xl lg:text-6xl text-foreground leading-tight mb-6">
-            Simple, transparent pricing
-          </h1>
-          <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-            No hidden fees. No long-term lock-in on Starter. Hardware included. Cancel anytime.
-          </p>
+            <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 font-medium mb-6">
+              Pricing
+            </span>
+            <h1 className="font-display font-bold text-5xl lg:text-6xl text-foreground leading-tight mb-6">
+              Packages and pricing for every need
+            </h1>
+            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
+              Choose between Bike Tracking and Vehicle Track packages (Basic, VIP, Executive) and add extras as needed.
+            </p>
           </div>
         </div>
       </section>
@@ -38,18 +71,26 @@ export default function PricingPage() {
       {/* Add-ons */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display font-bold text-2xl text-foreground mb-8 text-center">Available Add-ons</h2>
+          <h2 className="font-display font-bold text-2xl text-foreground mb-8 text-center">
+            Available Extras
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { name: "Fuel Sensor", price: "₨1,500/mo", desc: "Per vehicle" },
-              { name: "Temperature Monitor", price: "₨2,000/mo", desc: "Per probe" },
-              { name: "Driver ID Tag", price: "₨500/mo", desc: "Per driver" },
-              { name: "Remote Immobilizer", price: "₨800/mo", desc: "Per vehicle" },
-            ].map((addon) => (
-              <div key={addon.name} className="p-5 rounded-xl border border-border bg-card text-center">
-                <h4 className="text-foreground font-semibold mb-1">{addon.name}</h4>
-                <div className="text-green-600 dark:text-green-400 font-bold text-lg">{addon.price}</div>
-                <div className="text-muted-foreground text-xs mt-1">{addon.desc}</div>
+            {pricingExtras.map((extra) => (
+              <div
+                key={`${extra.name}-${extra.type}`}
+                className="p-5 rounded-xl border border-border bg-card"
+              >
+                <h4 className="text-foreground font-semibold mb-1">
+                  {extra.name}
+                </h4>
+                <div className="text-green-600 dark:text-green-400 font-semibold text-xs uppercase tracking-wide">
+                  {extra.type}
+                </div>
+                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
+                  {extra.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
