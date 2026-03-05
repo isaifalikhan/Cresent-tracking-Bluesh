@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full bg-brand-red hover:bg-red-700" type="submit" disabled={isLoading}>
+          <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" type="submit" disabled={isLoading}>
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Sign In
           </Button>

@@ -111,7 +111,7 @@ export default function UserDashboardLayout({
             </div>
             <Link 
               href="/login" 
-              className="flex items-center gap-2 text-xs text-red-400 hover:text-red-300 transition-colors w-full justify-center py-2 hover:bg-red-500/10 rounded-lg"
+              className="flex items-center gap-2 text-xs text-accent hover:text-accent/90 transition-colors w-full justify-center py-2 hover:bg-accent/10 rounded-lg"
             >
               <LogOut className="w-3 h-3" />
               Sign Out

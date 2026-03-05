@@ -18,7 +18,7 @@ export default function UsersPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold tracking-tight">Users Management</h1>
-        <Button className="bg-brand-red hover:bg-red-700">Add User</Button>
+        <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Add User</Button>
       </div>
 
       <div className="rounded-md border bg-white">
