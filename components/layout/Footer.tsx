@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Pakistan&apos;s most trusted GPS fleet tracking and asset protection company. Serving businesses across all major cities since 2011.
+              Pakistan&apos;s most trusted GPS fleet tracking and asset protection company, with one of the largest branch networks across the country.
             </p>
             <div className="space-y-3">
               <a
@@ -69,11 +69,11 @@ export default function Footer() {
                 042-111-111-278
               </a>
               <a
-                href="mailto:info@crescenttracking.com"
+                href="mailto:info@crescenttrack.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <Mail className="w-4 h-4 text-green-500" />
-                info@crescenttracking.com
+                info@crescenttrack.com
               </a>
               <a
                 href="tel:03000448888"
@@ -85,7 +85,7 @@ export default function Footer() {
               <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                 <span>
-                  Office No. 1, 2nd Floor, Commercial Plaza No. 194, XX Block, Phase-3, D.H.A., Lahore.
+                  Banglow No. 9-E, Afzal Banglows, Opp. SSP Traffic Office, Spinny Road, Quetta.
                 </span>
               </div>
             </div>
