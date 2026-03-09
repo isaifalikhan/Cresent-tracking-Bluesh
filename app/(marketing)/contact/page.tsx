@@ -14,40 +14,67 @@ const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 const branches = [
   {
     type: "Head Office",
-    city: "Lahore",
-    address: "Office No. 1, 2nd Floor, Commercial Plaza No. 194, XX Block, Phase-3, D.H.A., Lahore.",
-    phone: ["042-35894692", "042-35748957"],
-    fax: "042-35894692",
+    city: "Quetta",
+    address:
+      "Banglow No. 9-E, Afzal Banglows, Opp. SSP Traffic Office, Spinny Road, Quetta.",
+    phone: ["081-2832920"],
+    fax: undefined,
   },
   {
-    type: "Regional Office",
+    type: "Branch Office",
     city: "Karachi",
-    address: "Office No. 605, 6th Floor, Park Avenue, Shahrah-e-Faisal, Block-6, P.E.C.H.S, Karachi.",
-    phone: ["021-34326584", "021-34326585"],
+    address: "Karachi Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
   },
   {
-    type: "Regional Office",
-    city: "Islamabad",
-    address: "Office No. 12, 2nd Floor, Al-Babar Centre, F-8 Markaz, Islamabad.",
-    phone: ["051-2818161", "051-2818162"],
+    type: "Branch Office",
+    city: "Lahore",
+    address: "Lahore Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
   },
   {
-    type: "Regional Office",
-    city: "Faisalabad",
-    address: "P-60, 1st Floor, ChenOne Road, People's Colony No. 1, Faisalabad.",
-    phone: ["041-8720982"],
-  },
-  {
-    type: "Regional Office",
+    type: "Branch Office",
     city: "Multan",
-    address: "Office No. 18, 1st Floor, Shangrilla Centre, Cantonment, Multan.",
-    phone: ["061-4518046"],
+    address: "Multan Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
   },
   {
-    type: "Regional Office",
-    city: "Peshawar",
-    address: "TF-138, 3rd Floor, Deans Trade Centre, Peshawar Cantt.",
-    phone: ["091-5270182"],
+    type: "Branch Office",
+    city: "Sialkot",
+    address: "Sialkot Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
+  },
+  {
+    type: "Branch Office",
+    city: "Sahiwal",
+    address: "Sahiwal Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
+  },
+  {
+    type: "Branch Office",
+    city: "Islamabad",
+    address: "Islamabad Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
+  },
+  {
+    type: "Branch Office",
+    city: "Gujranwala",
+    address: "Gujranwala Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
+  },
+  {
+    type: "Branch Office",
+    city: "Abbottabad",
+    address: "Abbottabad Branch Office – for full address please contact Head Office or UAN.",
+    phone: [],
+    fax: undefined,
   },
 ];
 
@@ -140,8 +167,8 @@ export default function ContactPage() {
                     {
                       icon: Mail,
                       label: "Email",
-                      value: "info@crescenttracking.com",
-                      href: "mailto:info@crescenttracking.com",
+                      value: "info@crescenttrack.com",
+                      href: "mailto:info@crescenttrack.com",
                     },
                   ].map((c) => (
                     <a
@@ -169,8 +196,8 @@ export default function ContactPage() {
                     <div>
                       <div className="text-muted-foreground text-xs mb-0.5">Head Office</div>
                       <div className="text-foreground text-sm">
-                        Office No. 1, 2nd Floor, Commercial Plaza No. 194,<br />
-                        XX Block, Phase-3, D.H.A., Lahore.
+                        Banglow No. 9-E, Afzal Banglows,<br />
+                        Opp. SSP Traffic Office, Spinny Road, Quetta.
                       </div>
                     </div>
                   </div>
@@ -318,7 +345,11 @@ export default function ContactPage() {
       {/* Branches */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading badge="Our Network" title="Our Branches" />
+          <SectionHeading
+            badge="Our Network"
+            title="Largest Branch Network in Pakistan"
+            description="Crescent Tracking operates a growing network of branches across Pakistan to stay close to your vehicles and your business."
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {branches.map((branch) => (
               <div
@@ -336,24 +367,26 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-3 text-sm text-muted-foreground">
                   <p>{branch.address}</p>
-                  <div className="flex flex-col gap-1">
-                    {branch.phone.map((ph) => (
-                      <a
-                        key={ph}
-                        href={`tel:${ph.replace(/-/g, "")}`}
-                        className="flex items-center gap-2 hover:text-foreground transition-colors"
-                      >
-                        <Phone className="w-3.5 h-3.5" />
-                        {ph}
-                      </a>
-                    ))}
-                    {branch.fax && (
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs uppercase font-medium">Fax:</span>
-                        {branch.fax}
-                      </div>
-                    )}
-                  </div>
+                  {branch.phone.length > 0 && (
+                    <div className="flex flex-col gap-1 mt-2">
+                      {branch.phone.map((ph) => (
+                        <a
+                          key={ph}
+                          href={`tel:${ph.replace(/-/g, "")}`}
+                          className="flex items-center gap-2 hover:text-foreground transition-colors"
+                        >
+                          <Phone className="w-3.5 h-3.5" />
+                          {ph}
+                        </a>
+                      ))}
+                      {branch.fax && (
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs uppercase font-medium">Fax:</span>
+                          {branch.fax}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
