@@ -93,14 +93,18 @@ export default function RootLayout({
       className={`${manrope.variable} ${syne.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased bg-background text-foreground overflow-x-hidden">
+      <body className="font-sans antialiased text-foreground overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <SmoothScrollProvider>
+            <div className="tracking-bg">
+              {children}
+            </div>
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

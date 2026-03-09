@@ -66,7 +66,26 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
+  .tracking-bg {
+    position: relative;
+    min-height: 100vh;
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(circle at 10% 0, rgba(34,197,94,0.14), transparent 55%),
+      radial-gradient(circle at 90% 100%, rgba(22,163,74,0.14), transparent 55%),
+      linear-gradient(rgba(15,23,42,0.03), rgba(15,23,42,0.08)),
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size:
+      auto,
+      auto,
+      auto,
+      60px 60px,
+      60px 60px;
+    background-attachment: fixed;
+  }
+
   .bg-grid {
     background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
