@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 const highlights = [
   "Live fleet map with real-time vehicle positions",
@@ -48,7 +49,7 @@ export default function PlatformPreview() {
             </ul>
           </motion.div>
 
-          {/* Right: Dashboard mock */}
+          {/* Right: Dashboard screenshot */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -56,93 +57,31 @@ export default function PlatformPreview() {
             className="relative"
           >
             {/* Glow */}
-            <div className="absolute -inset-4 bg-green-brand/10 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-green-brand/15 rounded-3xl blur-2xl pointer-events-none" />
 
             {/* Dashboard frame */}
-            <div className="relative rounded-2xl border border-border bg-card overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/80 bg-card">
               {/* Browser bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/50">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/60">
                 <div className="flex gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <span className="w-3 h-3 rounded-full bg-amber-500/70" />
-                  <span className="w-3 h-3 rounded-full bg-green-500/70" />
+                  <span className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <span className="w-3 h-3 rounded-full bg-amber-500/80" />
+                  <span className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <div className="flex-1 mx-4 h-5 rounded bg-muted flex items-center px-3">
-                  <span className="text-muted-foreground text-[10px] font-mono">app.crescenttracking.com</span>
+                <div className="flex-1 mx-4 h-6 rounded-md bg-background/80 flex items-center px-3 border border-border/50">
+                  <span className="text-muted-foreground text-xs font-mono">app.crescenttracking.com</span>
                 </div>
               </div>
 
-              {/* Dashboard content */}
-              <div className="p-4">
-                {/* Top stats row */}
-                <div className="grid grid-cols-4 gap-3 mb-4">
-                  {[
-                    { label: "Active", value: "142", color: "text-green-600 dark:text-green-400" },
-                    { label: "Idle", value: "23", color: "text-amber-600 dark:text-amber-400" },
-                    { label: "Stopped", value: "11", color: "text-muted-foreground" },
-                    { label: "Offline", value: "4", color: "text-red-600 dark:text-red-400" },
-                  ].map((s) => (
-                    <div key={s.label} className="bg-muted/50 rounded-lg p-2.5 text-center">
-                      <div className={`font-display font-bold text-lg ${s.color}`}>{s.value}</div>
-                      <div className="text-muted-foreground text-[10px] mt-0.5">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Map placeholder */}
-                <div className="rounded-xl bg-muted/30 h-52 relative overflow-hidden border border-border mb-4">
-                  {/* Grid overlay */}
-                  <div className="absolute inset-0 bg-grid opacity-40" />
-                  {/* Pakistan map outline hint */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-muted-foreground text-xs font-mono">LIVE MAP VIEW</div>
-                  </div>
-                  {/* Animated dots */}
-                  {[
-                    { x: "30%", y: "40%" },
-                    { x: "45%", y: "55%" },
-                    { x: "60%", y: "35%" },
-                    { x: "70%", y: "60%" },
-                    { x: "25%", y: "65%" },
-                  ].map((pos, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-2.5 h-2.5"
-                      style={{ left: pos.x, top: pos.y }}
-                    >
-                      <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-60" />
-                      <div className="relative w-2.5 h-2.5 rounded-full bg-green-400 border-2 border-green-300" />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Recent alerts */}
-                <div className="space-y-2">
-                  {[
-                    { msg: "TRK-045 entered Karachi zone", time: "2m ago", type: "info" },
-                    { msg: "TRK-012 speeding alert — 95 km/h", time: "8m ago", type: "warn" },
-                    { msg: "Fuel drop detected on TRK-031", time: "15m ago", type: "error" },
-                  ].map((alert) => (
-                    <div
-                      key={alert.msg}
-                      className="flex items-center justify-between py-2 px-3 rounded-lg bg-muted/40"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                            alert.type === "info"
-                              ? "bg-green-500"
-                              : alert.type === "warn"
-                              ? "bg-amber-500"
-                              : "bg-red-500"
-                          }`}
-                        />
-                        <span className="text-foreground text-[11px]">{alert.msg}</span>
-                      </div>
-                      <span className="text-muted-foreground text-[10px] flex-shrink-0">{alert.time}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Dashboard image */}
+              <div className="relative aspect-video w-full bg-muted/30">
+                <Image
+                  src="/images/dashboard.jpeg"
+                  alt="Crescent Tracking dashboard"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top"
+                />
               </div>
             </div>
           </motion.div>

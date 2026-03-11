@@ -4,6 +4,7 @@ import SocialProofStrip from "@/components/sections/SocialProofStrip";
 import BenefitsSection from "@/components/sections/BenefitsSection";
 import SolutionsGrid from "@/components/sections/SolutionsGrid";
 import PlatformPreview from "@/components/sections/PlatformPreview";
+import ImageGallery from "@/components/sections/ImageGallery";
 import IndustriesSection from "@/components/sections/IndustriesSection";
 import HowItWorks from "@/components/sections/HowItWorks";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -25,6 +26,14 @@ export default function HomePage() {
       <BenefitsSection />
       <SolutionsGrid />
       <PlatformPreview />
+      <ImageGallery
+        badge="See Crescent in Action"
+        title="Crescent Tracking in Action"
+        description="Our technology, team, and operations across Pakistan."
+        columns={4}
+        lightbox
+        className="bg-muted/30"
+      />
       <IndustriesSection />
       <HowItWorks />
       <TestimonialsSection />

@@ -113,6 +113,49 @@
   .glass-dark {
     @apply bg-black/20 backdrop-blur-md border border-white/5;
   }
+
+  /* Vertical marquee columns for News & Media */
+  .marquee-group {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .marquee-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .marquee-up {
+    animation: marquee-up 80s linear infinite;
+  }
+
+  .marquee-down {
+    animation: marquee-down 80s linear infinite;
+  }
+
+  .marquee-group:hover .marquee-up,
+  .marquee-group:hover .marquee-down {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Smooth scrolling handled by Lenis */

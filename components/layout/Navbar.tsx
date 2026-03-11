@@ -30,6 +30,7 @@ const navLinks = [
     href: "/about",
     children: [
       { label: "About Us", href: "/about" },
+      { label: "News & Media", href: "/news-media" },
       { label: "CEO Message", href: "/ceo-message" },
       { label: "Quick Links", href: "/quick-links" },
       { label: "FAQ", href: "/faq" },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
+import ImageGallery from "@/components/sections/ImageGallery";
 import { Shield, Target, Users, Award } from "lucide-react";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
@@ -173,6 +174,16 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Gallery from public/images */}
+      <ImageGallery
+        badge="Crescent in Action"
+        title="Our Gallery"
+        description="A glimpse of our team, technology, and operations across Pakistan."
+        columns={4}
+        lightbox
+        className="bg-background"
+      />
 
       <CTABanner />
     </div>
