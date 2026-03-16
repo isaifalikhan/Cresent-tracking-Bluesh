@@ -65,9 +65,10 @@ export default function ImageGallery({
             </div>
           )}
 
+          {/* Full-width grid: 1 col mobile, 2–3 cols larger screens; larger cells */}
           <div
-            className={`grid gap-5 sm:gap-6 grid-cols-2 ${
-              columns === 3 ? "lg:grid-cols-3" : columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-2"
+            className={`grid gap-6 sm:gap-8 grid-cols-1 ${
+              columns === 3 ? "md:grid-cols-2 xl:grid-cols-3" : columns === 4 ? "md:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2"
             }`}
           >
             {GALLERY_IMAGES.map((src, index) => (
@@ -77,7 +78,7 @@ export default function ImageGallery({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: index * 0.03 }}
-                className={`relative aspect-[4/3] rounded-2xl overflow-hidden bg-card shadow-lg ring-1 ring-border/80 transition-all duration-300 ${
+                className={`relative aspect-[16/10] min-h-[280px] sm:min-h-[320px] rounded-2xl overflow-hidden bg-card shadow-lg ring-1 ring-border/80 transition-all duration-300 ${
                   lightbox
                     ? "cursor-pointer hover:shadow-xl hover:ring-2 hover:ring-green-500/40 hover:-translate-y-0.5"
                     : ""
@@ -88,7 +89,7 @@ export default function ImageGallery({
                   src={src}
                   alt={`Crescent Tracking ${index + 1}`}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
