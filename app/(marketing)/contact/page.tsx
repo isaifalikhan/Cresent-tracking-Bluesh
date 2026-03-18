@@ -5,76 +5,81 @@ import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Phone, Mail, MessageCircle, MapPin, CheckCircle2, Building2 } from "lucide-react";
+import { Phone, Mail, MessageCircle, MapPin, CheckCircle2, Building2, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-const branches = [
+type Branch = {
+  type: string;
+  city: string;
+  address: string;
+  phone: string[];
+  email?: string;
+};
+
+const branches: Branch[] = [
   {
     type: "Head Office",
     city: "Quetta",
-    address:
-      "Banglow No. 9-E, Afzal Banglows, Opp. SSP Traffic Office, Spinny Road, Quetta.",
+    address: "Banglow No. 9-E, Afzal Banglows, Opp SSP Traffic Office, Spinny Road, Quetta.",
     phone: ["081-2832920"],
-    fax: undefined,
+    email: "info@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Karachi Branch",
     city: "Karachi",
-    address: "Karachi Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Residential Duplex, G-01, Ground Floor, Plot No. E-110, PECHS, Block-2, Karachi.",
+    phone: ["021-34774044", "021-34774045", "0346-8222130"],
+    email: "karachi@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Lahore Branch",
     city: "Lahore",
-    address: "Lahore Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "1st Floor, 273 Y Block Commercial Area, DHA Phase 3, Lahore.",
+    phone: ["0321-9536786"],
+    email: "lahore@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Multan Branch",
     city: "Multan",
-    address: "Multan Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Office No. 10, 1st Floor, Khilji Arcade, Near Cantt Railway Station, Akbar Road, Multan.",
+    phone: ["0341-6964141"],
+    email: "multan@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Sialkot Branch",
     city: "Sialkot",
-    address: "Sialkot Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Al Khalil Center, Kashmir Road, Sialkot.",
+    phone: ["0346-8222135"],
+    email: "mubeen.skt@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Sahiwal Branch",
     city: "Sahiwal",
-    address: "Sahiwal Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Office No. 1, 2, 3, Hassan Market, Karbala Road, Sahiwal.",
+    phone: ["0300-5130181"],
+    email: "sahiwal@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Islamabad Branch",
     city: "Islamabad",
-    address: "Islamabad Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Office No. 4, 2nd Floor, Raja Haq Nawaz Plaza, G-11 Markaz, Islamabad.",
+    phone: ["0300-5262712"],
+    email: "isb@crescenttrack.com",
   },
   {
-    type: "Branch Office",
+    type: "Gujranwala Branch",
     city: "Gujranwala",
-    address: "Gujranwala Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Office No. 7, 8, Fazal Town, Kacha Fatomand Road, Near Muafi Wala Chowk, Gujranwala.",
+    phone: ["0333-8172777"],
   },
   {
-    type: "Branch Office",
+    type: "Abbottabad Branch",
     city: "Abbottabad",
-    address: "Abbottabad Branch Office – for full address please contact Head Office or UAN.",
-    phone: [],
-    fax: undefined,
+    address: "Office No. 9, 1st Floor, Jadoon Plaza, Phase-II, Opposite Aal-e-Sayyed Pharmacy, Mandian, Abbottabad.",
+    phone: ["0348-4777771"],
   },
 ];
 
@@ -93,6 +98,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [openBranchIndex, setOpenBranchIndex] = useState<number>(0);
 
   const {
     register,
@@ -196,9 +202,10 @@ export default function ContactPage() {
                     <div>
                       <div className="text-muted-foreground text-xs mb-0.5">Head Office</div>
                       <div className="text-foreground text-sm">
-                        Banglow No. 9-E, Afzal Banglows,<br />
-                        Opp. SSP Traffic Office, Spinny Road, Quetta.
+                        Banglow No. 9-E, Afzal Banglows, Opp SSP Traffic Office, Spinny Road, Quetta.
                       </div>
+                      <a href="tel:0812832920" className="text-sm text-green-600 dark:text-green-400 hover:underline mt-1 inline-block">081-2832920</a>
+                      <a href="mailto:info@crescenttrack.com" className="text-sm text-green-600 dark:text-green-400 hover:underline block">info@crescenttrack.com</a>
                     </div>
                   </div>
                 </div>
@@ -342,54 +349,83 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Branches */}
+      {/* Branches accordion */}
       <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Our Network"
-            title="Largest Branch Network in Pakistan"
-            description="Crescent Tracking operates a growing network of branches across Pakistan to stay close to your vehicles and your business."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {branches.map((branch) => (
-              <div
-                key={branch.city}
-                className="p-6 rounded-2xl border border-border bg-card hover:border-green-500/20 transition-colors"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-green-brand/10 flex items-center justify-center">
-                    <Building2 className="w-5 h-5 text-green-600 dark:text-green-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">{branch.city}</h3>
-                    <p className="text-xs text-green-600 dark:text-green-400 font-medium">{branch.type}</p>
-                  </div>
-                </div>
-                <div className="space-y-3 text-sm text-muted-foreground">
-                  <p>{branch.address}</p>
-                  {branch.phone.length > 0 && (
-                    <div className="flex flex-col gap-1 mt-2">
-                      {branch.phone.map((ph) => (
-                        <a
-                          key={ph}
-                          href={`tel:${ph.replace(/-/g, "")}`}
-                          className="flex items-center gap-2 hover:text-foreground transition-colors"
-                        >
-                          <Phone className="w-3.5 h-3.5" />
-                          {ph}
-                        </a>
-                      ))}
-                      {branch.fax && (
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs uppercase font-medium">Fax:</span>
-                          {branch.fax}
-                        </div>
-                      )}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display font-bold text-3xl lg:text-4xl text-foreground text-center mb-4">
+            Largest Branch Network in Pakistan
+          </h2>
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10">
+            Crescent Tracking operates a growing network of branches across Pakistan to stay close to your vehicles and your business.
+          </p>
+
+          <div className="space-y-2">
+            {branches.map((branch, index) => {
+              const isOpen = openBranchIndex === index;
+              return (
+                <div
+                  key={branch.city}
+                  className="rounded-xl border border-border bg-card overflow-hidden"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenBranchIndex(isOpen ? -1 : index)}
+                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-muted/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-green-brand/10 flex items-center justify-center flex-shrink-0">
+                        <Building2 className="w-4 h-4 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground">{branch.type}</h3>
+                        <p className="text-xs text-muted-foreground">{branch.city}</p>
+                      </div>
                     </div>
-                  )}
+                    <ChevronDown
+                      className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform duration-200 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-5 pb-5 pt-0 border-t border-border">
+                        <div className="pl-12 space-y-3 text-sm text-muted-foreground">
+                          <p className="text-foreground/90">{branch.address}</p>
+                          {branch.phone.length > 0 && (
+                            <div className="flex flex-wrap gap-x-6 gap-y-1">
+                              {branch.phone.map((ph) => (
+                                <a
+                                  key={ph}
+                                  href={`tel:${ph.replace(/\s/g, "").replace(/-/g, "")}`}
+                                  className="flex items-center gap-2 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                                >
+                                  <Phone className="w-3.5 h-3.5" />
+                                  {ph}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                          {branch.email && (
+                            <a
+                              href={`mailto:${branch.email}`}
+                              className="inline-flex items-center gap-2 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                            >
+                              <Mail className="w-3.5 h-3.5" />
+                              {branch.email}
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
