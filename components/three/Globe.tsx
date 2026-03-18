@@ -140,12 +140,14 @@ export default function Globe() {
 
   return (
     <group ref={globeRef}>
-      {/* Base Globe - white in light theme, dark slate in dark theme */}
+      {/* Base Globe - bright white in light theme, dark slate in dark theme */}
       <Sphere args={[GLOBE_RADIUS, 64, 64]}>
         <meshStandardMaterial
           color={isLight ? "#ffffff" : "#0f172a"}
-          roughness={isLight ? 0.6 : 0.7}
-          metalness={isLight ? 0.05 : 0.1}
+          emissive={isLight ? "#ffffff" : "#000000"}
+          emissiveIntensity={isLight ? 0.35 : 0}
+          roughness={isLight ? 0.5 : 0.7}
+          metalness={isLight ? 0.02 : 0.1}
         />
       </Sphere>
       

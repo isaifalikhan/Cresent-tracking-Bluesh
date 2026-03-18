@@ -12,10 +12,10 @@ export default function Scene() {
   useEffect(() => setMounted(true), []);
 
   const isLight = mounted && theme === "light";
-  const ambientIntensity = isLight ? 1.1 : 0.5;
-  const pointIntensity = isLight ? 1.8 : 1;
-  const directionalIntensity = isLight ? 2.5 : 2;
-  const shadowOpacity = isLight ? 0.2 : 0.4;
+  const ambientIntensity = isLight ? 1.4 : 0.5;
+  const pointIntensity = isLight ? 2.2 : 1;
+  const directionalIntensity = isLight ? 3 : 2;
+  const shadowOpacity = isLight ? 0.15 : 0.4;
 
   return (
     <div className="absolute inset-0 z-0">
