@@ -32,11 +32,11 @@ const quickLinks = [
     items: [
       {
         type: "Android Mobile Application",
-        href: "https://play.google.com/store/apps/details?id=com.naxertech.atlasmobile&hl=en",
+        href: "https://play.google.com/store/apps/details?id=com.cresent.app&hl=en",
       },
       {
         type: "iOS Mobile Application",
-        href: "http://itunes.apple.com/pk/app/pegasus-atlas/id1080183632?mt=8",
+        href: "https://apps.apple.com/pk/app/crescent-tracking-ultra/id6502603426?uo=2",
       },
       {
         type: "Web Tracking for Laptop/PC",

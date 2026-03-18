@@ -140,12 +140,12 @@ export default function Globe() {
 
   return (
     <group ref={globeRef}>
-      {/* Base Globe */}
+      {/* Base Globe - white in light theme, dark slate in dark theme */}
       <Sphere args={[GLOBE_RADIUS, 64, 64]}>
         <meshStandardMaterial
-          color={isLight ? "#e2e8f0" : "#0f172a"} // Light slate vs Dark slate
-          roughness={0.7}
-          metalness={0.1}
+          color={isLight ? "#ffffff" : "#0f172a"}
+          roughness={isLight ? 0.6 : 0.7}
+          metalness={isLight ? 0.05 : 0.1}
         />
       </Sphere>
       
@@ -155,7 +155,7 @@ export default function Globe() {
           color={isLight ? "#16a34a" : "#22c55e"}
           wireframe
           transparent
-          opacity={isLight ? 0.1 : 0.05}
+          opacity={isLight ? 0.12 : 0.05}
         />
       </Sphere>
 
@@ -164,7 +164,7 @@ export default function Globe() {
         <meshBasicMaterial
           color={isLight ? "#16a34a" : "#22c55e"}
           transparent
-          opacity={isLight ? 0.05 : 0.03}
+          opacity={isLight ? 0.06 : 0.03}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />

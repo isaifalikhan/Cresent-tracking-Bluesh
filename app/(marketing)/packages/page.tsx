@@ -8,7 +8,7 @@ const Scene = dynamic(() => import("@/components/three/Scene"), {
   ssr: false,
 });
 
-const pricingExtras = [
+const packageExtras = [
   {
     name: "Basic Extra",
     type: "Yearly",
@@ -39,12 +39,12 @@ const pricingExtras = [
 ];
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Our Packages",
   description:
     "Compare Bike Tracking and Vehicle Track (Basic, VIP, Executive) packages plus available extras for Crescent Tracking services in Pakistan.",
 };
 
-export default function PricingPage() {
+export default function PackagesPage() {
   return (
     <div className="pt-24">
       <section className="py-20 bg-background relative overflow-hidden">
@@ -55,10 +55,10 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pointer-events-none">
           <div className="pointer-events-auto">
             <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 font-medium mb-6">
-              Pricing
+              Our Packages
             </span>
             <h1 className="font-display font-bold text-5xl lg:text-6xl text-foreground leading-tight mb-6">
-              Packages and pricing for every need
+              Packages for every need
             </h1>
             <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
               Choose between Bike Tracking and Vehicle Track packages (Basic, VIP, Executive) and add extras as needed.
@@ -67,7 +67,7 @@ export default function PricingPage() {
         </div>
       </section>
       <PricingTeaser />
-      
+
       {/* Add-ons */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +75,7 @@ export default function PricingPage() {
             Available Extras
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {pricingExtras.map((extra) => (
+            {packageExtras.map((extra) => (
               <div
                 key={`${extra.name}-${extra.type}`}
                 className="p-5 rounded-xl border border-border bg-card"

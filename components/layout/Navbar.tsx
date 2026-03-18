@@ -47,7 +47,7 @@ const navLinks = [
     ],
   },
   { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Our Packages", href: "/packages" },
   { label: "Tracking", href: "/tracking" },
   { label: "Contact", href: "/contact" },
 ];

@@ -20,7 +20,7 @@ const footerLinks = {
   Company: [
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "Our Packages", href: "/packages" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
@@ -61,13 +61,13 @@ export default function Footer() {
               Pakistan&apos;s most trusted GPS fleet tracking and asset protection company, with one of the largest branch networks across the country.
             </p>
             <div className="space-y-3">
-              <a
+              {/* <a
                 href="tel:042111111278"
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 text-green-500" />
                 042-111-111-278
-              </a>
+              </a> */}
               <a
                 href="mailto:info@crescenttrack.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
@@ -80,7 +80,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <MessageCircle className="w-4 h-4 text-green-500" />
-                Helpline: 0300-044-8888
+                Helpline: 0344-2222233
               </a>
               <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />

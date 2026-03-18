@@ -6,7 +6,7 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-export const pricingPackages = [
+export const packagesList = [
   {
     name: "Bike Tracking",
     features: [
@@ -133,7 +133,7 @@ export const pricingPackages = [
   },
 ];
 
-export const pricingExtras = [
+export const packageExtras = [
   {
     name: "Basic Extra",
     type: "Yearly",
@@ -186,16 +186,16 @@ export default function PricingTeaser() {
     <section className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Packages & Pricing"
+          badge="Our Packages"
           title="Choose the right tracking package"
-          description="Compare Bike Tracking and Vehicle Track packages, then talk to our team for final pricing based on your needs."
+          description="Compare Bike Tracking and Vehicle Track packages, then talk to our team to find the best fit for your needs."
         />
 
         <div
           ref={ref}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
         >
-          {pricingPackages.map((pkg, i) => (
+          {packagesList.map((pkg, i) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 40 }}
@@ -237,9 +237,9 @@ export default function PricingTeaser() {
         </div>
 
         <p className="text-center text-muted-foreground text-sm mt-8">
-          Package availability and pricing may vary based on vehicle type and installation requirements.{" "}
+          Package availability may vary based on vehicle type and installation requirements.{" "}
           <Link
-            href="/pricing"
+            href="/packages"
             className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors"
           >
             See full package details →

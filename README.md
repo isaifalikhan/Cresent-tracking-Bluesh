@@ -42,7 +42,7 @@ npm start
     services/page.tsx
     industries/page.tsx
     solutions/page.tsx
-    pricing/page.tsx
+    packages/page.tsx
     case-studies/page.tsx
     blog/page.tsx
     blog/[slug]/page.tsx
