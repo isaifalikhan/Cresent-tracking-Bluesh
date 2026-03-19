@@ -15,7 +15,7 @@ export const posts = [
     slug: "reduce-fleet-fuel-costs",
     title: "10 Proven Ways to Reduce Fleet Fuel Costs in Pakistan",
     excerpt:
-      "Fuel is typically the largest operational expense for Pakistani fleet operators. Here are 10 actionable strategies — backed by data from our 500+ clients — to cut your fuel bill significantly.",
+      "Fuel is typically the largest operational expense for Pakistani fleet operators. Here are 10 actionable strategies — backed by data from our  50,000 clients — to cut your fuel bill significantly.",
     category: "Cost Reduction",
     date: "January 28, 2025",
     readTime: "8 min read",

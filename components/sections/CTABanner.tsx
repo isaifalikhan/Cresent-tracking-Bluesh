@@ -30,7 +30,7 @@ export default function CTABanner() {
               Ready to take control of your fleet?
             </h2>
             <p className="text-green-800/80 dark:text-green-100/80 text-lg max-w-2xl mx-auto mb-10 transition-colors duration-300">
-              Join 500+ Pakistani businesses already using Crescent Tracking to protect assets, reduce costs, and drive growth.
+              Join  50,000 Pakistani businesses already using Crescent Tracking to protect assets, reduce costs, and drive growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
