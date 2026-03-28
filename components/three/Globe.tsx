@@ -219,7 +219,7 @@ export default function Globe() {
               : "bg-slate-900/90 text-white border-green-500/30"
           }`}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="font-mono tracking-wider">HQ: ACTIVE</span>
+            {/* <span className="font-mono tracking-wider">HQ: ACTIVE</span> */}
           </div>
         </Html>
       </group>
