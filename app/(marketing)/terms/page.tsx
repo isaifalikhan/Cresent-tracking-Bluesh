@@ -76,7 +76,7 @@ export default function TermsPage() {
           <section>
             <h2 className="font-display font-semibold text-xl text-foreground mb-3">9. Contact</h2>
             <p>
-              For terms-related inquiries: legal@crescenttracking.com or +92-300-000-0000.
+              For terms-related inquiries: info@crescenttrack.com or 0300-044-8888
             </p>
           </section>
         </div>

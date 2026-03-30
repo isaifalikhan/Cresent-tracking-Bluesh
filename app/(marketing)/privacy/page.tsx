@@ -63,14 +63,14 @@ export default function PrivacyPage() {
           <section>
             <h2 className="font-display font-semibold text-xl text-foreground mb-3">6. Your Rights</h2>
             <p>
-              You have the right to access, correct, or delete your personal data at any time. Contact us at privacy@crescenttracking.com to exercise these rights.
+              You have the right to access, correct, or delete your personal data at any time. Contact us at info@crescenttrack.com to exercise these rights.
             </p>
           </section>
 
           <section>
             <h2 className="font-display font-semibold text-xl text-foreground mb-3">7. Contact</h2>
             <p>
-              For privacy-related concerns, contact our Data Protection Officer at privacy@crescenttracking.com or call +92-300-000-0000.
+              For privacy-related concerns, contact our Data Protection Officer at info@crescenttrack.com or call 0300-044-8888
             </p>
           </section>
         </div>
