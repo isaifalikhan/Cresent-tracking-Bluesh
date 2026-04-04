@@ -13,13 +13,13 @@ export default function AxleLoadSensorsPage() {
   return (
     <div className="pt-24">
       <section className="bg-background">
-        <div className="relative w-full aspect-[21/9] min-h-[300px] sm:min-h-[380px] lg:min-h-[420px] overflow-hidden">
+        <div className="relative w-full aspect-[16/9] min-h-[320px] sm:min-h-[400px] lg:min-h-[460px] overflow-hidden">
           <Image
-            src="/images/12.jpeg"
+            src="/images/Axle Load Sensors.png"
             alt="Axle load sensors - Crescent Tracking"
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
@@ -51,4 +51,3 @@ export default function AxleLoadSensorsPage() {
     </div>
   );
 }
-
