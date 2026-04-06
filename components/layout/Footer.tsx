@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Pakistan&apos;s most trusted GPS fleet tracking and asset protection company, with one of the largest branch networks across the country.
+              Pakistan's most trusted GPS fleet tracking and asset protection company, with one of the largest branch networks across the country.
             </p>
             <div className="space-y-3">
               {/* <a
@@ -82,12 +82,12 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4 text-green-500" />
                 Helpline: 0344-2222233
               </a>
-              <div className="flex items-start gap-3 text-muted-foreground text-sm">
+              {/* <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                 <span>
                   Banglow No. 9-E, Afzal Banglows, Opp. SSP Traffic Office, Spinny Road, Quetta.
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
 

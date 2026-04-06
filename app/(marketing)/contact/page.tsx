@@ -195,29 +195,29 @@ export default function ContactPage() {
                       </div>
                     </a>
                   ))}
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-green-brand/20 flex items-center justify-center flex-shrink-0">
+                  {/* <div className="flex items-start gap-4"> */}
+                    {/* <div className="w-10 h-10 rounded-xl bg-green-brand/20 flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    </div>
-                    <div>
+                    </div> */}
+                    {/* <div>
                       <div className="text-muted-foreground text-xs mb-0.5">Head Office</div>
                       <div className="text-foreground text-sm">
                         Banglow No. 9-E, Afzal Banglows, Opp SSP Traffic Office, Spinny Road, Quetta.
                       </div>
                       <a href="tel:0812832920" className="text-sm text-green-600 dark:text-green-400 hover:underline mt-1 inline-block">081-2832920</a>
                       <a href="mailto:info@crescenttrack.com" className="text-sm text-green-600 dark:text-green-400 hover:underline block">info@crescenttrack.com</a>
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
                 </div>
               </div>
 
               {/* Map placeholder */}
-              <div className="rounded-2xl bg-muted/50 border border-border h-48 flex items-center justify-center">
+              {/* <div className="rounded-2xl bg-muted/50 border border-border h-48 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-8 h-8 text-green-600 dark:text-green-400 mx-auto mb-2" />
                   <p className="text-muted-foreground text-sm">Map placeholder</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Hours */}
               <div className="p-5 rounded-xl bg-card border border-border">
