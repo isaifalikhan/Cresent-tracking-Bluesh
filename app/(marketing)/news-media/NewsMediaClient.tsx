@@ -17,6 +17,16 @@ type NewsGroup = {
   items: NewsItem[];
 };
 
+/** Prepended to the news grid so the newest story appears first. */
+const latestNews: NewsItem = {
+  dateLabel: "Apr 17, 2026",
+  title: "Message from our CEO and Founder on Our 15th Anniversary",
+  postedBy: "Crescent HR Team",
+  description:
+    "Crescent Tracking marks its 15th anniversary — from a bold vision to a trusted name in tracking solutions. A message of gratitude and optimism from CEO Nasir Khan.",
+  image: "/images/15th.jpeg",
+};
+
 // Data adapted from legacy news.html timeline
 const newsGroups: NewsGroup[] = [
   // (content copied from page.tsx, unchanged)
@@ -553,9 +563,7 @@ const newsGroups: NewsGroup[] = [
 export default function NewsMediaClient() {
   const [activeItem, setActiveItem] = useState<NewsItem | null>(null);
 
-  const allItems: NewsItem[] = newsGroups.flatMap((g) => g.items);
-  const leftItems = allItems.filter((_, i) => i % 2 === 0);
-  const rightItems = allItems.filter((_, i) => i % 2 === 1);
+  const allItems: NewsItem[] = [latestNews, ...newsGroups.flatMap((g) => g.items)];
 
   return (
     <div className="pt-24">
@@ -572,87 +580,51 @@ export default function NewsMediaClient() {
         </div>
       </section>
 
-      {/* Dual marquee grids */}
+      {/* All stories — static two columns; images use object-contain so nothing is cropped */}
       <section className="pb-28 lg:pb-36 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
-            {/* Left column – scroll up */}
-            <div className="marquee-group rounded-3xl border border-border/60 bg-card/70 backdrop-blur-sm p-4 sm:p-5">
-              <div className="marquee-column marquee-up">
-                {[...leftItems, ...leftItems].map((item, idx) => (
-                  <button
-                    key={`${item.title}-${item.dateLabel}-${idx}`}
-                    type="button"
-                    onClick={() => setActiveItem(item)}
-                    className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/80 shadow-sm hover:shadow-lg transition-all duration-300 text-left"
-                  >
-                    <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="50vw"
-                        className="object-cover transform transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                      <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/70 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-white/90">
-                        {item.dateLabel}
-                      </span>
-                    </div>
-                    <div className="p-4 space-y-1.5">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600 dark:text-green-400">
-                        {item.postedBy}
-                      </p>
-                      <h3 className="text-sm font-semibold text-foreground line-clamp-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground line-clamp-3">
-                        {item.description}
-                      </p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Right column – scroll down */}
-            <div className="marquee-group rounded-3xl border border-border/60 bg-card/70 backdrop-blur-sm p-4 sm:p-5">
-              <div className="marquee-column marquee-down">
-                {[...rightItems, ...rightItems].map((item, idx) => (
-                  <button
-                    key={`${item.title}-${item.dateLabel}-${idx}`}
-                    type="button"
-                    onClick={() => setActiveItem(item)}
-                    className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/80 shadow-sm hover:shadow-lg transition-all duration-300 text-left"
-                  >
-                    <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="50vw"
-                        className="object-cover transform transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                      <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/70 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-white/90">
-                        {item.dateLabel}
-                      </span>
-                    </div>
-                    <div className="p-4 space-y-1.5">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600 dark:text-green-400">
-                        {item.postedBy}
-                      </p>
-                      <h3 className="text-sm font-semibold text-foreground line-clamp-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground line-clamp-3">
-                        {item.description}
-                      </p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {allItems.map((item, index) => (
+              <button
+                key={`${item.title}-${item.dateLabel}-${index}`}
+                type="button"
+                onClick={() => setActiveItem(item)}
+                className="group text-left overflow-hidden rounded-2xl border border-border/60 bg-card/80 backdrop-blur-sm shadow-sm hover:shadow-lg hover:border-green-500/25 transition-all duration-300"
+              >
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] bg-muted/50 overflow-hidden rounded-t-2xl">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={index === 0}
+                    className="object-contain object-center p-2 sm:p-3 w-full h-full"
+                  />
+                  {index === 0 && (
+                    <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-green-600/90 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
+                      Latest
+                    </span>
+                  )}
+                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/70 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-white/90">
+                    {item.dateLabel}
+                  </span>
+                </div>
+                <div className="p-4 sm:p-5 space-y-1.5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600 dark:text-green-400">
+                    {item.postedBy}
+                  </p>
+                  <h3 className="font-display text-sm sm:text-base font-semibold text-foreground leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-5">
+                    {item.description}
+                  </p>
+                  <p className="text-[11px] font-medium text-green-600/90 dark:text-green-400/90 pt-0.5">
+                    Tap to enlarge
+                  </p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
