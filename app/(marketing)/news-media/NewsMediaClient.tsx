@@ -19,17 +19,61 @@ type NewsGroup = {
 
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
-  dateLabel: "Apr 17, 2026",
-  title: "Message from our CEO and Founder on Our 15th Anniversary",
+  dateLabel: "May 22, 2026",
+  title: "Brand of the Year — Fastest Growing Brand Awards 2025",
   postedBy: "Crescent HR Team",
   description:
-    "Crescent Tracking marks its 15th anniversary — from a bold vision to a trusted name in tracking solutions. A message of gratitude and optimism from CEO Nasir Khan.",
-  image: "/images/15th.jpeg",
+    "Crescent Tracking (Pvt) Ltd is recognized as Brand of the Year in the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — a milestone reflecting our commitment to quality, innovation, and customer trust.",
+  image: "/new/651.jpeg",
 };
 
 // Data adapted from legacy news.html timeline
 const newsGroups: NewsGroup[] = [
-  // (content copied from page.tsx, unchanged)
+  {
+    label: "2026 Event Updates",
+    items: [
+      {
+        dateLabel: "May 22, 2026",
+        title: "Agreement with Higher Education Commission (HEC)",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking Pvt Ltd and the Higher Education Commission (HEC) signed an agreement for the continuation of fleet management services. Director General (Services) HEC appreciated the services and efforts of the Crescent Tracking team.",
+        image: "/new/652.jpeg",
+      },
+      {
+        dateLabel: "May 22, 2026",
+        title: "15th Anniversary Celebration — Islamabad Office",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking proudly continues its 15th anniversary celebrations at our Islamabad office. After successful celebrations across Head Office and branches nationwide, the Islamabad team commemorated this milestone with enthusiasm, unity, and appreciation.",
+        image: "/new/653.jpeg",
+      },
+      {
+        dateLabel: "May 22, 2026",
+        title: "Appreciation Certificate — Worker Welfare Board, Balochistan",
+        postedBy: "Crescent HR Team",
+        description:
+          "Mr. Abdul Sattar Bugti (Secretary, Worker Welfare Board, Balochistan) presented an appreciation certificate to Mr. Yasir Khan (CEO Sales) for his outstanding services to the department.",
+        image: "/new/654.jpeg",
+      },
+      {
+        dateLabel: "Apr 30, 2026",
+        title: "Recognition of Outstanding Services — Worker Welfare Board",
+        postedBy: "Crescent HR Team",
+        description:
+          "Mr. Abdul Sattar Bugti (Secretary, Worker Welfare Board, Balochistan) presented an appreciation certificate to Mr. Yasir Khan (CEO Sales) for his outstanding services to the department.",
+        image: "/new/655.jpeg",
+      },
+      {
+        dateLabel: "Apr 17, 2026",
+        title: "Message from our CEO and Founder on Our 15th Anniversary",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking marks its 15th anniversary — from a bold vision to a trusted name in tracking solutions. A message of gratitude and optimism from CEO Nasir Khan.",
+        image: "/images/15th.jpeg",
+      },
+    ],
+  },
   // 2025 Event Updates
   {
     label: "2025 Event Updates",
