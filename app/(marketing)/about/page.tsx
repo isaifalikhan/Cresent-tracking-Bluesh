@@ -34,6 +34,7 @@ const certifications = [
   "FBR Taxpayer Registration Certificate",
   "SECP Registration",
   "ISO Certification",
+  "Brand of the Year",
 ];
 
 export default function AboutPage() {
