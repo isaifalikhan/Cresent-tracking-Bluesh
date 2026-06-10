@@ -167,8 +167,8 @@ export default function ContactPage() {
                     {
                       icon: MessageCircle,
                       label: "Helpline (24/7)",
-                      value: "0300-044-8888",
-                      href: "tel:03000448888",
+                      value: "0344-2222233",
+                      href: "tel:0344-2222233",
                     },
                     {
                       icon: Mail,
