@@ -19,11 +19,11 @@ type NewsGroup = {
 
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
-  dateLabel: "May 22, 2026",
+  dateLabel: "Jan 07, 2026",
   title: "Brand of the Year — Fastest Growing Brand Awards 2025",
   postedBy: "Crescent HR Team",
   description:
-    "Crescent Tracking (Pvt) Ltd is recognized as Brand of the Year in the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — a milestone reflecting our commitment to quality, innovation, and customer trust.",
+    "Crescent Tracking (Pvt) Ltd is officially confirmed as Brand of the Year in the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — Southern Edition, granted by the Brands Foundation.",
   image: "/new/651.jpeg",
 };
 
@@ -32,6 +32,14 @@ const newsGroups: NewsGroup[] = [
   {
     label: "2026 Event Updates",
     items: [
+      {
+        dateLabel: "Jan 07, 2026",
+        title: "Fastest Growing Brand of the Year 2025 — Official Winning Confirmation",
+        postedBy: "Crescent HR Team",
+        description:
+          "Brands Foundation issues the official Winning Confirmation to Crescent Tracking (Pvt) Ltd for the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — Southern Edition.",
+        image: "/new/671.jpeg",
+      },
       {
         dateLabel: "May 22, 2026",
         title: "Agreement with Higher Education Commission (HEC)",
@@ -78,6 +86,126 @@ const newsGroups: NewsGroup[] = [
   {
     label: "2025 Event Updates",
     items: [
+      {
+        dateLabel: "Sep 23–25, 2025",
+        title: "26th ITCN ASIA 2025 — Crescent Tracking at Karachi Expo Center",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking (Pvt) Ltd exhibited at the 26th ITCN ASIA — Pakistan: The Global ICT Hub — at Karachi Expo Center, Hall #4, Booth D-70 & D-73, showcasing fleet management, fuel sensors, cold chain monitoring, dashcams, and Pakistan's leading vehicle tracking application.",
+        image: "/new/658.jpeg",
+      },
+      {
+        dateLabel: "Sep 25, 2025",
+        title: "ITCN ASIA 2025 — Exhibition Team",
+        postedBy: "Crescent HR Team",
+        description:
+          "The Crescent Tracking team at ITCN ASIA 2025, representing our full range of GPS tracking and fleet management solutions.",
+        image: "/new/656.jpeg",
+      },
+      {
+        dateLabel: "Sep 25, 2025",
+        title: "ITCN ASIA 2025 — Booth Welcome",
+        postedBy: "Crescent HR Team",
+        description:
+          "Welcoming visitors to the Crescent Tracking booth at ITCN ASIA 2025, Karachi Expo Center.",
+        image: "/new/657.jpeg",
+      },
+      {
+        dateLabel: "Sep 24, 2025",
+        title: "ITCN ASIA 2025 — Business Partnerships",
+        postedBy: "Crescent HR Team",
+        description:
+          "Building new partnerships and strengthening relationships with industry leaders at ITCN ASIA 2025.",
+        image: "/new/659.jpeg",
+      },
+      {
+        dateLabel: "Sep 24, 2025",
+        title: "ITCN ASIA 2025 — Fleet Management Showcase",
+        postedBy: "Crescent HR Team",
+        description:
+          "Demonstrating full-stack fleet management, fuel level sensors, and Pakistan's No. 1 vehicle tracking application at ITCN ASIA 2025.",
+        image: "/new/660.jpeg",
+      },
+      {
+        dateLabel: "Sep 24, 2025",
+        title: "ITCN ASIA 2025 — Team at Hall #4",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking representatives at our ITCN ASIA booth in Hall #4, Karachi Expo Center.",
+        image: "/new/661.jpeg",
+      },
+      {
+        dateLabel: "Sep 24, 2025",
+        title: "ITCN ASIA 2025 — Networking with Industry Leaders",
+        postedBy: "Crescent HR Team",
+        description:
+          "Engaging with visitors and partners at the Crescent Tracking booth during ITCN ASIA 2025.",
+        image: "/new/662.jpeg",
+      },
+      {
+        dateLabel: "Sep 23, 2025",
+        title: "ITCN ASIA 2025 — Product Demonstrations",
+        postedBy: "Crescent HR Team",
+        description:
+          "Live demos of fleet management, bike tracking, cold chain monitoring, and dashcam solutions at ITCN ASIA 2025.",
+        image: "/new/663.jpeg",
+      },
+      {
+        dateLabel: "Sep 23, 2025",
+        title: "ITCN ASIA 2025 — Visitor Engagement at Booth",
+        postedBy: "Crescent HR Team",
+        description:
+          "Our team engaging trade visitors and showcasing Crescent Tracking's trusted customer portfolio at ITCN ASIA 2025.",
+        image: "/new/664.jpeg",
+      },
+      {
+        dateLabel: "Sep 25, 2025",
+        title: "ITCN ASIA 2025 — Crescent Team Highlights",
+        postedBy: "Crescent HR Team",
+        description:
+          "Team Crescent at ITCN ASIA 2025, united in presenting Pakistan's leading vehicle tracking and fleet management solutions.",
+        image: "/new/665.jpeg",
+      },
+      {
+        dateLabel: "Sep 23, 2025",
+        title: "ITCN ASIA 2025 — Hardware & Dashcam Display",
+        postedBy: "Crescent HR Team",
+        description:
+          "On display at ITCN ASIA 2025: GPS trackers, dashcams, fuel sensors, and fleet management hardware from Crescent Tracking.",
+        image: "/new/666.jpeg",
+      },
+      {
+        dateLabel: "Sep 24, 2025",
+        title: "ITCN ASIA 2025 — Fuel Sensor & Tracking Solutions",
+        postedBy: "Crescent HR Team",
+        description:
+          "Highlighting fuel level monitoring, fleet management, and real-time GPS tracking at the Crescent booth, ITCN ASIA 2025.",
+        image: "/new/667.jpeg",
+      },
+      {
+        dateLabel: "Sep 24, 2025",
+        title: "ITCN ASIA 2025 — Pakistan's No. 1 Tracking App Demo",
+        postedBy: "Crescent HR Team",
+        description:
+          "Demonstrating the Crescent vehicle tracking and fleet management mobile application to guests at ITCN ASIA 2025.",
+        image: "/new/668.jpeg",
+      },
+      {
+        dateLabel: "Sep 23, 2025",
+        title: "ITCN ASIA 2025 — Client Consultations",
+        postedBy: "Crescent HR Team",
+        description:
+          "One-on-one consultations with businesses exploring fleet tracking, fuel monitoring, and cold chain solutions at ITCN ASIA 2025.",
+        image: "/new/669.jpeg",
+      },
+      {
+        dateLabel: "Sep 25, 2025",
+        title: "ITCN ASIA 2025 — Meeting with Guests & Partners",
+        postedBy: "Crescent HR Team",
+        description:
+          "Hosting guests and partners at the Crescent Tracking booth on the final day of ITCN ASIA 2025.",
+        image: "/new/670.jpeg",
+      },
       {
         dateLabel: "Apr 19, 2025",
         title: "Crescent Tracking Pvt Ltd",
