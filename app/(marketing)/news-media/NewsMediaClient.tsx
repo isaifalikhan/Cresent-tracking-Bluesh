@@ -277,6 +277,14 @@ const newsGroups: NewsGroup[] = [
         image: "/new/638.jpg",
       },
       {
+        dateLabel: "Nov 19, 2024",
+        title: "ISO 9001:2015 Quality Management System Certification",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking (Private) Limited is certified by Quality International for ISO 9001:2015 (Quality Management System) for GPS/GSM-GPRS Security and Tracking Services — Certificate No. QMS/PK/270817.",
+        image: "/new/672.jpeg",
+      },
+      {
         dateLabel: "Oct 01, 2024",
         title: "Congratulations to Interim Karate Combat World Champion Shahzaib Rindh",
         postedBy: "Crescent HR Team",
