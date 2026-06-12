@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export default function CTABanner() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -41,12 +42,11 @@ export default function CTABanner() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="https://wa.me/923096964141"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 border-2 border-green-600/30 text-green-700 hover:bg-green-600/10 dark:border-white/30 dark:text-white dark:hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-colors"
               >
-                <MessageCircle className="w-4 h-4" />
                 Chat on WhatsApp
               </a>
             </div>
