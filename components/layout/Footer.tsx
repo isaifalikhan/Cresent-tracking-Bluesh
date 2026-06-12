@@ -77,13 +77,13 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-green-500" />
                 info@crescenttrack.com
               </a>
-              <a
+              {/* <a
                 href="tel:03442222233"
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <MessageCircle className="w-4 h-4 text-green-500" />
                 Helpline: 0344-2222233
-              </a>
+              </a> */}
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
