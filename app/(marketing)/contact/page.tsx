@@ -158,12 +158,12 @@ export default function ContactPage() {
                 </h2>
                 <div className="space-y-5">
                   {[
-                    {
-                      icon: Phone,
-                      label: "UAN",
-                      value: "042-111-111-278",
-                      href: "tel:042111111278",
-                    },
+                    // {
+                    //   icon: Phone,
+                    //   label: "UAN",
+                    //   value: "042-111-111-278",
+                    //   href: "tel:042111111278",
+                    // },
                     {
                       icon: MessageCircle,
                       label: "Helpline (24/7)",
