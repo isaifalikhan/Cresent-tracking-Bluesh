@@ -77,7 +77,7 @@ export default function Footer() {
                 info@crescenttrack.com
               </a>
               <a
-                href="tel:03000448888"
+                href="tel:+92 300 0448888"
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <MessageCircle className="w-4 h-4 text-green-500" />
