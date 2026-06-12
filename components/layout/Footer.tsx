@@ -81,7 +81,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
               >
                 <MessageCircle className="w-4 h-4 text-green-500" />
-                Helpline: 03096964141
+                Helpline: 0344-2222233
               </a>
               {/* <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
