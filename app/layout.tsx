@@ -3,7 +3,6 @@ import { Manrope, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -104,7 +103,6 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <div className="tracking-bg">
               {children}
-              <WhatsAppButton />
             </div>
           </SmoothScrollProvider>
         </ThemeProvider>
