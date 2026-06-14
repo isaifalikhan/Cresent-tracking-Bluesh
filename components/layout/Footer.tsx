@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MessageCircle } from "lucide-react";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import { Mail } from "lucide-react";
 
 const footerLinks = {
   Solutions: [
@@ -76,22 +75,6 @@ export default function Footer() {
               >
                 <Mail className="w-4 h-4 text-green-500" />
                 info@crescenttrack.com
-              </a>
-              {/* <a
-                href="tel:03442222233"
-                className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
-              >
-                <MessageCircle className="w-4 h-4 text-green-500" />
-                Helpline: 0344-2222233
-              </a> */}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-muted-foreground hover:text-green-500 transition-colors text-sm"
-              >
-                <MessageCircle className="w-4 h-4 text-green-500" />
-                WhatsApp: {WHATSAPP_DISPLAY}
               </a>
               {/* <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
