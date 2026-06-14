@@ -8,7 +8,6 @@ import { z } from "zod";
 import { Phone, Mail, MessageCircle, MapPin, CheckCircle2, Building2, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
@@ -170,12 +169,6 @@ export default function ContactPage() {
                       label: "Helpline (24/7)",
                       value: "0344-2222233",
                       href: "tel:03442222233",
-                    },
-                    {
-                      icon: MessageCircle,
-                      label: "WhatsApp",
-                      value: WHATSAPP_DISPLAY,
-                      href: WHATSAPP_URL,
                     },
                     {
                       icon: Mail,

@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -16,6 +17,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+  if (pathname === "/contact") return null;
+
   return (
     <a
       href={WHATSAPP_URL}
