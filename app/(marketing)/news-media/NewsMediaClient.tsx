@@ -36,6 +36,14 @@ const newsGroups: NewsGroup[] = [
     items: [
       {
         dateLabel: "Jun 15, 2026",
+        title: "CEO of the Year & Fastest Growing Brand Awards 2026",
+        postedBy: "Crescent HR Team",
+        description:
+          "At the 17th Edition Brand of the Year Awards 2026 in Karachi, Mr. Wajid Khan receives the CEO of the Year Award 2025 and Crescent Tracking (Pvt) Ltd is honored with the Fastest Growing Brand of the Year 2025 certificate.",
+        image: "/new/674.jpeg",
+      },
+      {
+        dateLabel: "Jun 15, 2026",
         title: "Best CEO Award Ceremony — Video Highlights",
         postedBy: "Crescent HR Team",
         description:
