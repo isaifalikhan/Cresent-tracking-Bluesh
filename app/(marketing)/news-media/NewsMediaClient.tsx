@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Play } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 type NewsItem = {
@@ -10,6 +11,7 @@ type NewsItem = {
   postedBy: string;
   description: string;
   image: string;
+  video?: string;
 };
 
 type NewsGroup = {
@@ -19,12 +21,12 @@ type NewsGroup = {
 
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
-  dateLabel: "Jan 07, 2026",
-  title: "Brand of the Year — Fastest Growing Brand Awards 2025",
+  dateLabel: "Jun 15, 2026",
+  title: "Best CEO Award — Brand of the Year Awards 2026",
   postedBy: "Crescent HR Team",
   description:
-    "Crescent Tracking (Pvt) Ltd is officially confirmed as Brand of the Year in the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — Southern Edition, granted by the Brands Foundation.",
-  image: "/new/651.jpeg",
+    "CEO Nasir Khan receives the Best CEO trophy at the 17th Edition Brand of the Year Awards 2026 distribution ceremony in Karachi — a proud recognition of leadership behind Crescent Tracking's growth and excellence.",
+  image: "/new/673.jpeg",
 };
 
 // Data adapted from legacy news.html timeline
@@ -33,12 +35,37 @@ const newsGroups: NewsGroup[] = [
     label: "2026 Event Updates",
     items: [
       {
+        dateLabel: "Jun 15, 2026",
+        title: "Best CEO Award Ceremony — Video Highlights",
+        postedBy: "Crescent HR Team",
+        description:
+          "Watch highlights from the Brand of the Year Awards 2026 distribution ceremony in Karachi, where CEO Nasir Khan received the Best CEO trophy.",
+        image: "/new/673.jpeg",
+        video: "/event_video.mp4",
+      },
+      {
+        dateLabel: "Jun 15, 2026",
+        title: "Best CEO Award — Brand of the Year Awards 2026",
+        postedBy: "Crescent HR Team",
+        description:
+          "CEO Nasir Khan receives the Best CEO trophy at the 17th Edition Brand of the Year Awards 2026 distribution ceremony in Karachi — a proud recognition of leadership behind Crescent Tracking's growth and excellence.",
+        image: "/new/673.jpeg",
+      },
+      {
         dateLabel: "Jan 07, 2026",
         title: "Fastest Growing Brand of the Year 2025 — Official Winning Confirmation",
         postedBy: "Crescent HR Team",
         description:
           "Brands Foundation issues the official Winning Confirmation to Crescent Tracking (Pvt) Ltd for the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — Southern Edition.",
         image: "/new/671.jpeg",
+      },
+      {
+        dateLabel: "Jan 07, 2026",
+        title: "Brand of the Year — Fastest Growing Brand Awards 2025",
+        postedBy: "Crescent HR Team",
+        description:
+          "Crescent Tracking (Pvt) Ltd is officially confirmed as Brand of the Year in the Vehicle Tracking category at the Fastest Growing Brand of the Year Awards 2025 — Southern Edition, granted by the Brands Foundation.",
+        image: "/new/651.jpeg",
       },
       {
         dateLabel: "May 22, 2026",
@@ -780,6 +807,13 @@ export default function NewsMediaClient() {
                     priority={index === 0}
                     className="object-contain object-center p-2 sm:p-3 w-full h-full"
                   />
+                  {item.video && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/25">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-green-600/90 text-white shadow-lg">
+                        <Play className="h-5 w-5 fill-current ml-0.5" />
+                      </span>
+                    </div>
+                  )}
                   {index === 0 && (
                     <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-green-600/90 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
                       Latest
@@ -800,7 +834,7 @@ export default function NewsMediaClient() {
                     {item.description}
                   </p>
                   <p className="text-[11px] font-medium text-green-600/90 dark:text-green-400/90 pt-0.5">
-                    Tap to enlarge
+                    {item.video ? "Tap to play" : "Tap to enlarge"}
                   </p>
                 </div>
               </button>
@@ -827,13 +861,24 @@ export default function NewsMediaClient() {
               Close
             </button>
             <div className="relative w-full h-[70vh] min-h-[360px] overflow-hidden rounded-3xl border border-white/15 bg-black">
-              <Image
-                src={activeItem.image}
-                alt={activeItem.title}
-                fill
-                sizes="100vw"
-                className="object-contain"
-              />
+              {activeItem.video ? (
+                <video
+                  src={activeItem.video}
+                  poster={activeItem.image}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="h-full w-full object-contain"
+                />
+              ) : (
+                <Image
+                  src={activeItem.image}
+                  alt={activeItem.title}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                />
+              )}
             </div>
             <div className="mt-4 text-center space-y-1">
               <p className="text-sm font-semibold text-white">{activeItem.title}</p>
