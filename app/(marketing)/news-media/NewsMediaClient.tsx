@@ -35,11 +35,27 @@ const newsGroups: NewsGroup[] = [
     label: "2026 Event Updates",
     items: [
       {
-        dateLabel: "Jun 15, 2026",
-        title: "CEO of the Year & Fastest Growing Brand Awards 2026",
+        dateLabel: "Jun 16, 2026",
+        title: "CEO of the Year 2025 — Official Announcement Creative",
         postedBy: "Crescent HR Team",
         description:
-          "At the 17th Edition Brand of the Year Awards 2026 in Karachi, Mr. Wajid Khan receives the CEO of the Year Award 2025 and Crescent Tracking (Pvt) Ltd is honored with the Fastest Growing Brand of the Year 2025 certificate.",
+          "Official creative highlighting Mr. Nasir Khan’s CEO of the Year 2025 recognition and Crescent Tracking’s continued commitment to innovation, quality, and customer trust.",
+        image: "/new/675.jpeg",
+      },
+      {
+        dateLabel: "Jun 16, 2026",
+        title: "Brand of the Year 2025 — Announcement Creative",
+        postedBy: "Crescent HR Team",
+        description:
+          "Official announcement creative celebrating Crescent Tracking’s Fastest Growing Brand of the Year 2025 recognition in the vehicle tracking category.",
+        image: "/new/676.jpeg",
+      },
+      {
+        dateLabel: "Jun 15, 2026",
+        title: "CEO of the Year & Fastest Growing Brand Recognition",
+        postedBy: "Crescent HR Team",
+        description:
+          "At the 17th Edition Brand of the Year Awards 2026 in Karachi, CEO Nasir Khan and the Crescent team receive recognition for CEO of the Year 2025 and Fastest Growing Brand of the Year 2025.",
         image: "/new/674.jpeg",
       },
       {
