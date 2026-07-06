@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Mail } from "lucide-react";
+import CrescentLogo from "@/components/layout/CrescentLogo";
 
 const footerLinks = {
   Solutions: [
@@ -41,14 +41,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-10 h-10 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                <Image 
-                  src="/Logo.png" 
-                  alt="Crescent Tracking Logo" 
-                  fill 
-                  className="object-contain"
-                />
-              </div>
+              <CrescentLogo containerClassName="w-10 h-10 transition-transform duration-300 group-hover:scale-105" />
               <div className="flex flex-col">
                 <span className="font-display font-bold text-lg text-foreground leading-none block">
                   Crescent

@@ -68,14 +68,6 @@ const newsGroups: NewsGroup[] = [
         video: "/event_video.mp4",
       },
       {
-        dateLabel: "Jun 15, 2026",
-        title: "Best CEO Award — Brand of the Year Awards 2026",
-        postedBy: "Crescent HR Team",
-        description:
-          "CEO Nasir Khan receives the Best CEO trophy at the 17th Edition Brand of the Year Awards 2026 distribution ceremony in Karachi — a proud recognition of leadership behind Crescent Tracking's growth and excellence.",
-        image: "/new/673.jpeg",
-      },
-      {
         dateLabel: "Jan 07, 2026",
         title: "Fastest Growing Brand of the Year 2025 — Official Winning Confirmation",
         postedBy: "Crescent HR Team",
@@ -114,14 +106,6 @@ const newsGroups: NewsGroup[] = [
         description:
           "Mr. Abdul Sattar Bugti (Secretary, Worker Welfare Board, Balochistan) presented an appreciation certificate to Mr. Yasir Khan (CEO Sales) for his outstanding services to the department.",
         image: "/new/654.jpeg",
-      },
-      {
-        dateLabel: "Apr 30, 2026",
-        title: "Recognition of Outstanding Services — Worker Welfare Board",
-        postedBy: "Crescent HR Team",
-        description:
-          "Mr. Abdul Sattar Bugti (Secretary, Worker Welfare Board, Balochistan) presented an appreciation certificate to Mr. Yasir Khan (CEO Sales) for his outstanding services to the department.",
-        image: "/new/655.jpeg",
       },
       {
         dateLabel: "Apr 17, 2026",
@@ -791,10 +775,27 @@ const newsGroups: NewsGroup[] = [
   },
 ];
 
+function dedupeNewsItems(items: NewsItem[]): NewsItem[] {
+  const seen = new Set<string>();
+
+  return items.filter((item) => {
+    const key = item.video
+      ? `video:${item.video}`
+      : `story:${item.image}:${item.description}`;
+
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 export default function NewsMediaClient() {
   const [activeItem, setActiveItem] = useState<NewsItem | null>(null);
 
-  const allItems: NewsItem[] = [latestNews, ...newsGroups.flatMap((g) => g.items)];
+  const allItems: NewsItem[] = dedupeNewsItems([
+    latestNews,
+    ...newsGroups.flatMap((g) => g.items),
+  ]);
 
   return (
     <div className="pt-24">

@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeSwitch } from "@/components/ui/ThemeSwitch";
+import CrescentLogo from "@/components/layout/CrescentLogo";
 import { createPortal } from "react-dom";
 
 const navLinks = [
@@ -99,15 +99,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-[100]">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group relative z-50">
-              <div className="relative w-24 h-16 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src="/Logo.png"
-                  alt="Crescent Tracking Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              <CrescentLogo containerClassName="w-24 h-16 transition-transform duration-300 group-hover:scale-105" priority />
             </Link>
 
             <div className="hidden lg:flex items-center gap-1 bg-background/50 backdrop-blur-sm px-2 py-1.5 rounded-full border border-border/50 shadow-sm">
