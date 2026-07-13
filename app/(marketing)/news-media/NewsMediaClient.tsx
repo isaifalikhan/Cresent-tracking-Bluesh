@@ -21,12 +21,12 @@ type NewsGroup = {
 
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
-  dateLabel: "Jun 15, 2026",
-  title: "Best CEO Award — Brand of the Year Awards 2026",
+  dateLabel: "Jul 12, 2026",
+  title: "Official Best CEO Award Announcement — Pakistan Business Excellence Summit",
   postedBy: "Crescent HR Team",
   description:
-    "CEO Nasir Khan receives the Best CEO trophy at the 17th Edition Brand of the Year Awards 2026 distribution ceremony in Karachi — a proud recognition of leadership behind Crescent Tracking's growth and excellence.",
-  image: "/new/673.jpeg",
+    "Official announcement creative celebrating Mr. Nasir Khan's Best CEO Award at the Pakistan Business Excellence Summit hosted by CEO Minds Pakistan. A proud milestone reflecting his vision, leadership, and unwavering commitment to excellence.",
+  image: "/new/679.jpg",
 };
 
 // Data adapted from legacy news.html timeline
@@ -34,6 +34,30 @@ const newsGroups: NewsGroup[] = [
   {
     label: "2026 Event Updates",
     items: [
+      {
+        dateLabel: "Jul 12, 2026",
+        title: "3rd Annual CEO Minds Pakistan Business Excellence Awards 2026 — Stage Highlights",
+        postedBy: "Crescent HR Team",
+        description:
+          "CEO Nasir Khan alongside esteemed industry leaders receives the prestigious CEO of the Year trophy at the 3rd Annual CEO Minds Pakistan Business Excellence Awards 2026 in Karachi, recognizing Crescent Tracking's excellence in business leadership and innovation.",
+        image: "/new/677.jpg",
+      },
+      {
+        dateLabel: "Jul 12, 2026",
+        title: "CEO of the Year Recognition at Pakistan Business Excellence Summit",
+        postedBy: "Crescent HR Team",
+        description:
+          "A proud moment as Crescent Tracking CEO Nasir Khan holds the CEO of the Year trophy at the Pakistan Business Excellence Summit in Karachi. The award highlights the company's commitment to delivering premium tracking and fleet management solutions nationwide.",
+        image: "/new/678.jpg",
+      },
+      {
+        dateLabel: "Jun 15, 2026",
+        title: "Best CEO Award — Brand of the Year Awards 2026",
+        postedBy: "Crescent HR Team",
+        description:
+          "CEO Nasir Khan receives the Best CEO trophy at the 17th Edition Brand of the Year Awards 2026 distribution ceremony in Karachi — a proud recognition of leadership behind Crescent Tracking's growth and excellence.",
+        image: "/new/673.jpeg",
+      },
       {
         dateLabel: "Jun 16, 2026",
         title: "CEO of the Year 2025 — Official Announcement Creative",
