@@ -22,11 +22,11 @@ type NewsGroup = {
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
   dateLabel: "Aug 14, 2026",
-  title: "const latestNews: NewsItem",
+  title: "humanity and service",
   postedBy: "Crescent HR Team",
   description:
     "A proud moment of humanity and service. Nasir Khan, CEO Crescent Tracking, presenting a tricycle(trike) motorcycle specifically configured for a person with a disability, helping him move toward greater independence and a better future.",
-  image: "/new/680.jpg",
+  image: "/new/680.jpeg",
 };
 
 // Data adapted from legacy news.html timeline
@@ -41,7 +41,7 @@ const newsGroups: NewsGroup[] = [
         postedBy: "Crescent HR Team",
         description:
           "A proud moment of humanity and service. Nasir Khan, CEO Crescent Tracking, presenting a tricycle(trike) motorcycle specifically configured for a person with a disability, helping him move toward greater independence and a better future.",
-        image: "/new/680.jpg",
+        image: "/new/680.jpeg",
       },
       {
         dateLabel: "Jul 12, 2026",
