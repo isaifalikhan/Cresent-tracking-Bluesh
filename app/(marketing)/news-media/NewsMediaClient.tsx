@@ -21,12 +21,12 @@ type NewsGroup = {
 
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
-  dateLabel: "Jul 12, 2026",
-  title: "Official Best CEO Award Announcement — Pakistan Business Excellence Summit",
+  dateLabel: "Aug 14, 2026",
+  title: "const latestNews: NewsItem",
   postedBy: "Crescent HR Team",
   description:
-    "Official announcement creative celebrating Mr. Nasir Khan's Best CEO Award at the Pakistan Business Excellence Summit hosted by CEO Minds Pakistan. A proud milestone reflecting his vision, leadership, and unwavering commitment to excellence.",
-  image: "/new/679.jpg",
+    "A proud moment of humanity and service. Nasir Khan, CEO Crescent Tracking, presenting a tricycle(trike) motorcycle specifically configured for a person with a disability, helping him move toward greater independence and a better future.",
+  image: "/new/680.jpg",
 };
 
 // Data adapted from legacy news.html timeline
@@ -34,13 +34,14 @@ const newsGroups: NewsGroup[] = [
   {
     label: "2026 Event Updates",
     items: [
+
       {
         dateLabel: "Jul 12, 2026",
-        title: "3rd Annual CEO Minds Pakistan Business Excellence Awards 2026 — Stage Highlights",
+        title: "humanity and service",
         postedBy: "Crescent HR Team",
         description:
-          "CEO Nasir Khan alongside esteemed industry leaders receives the prestigious CEO of the Year trophy at the 3rd Annual CEO Minds Pakistan Business Excellence Awards 2026 in Karachi, recognizing Crescent Tracking's excellence in business leadership and innovation.",
-        image: "/new/677.jpg",
+          "A proud moment of humanity and service. Nasir Khan, CEO Crescent Tracking, presenting a tricycle(trike) motorcycle specifically configured for a person with a disability, helping him move toward greater independence and a better future.",
+        image: "/new/680.jpg",
       },
       {
         dateLabel: "Jul 12, 2026",
