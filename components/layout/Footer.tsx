@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import CrescentLogo from "@/components/layout/CrescentLogo";
+import { cities } from "@/lib/cities";
 
 const footerLinks = {
   Solutions: [
@@ -98,6 +99,29 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* City pages */}
+      <div className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <h4 className="font-display font-semibold text-foreground text-sm uppercase tracking-wider mb-4">
+            <Link href="/car-tracker" className="hover:text-green-500 transition-colors">
+              Car Tracker in Your City
+            </Link>
+          </h4>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            {cities.map((c) => (
+              <li key={c.slug}>
+                <Link
+                  href={`/car-tracker/${c.slug}`}
+                  className="text-muted-foreground hover:text-green-500 text-sm transition-colors"
+                >
+                  Car Tracker {c.shortName}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

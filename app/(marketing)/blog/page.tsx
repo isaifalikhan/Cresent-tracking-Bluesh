@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, MapPin } from "lucide-react";
+import { cities } from "@/lib/cities";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
@@ -156,6 +157,25 @@ export default function BlogPage() {
                     {post.readTime}
                   </span>
                 </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* City pages */}
+          <h2 className="font-display font-bold text-2xl text-foreground mt-16 mb-6">
+            Best Vehicle Tracking Company in Your City
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cities.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/car-tracker/${c.slug}`}
+                className="group flex items-center gap-3 rounded-2xl border border-white/5 bg-slate-900/50 hover:border-green-500/20 p-5 transition-all"
+              >
+                <MapPin className="w-5 h-5 text-green-400 flex-shrink-0" />
+                <span className="font-display font-semibold text-white group-hover:text-green-400 transition-colors">
+                  Car Tracker in {c.shortName}
+                </span>
               </Link>
             ))}
           </div>
