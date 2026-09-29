@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
-import { Satellite, Fuel, Car, Map, Zap, Package, Bell, Wrench, LayoutDashboard, Smartphone, FileText, Shield, Radio } from "lucide-react";
+import { Satellite, Fuel, Car, Map, Zap, Package, Bell, Wrench, LayoutDashboard, Smartphone, FileText, Shield, Radio, Video } from "lucide-react";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
@@ -133,6 +133,23 @@ const solutions = [
       "Custom sensor integration",
     ],
     whoFor: "Cold chain, heavy transport, construction",
+  },
+  {
+    id: "dashcam",
+    icon: Video,
+    title: "AI Dashcam & Video Telematics",
+    tagline: "See the road, the cabin and the cargo",
+    description:
+      "Add up to five cameras (front, cabin, rear, side and cargo) with live video, driver fatigue alerts and event recording linked to GPS data.",
+    benefits: [
+      "Front road-facing HD camera",
+      "Cabin camera with fatigue detection",
+      "Rear & side blind-spot cameras",
+      "Cargo area monitoring",
+      "Live video on web & mobile",
+      "Event clips for insurance & disputes",
+    ],
+    whoFor: "Trucking, buses, logistics, cash-in-transit",
   },
 ];
 

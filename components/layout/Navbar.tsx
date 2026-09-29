@@ -23,6 +23,7 @@ const navLinks = [
       { label: "Gen-Set Tracking", href: "/genset-tracking" },
       { label: "Fuel Level Sensors", href: "/fuel-sensors" },
       { label: "Axle Load Sensors", href: "/axle-load-sensors" },
+      { label: "Dashcam", href: "/dashcam" },
     ],
   },
   {
