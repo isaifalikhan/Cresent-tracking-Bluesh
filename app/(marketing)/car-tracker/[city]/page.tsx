@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -24,11 +25,11 @@ import {
   cities,
   getCity,
   CITY_EMAIL,
-  CITY_PHONE_DISPLAY,
   CITY_PHONE_TEL,
   CITY_WHATSAPP_URL,
   type City,
 } from "@/lib/cities";
+import { OG_IMAGE, SITE_NAME } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -40,7 +41,7 @@ export function generateMetadata({ params }: { params: { city: string } }): Meta
   const city = getCity(params.city);
   if (!city) return {};
   const title = `Best Vehicle Tracking Company in ${city.shortName} | Car Tracker ${city.shortName}`;
-  const description = `Looking for a car tracker in ${city.shortName}? Crescent Tracking offers GPS vehicle tracking, anti-theft immobilizer & fleet management in ${city.shortName}. Call or WhatsApp ${CITY_PHONE_DISPLAY}.`;
+  const description = `Looking for a car tracker in ${city.shortName}? Crescent Tracking offers GPS vehicle tracking, anti-theft immobilizer & fleet management in ${city.shortName}. Call or WhatsApp us today.`;
   const url = `/car-tracker/${city.slug}`;
   return {
     title: { absolute: title },
@@ -56,7 +57,8 @@ export function generateMetadata({ params }: { params: { city: string } }): Meta
       `tracker company ${city.shortName}`,
     ],
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: "article" },
+    openGraph: { title, description, url, type: "website", siteName: SITE_NAME, locale: "en_US", images: [OG_IMAGE] },
+    twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE.url] },
   };
 }
 
@@ -84,11 +86,11 @@ function getFaqs(city: City) {
   return [
     {
       q: `Which is the best vehicle tracking company in ${city.shortName}?`,
-      a: `Crescent Tracking is one of the most trusted vehicle tracking companies in ${city.shortName}, offering live GPS tracking, remote engine immobilization, fuel monitoring and a 24/7 control room. Call or WhatsApp ${CITY_PHONE_DISPLAY} to get started.`,
+      a: `Crescent Tracking is one of the most trusted vehicle tracking companies in ${city.shortName}, offering live GPS tracking, remote engine immobilization, fuel monitoring and a 24/7 control room. Call or WhatsApp us to get started.`,
     },
     {
       q: `How can I install a car tracker in ${city.shortName}?`,
-      a: `Simply call or WhatsApp us at ${CITY_PHONE_DISPLAY}${city.address ? ` or visit our office at ${city.address}` : ""}. Our team will guide you on the right package and schedule the installation of your car tracker.`,
+      a: `Simply call or WhatsApp us${city.address ? ` or visit our office at ${city.address}` : ""}. Our team will guide you on the right package and schedule the installation of your car tracker.`,
     },
     {
       q: `Can I track my car from my mobile phone?`,
@@ -112,8 +114,8 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
   const faqs = getFaqs(city);
   const otherCities = cities.filter((c) => c.slug !== city.slug);
   const pageUrl = `https://crescenttracking.com/car-tracker/${city.slug}`;
-  const mapEmbed = city.address
-    ? `https://www.google.com/maps?q=${encodeURIComponent(`${city.address}, Pakistan`)}&output=embed`
+  const mapEmbed = city.geo
+    ? `https://www.google.com/maps?q=${city.geo.lat},${city.geo.lng}&z=17&output=embed`
     : null;
 
   const jsonLd = [
@@ -125,7 +127,6 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
       description: city.intro,
       url: pageUrl,
       image: "https://crescenttracking.com/Logo.png",
-      telephone: CITY_PHONE_TEL,
       email: CITY_EMAIL,
       ...(city.address && {
         address: {
@@ -137,6 +138,9 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
         },
       }),
       ...(city.mapUrl && { hasMap: city.mapUrl }),
+      ...(city.geo && {
+        geo: { "@type": "GeoCoordinates", latitude: city.geo.lat, longitude: city.geo.lng },
+      }),
       areaServed: { "@type": "City", name: city.shortName },
       parentOrganization: { "@type": "Organization", name: "Crescent Tracking (Pvt) Ltd", url: "https://crescenttracking.com" },
     },
@@ -167,7 +171,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
       {/* Hero */}
       <section className="relative overflow-hidden py-16 lg:py-20">
         <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-50 pointer-events-none" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="mb-8">
             <Link
               href="/car-tracker"
@@ -195,7 +199,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
               className="inline-flex items-center gap-2 rounded-full bg-green-600 hover:bg-green-500 text-white font-semibold px-6 py-3 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Call {CITY_PHONE_DISPLAY}
+              Call Now
             </a>
             <a
               href={CITY_WHATSAPP_URL}
@@ -204,7 +208,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
               className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-6 py-3 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              WhatsApp {CITY_PHONE_DISPLAY}
+              WhatsApp Us
             </a>
             <a
               href={`mailto:${CITY_EMAIL}`}
@@ -219,7 +223,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       {/* Contact details */}
       <section className="py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`grid gap-6 ${mapEmbed ? "lg:grid-cols-2" : ""}`}>
             <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
               <h2 className="font-display font-bold text-2xl text-foreground mb-6">
@@ -241,29 +245,6 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
                     <p className="text-sm text-muted-foreground">Email</p>
                     <a href={`mailto:${CITY_EMAIL}`} className="text-foreground font-medium hover:text-green-500 break-all">
                       {CITY_EMAIL}
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Contact No.</p>
-                    <a href={`tel:${CITY_PHONE_TEL}`} className="text-foreground font-medium hover:text-green-500">
-                      {CITY_PHONE_DISPLAY}
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MessageCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <a
-                      href={CITY_WHATSAPP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground font-medium hover:text-green-500"
-                    >
-                      {CITY_PHONE_DISPLAY}
                     </a>
                   </div>
                 </li>
@@ -314,7 +295,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       {/* Article */}
       <article className="py-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-muted-foreground text-base leading-relaxed">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-muted-foreground text-base leading-relaxed">
           <h2 className="font-display font-bold text-3xl lg:text-4xl text-foreground leading-tight">
             Pakistan&apos;s No. 1 Vehicle Tracking Service Provider is Available in {city.shortName}
           </h2>
@@ -425,7 +406,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
             state-of-the-art software with a 24/7 dedicated control room and localized customer service teams.
             Should an anomaly arise or emergency assistance be required, help is always just a phone call away —{" "}
             <a href={`tel:${CITY_PHONE_TEL}`} className="text-green-600 dark:text-green-400 underline">
-              call {CITY_PHONE_DISPLAY}
+              call us
             </a>{" "}
             or{" "}
             <a
@@ -461,7 +442,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       {/* Features */}
       <section className="py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display font-bold text-3xl text-foreground mb-8 text-center">
             Car Tracker Features in {city.shortName}
           </h2>
@@ -479,7 +460,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       {/* Services */}
       <section className="py-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display font-bold text-3xl text-foreground mb-4">
             Our Tracking Services in {city.shortName}
           </h2>
@@ -503,7 +484,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       {/* FAQ */}
       <section className="py-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display font-bold text-3xl text-foreground mb-6">
             Frequently Asked Questions
           </h2>
@@ -523,7 +504,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       {/* Other cities */}
       <section className="py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display font-bold text-2xl text-foreground mb-5">
             Car Tracker in Other Cities
           </h2>
@@ -538,6 +519,27 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Awards */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display font-bold text-3xl text-foreground mb-3">
+            Why {city.shortName} Trusts Crescent Tracking
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            16 years of success, Brand of the Year 2025, PTA approved and PTCA member, ISO certified European
+            standard devices, and the largest branch network in Pakistan.
+          </p>
+          <Image
+            src="/images/crescent-tracking-awards.webp"
+            alt={`Crescent Tracking awards and certifications - best vehicle tracking company in ${city.shortName}: 16 years of success, Brand of the Year 2025, PTA approved, ISO certified`}
+            width={1004}
+            height={548}
+            sizes="(min-width: 1024px) 960px, 100vw"
+            className="w-full h-auto rounded-2xl border border-border"
+          />
         </div>
       </section>
 

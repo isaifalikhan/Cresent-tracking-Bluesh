@@ -11,6 +11,8 @@ export type City = {
   region: string;
   address?: string;
   mapUrl?: string;
+  /** Exact office pin taken from the Google Maps link */
+  geo?: { lat: number; lng: number };
   /** City-specific paragraphs so each page has unique content */
   intro: string;
   localNeed: string;
@@ -27,6 +29,7 @@ export const cities: City[] = [
     region: "Islamabad Capital Territory / Punjab",
     address: "E2, 5th Floor, Land Square, Top City-1, Islamabad",
     mapUrl: "https://maps.app.goo.gl/Szzkmmakie6JSx6u5",
+    geo: { lat: 33.5833926, lng: 72.8726605 },
     intro:
       "Looking for a reliable car tracker in Islamabad or Rawalpindi? Crescent Tracking is the vehicle tracking company that families, corporate offices, rent-a-car operators and logistics fleets across the twin cities trust for real-time GPS tracking, remote engine immobilization and 24/7 control room support.",
     localNeed:
@@ -42,6 +45,7 @@ export const cities: City[] = [
     region: "Punjab",
     address: "1st Floor, 273 Y Block Commercial Area, DHA Phase 3, Lahore",
     mapUrl: "https://maps.app.goo.gl/R3eXGMdtURXmd6XSA",
+    geo: { lat: 31.4711544, lng: 74.3734831 },
     intro:
       "Crescent Tracking is one of the best vehicle tracking companies in Lahore, offering an advanced car tracker with live location, geo-fencing, engine kill and instant theft alerts. From DHA to Johar Town, our Lahore office supports individual car owners and large fleets alike.",
     localNeed:
@@ -57,6 +61,7 @@ export const cities: City[] = [
     region: "Punjab",
     address: "Office No. 1, Madina Mobile, Block Z Madina Town, Faisalabad",
     mapUrl: "https://maps.app.goo.gl/niW5eY8G6xuJizALA",
+    geo: { lat: 31.4218883, lng: 73.1262818 },
     intro:
       "Need a trusted car tracker in Faisalabad? Crescent Tracking provides GPS vehicle tracking, fuel monitoring and fleet management services from our office in Madina Town, helping car owners and industrial fleets across the city stay in control.",
     localNeed:
@@ -72,6 +77,7 @@ export const cities: City[] = [
     region: "Punjab",
     address: "Office No. 306, Al Khalil Center, Kashmir Road, Sialkot",
     mapUrl: "https://maps.app.goo.gl/Dfp7PSyFysQ9mvvX6",
+    geo: { lat: 32.5011741, lng: 74.4983833 },
     intro:
       "Crescent Tracking is a leading vehicle tracking company in Sialkot, offering a smart car tracker with real-time location, engine immobilizer and mobile app access. Visit our office on Kashmir Road or call us for installation anywhere in Sialkot.",
     localNeed:
@@ -87,6 +93,7 @@ export const cities: City[] = [
     region: "Punjab",
     address: "Office No. 18, 1st Floor, Khilji Arcade, Near Cantt Railway Station, Akbar Road, Multan",
     mapUrl: "https://maps.app.goo.gl/e5mDnSYMnQ49c5TdA",
+    geo: { lat: 30.1824443, lng: 71.4463262 },
     intro:
       "Searching for the best car tracker in Multan? Crescent Tracking offers dependable GPS vehicle tracking, anti-theft immobilizers and fleet management for South Punjab from our office near Cantt Railway Station, Akbar Road.",
     localNeed:
@@ -102,6 +109,7 @@ export const cities: City[] = [
     region: "Punjab",
     address: "Office No. 1, 2, 3, Hassan Market, Karbala Road, Sahiwal",
     mapUrl: "https://maps.app.goo.gl/NiXGPfAX8dHr325D8",
+    geo: { lat: 30.6668545, lng: 73.1112407 },
     intro:
       "Crescent Tracking brings professional vehicle tracking to Sahiwal with a local office at Hassan Market, Karbala Road. Get a GPS car tracker with live location, theft alerts and remote engine lock, backed by our 24/7 monitoring team.",
     localNeed:
@@ -117,6 +125,7 @@ export const cities: City[] = [
     region: "Punjab",
     address: "Office No. 7, 8, Fazal Town, Kacha Fatomand Road, Near Muafi Wala Chowk, Gujranwala",
     mapUrl: "https://maps.app.goo.gl/LmAT7qyzMRcKQ2CT6",
+    geo: { lat: 32.194309, lng: 74.201876 },
     intro:
       "Crescent Tracking is a trusted vehicle tracking company in Gujranwala, providing car trackers, bike trackers and fleet management with real-time GPS, geo-fencing and remote immobilization. Visit our Fazal Town office near Muafi Wala Chowk.",
     localNeed:
