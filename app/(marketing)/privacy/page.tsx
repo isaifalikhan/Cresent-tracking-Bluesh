@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: "Crescent Tracking Privacy Policy — how we collect, use, and protect your data.",
-};
+  description:
+    "Crescent Tracking Privacy Policy — how we collect, use, and protect your data.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

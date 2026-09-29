@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "CEO Message - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "CEO Message",
   description:
     "A message from Nasir Khan, CEO/Managing Director of Crescent Group of Companies, on Crescent Tracking’s journey and commitment.",
-};
+  path: "/ceo-message",
+});
 
 export default function CEOMessagePage() {
   return (
@@ -20,6 +22,7 @@ export default function CEOMessagePage() {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Leadership Message"
             title="Message from the CEO"
             description="Our journey, our values, and our commitment to protecting you and your assets."

@@ -3,6 +3,8 @@ interface SectionHeadingProps {
   title: string;
   description?: string;
   centered?: boolean;
+  /** Heading level; use "h1" when this is the page's main heading. */
+  as?: "h1" | "h2";
 }
 
 export default function SectionHeading({
@@ -10,6 +12,7 @@ export default function SectionHeading({
   title,
   description,
   centered = false,
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   return (
     <div className={centered ? "text-center max-w-2xl mx-auto" : "max-w-2xl"}>
@@ -18,9 +21,9 @@ export default function SectionHeading({
           {badge}
         </span>
       )}
-      <h2 className="font-display font-bold text-3xl lg:text-4xl text-foreground leading-tight mb-4">
+      <Heading className="font-display font-bold text-3xl lg:text-4xl text-foreground leading-tight mb-4">
         {title}
-      </h2>
+      </Heading>
       {description && (
         <p className="text-muted-foreground text-lg leading-relaxed">{description}</p>
       )}

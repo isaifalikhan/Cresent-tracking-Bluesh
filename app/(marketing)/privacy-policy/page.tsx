@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - Crescent Tracking Pro",
+export const metadata: Metadata = pageMetadata({
+  title: "Crescent Tracking Pro App Privacy Policy",
   description:
-    "Privacy Policy for Crescent Tracking Pro app covering data collection, usage, and disclosures.",
-};
+    "Privacy Policy for the Crescent Tracking Pro app covering data collection, usage, and disclosures.",
+  path: "/privacy-policy",
+});
 
 export default function AppPrivacyPolicyPage() {
   return (

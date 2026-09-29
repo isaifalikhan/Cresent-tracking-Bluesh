@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import PricingTeaser from "@/components/sections/PricingTeaser";
 import FAQSection from "@/components/sections/FAQSection";
@@ -38,11 +39,12 @@ const packageExtras = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Our Packages",
+export const metadata: Metadata = pageMetadata({
+  title: "Vehicle & Bike Tracker Packages",
   description:
     "Compare Bike Tracking and Vehicle Track (Basic, VIP, Executive) packages plus available extras for Crescent Tracking services in Pakistan.",
-};
+  path: "/packages",
+});
 
 export default function PackagesPage() {
   return (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { notFound } from "next/navigation";
 import { posts } from "../page";
+import { pageMetadata, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -15,9 +16,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return {};
-  return {
+  const metadata = pageMetadata({
     title: post.title,
     description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    type: "article",
+  });
+  return {
+    ...metadata,
+    openGraph: {
+      ...metadata.openGraph,
+      type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      section: post.category,
+    },
   };
 }
 
@@ -87,9 +99,38 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post) notFound();
 
   const content = postContent[params.slug] || post.excerpt;
+  const postUrl = `${SITE_URL}/blog/${post.slug}`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: new Date(post.date).toISOString(),
+      articleSection: post.category,
+      mainEntityOfPage: postUrl,
+      url: postUrl,
+      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      publisher: {
+        "@type": "Organization",
+        name: SITE_NAME,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/Logo.png` },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+        { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
+      ],
+    },
+  ];
 
   return (
     <div className="pt-24 bg-background min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <Link
           href="/blog"

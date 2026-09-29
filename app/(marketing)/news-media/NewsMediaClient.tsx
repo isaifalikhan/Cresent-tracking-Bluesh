@@ -830,6 +830,7 @@ export default function NewsMediaClient() {
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-green-brand/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeading
+            as="h1"
             badge="News & Media"
             title="Timeline of our journey"
             description="Awards, partnerships, government collaborations and milestones that shaped Crescent Tracking into one of Pakistan’s leading tracking companies."

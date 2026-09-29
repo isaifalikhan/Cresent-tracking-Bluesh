@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
@@ -6,10 +7,12 @@ import { Wrench, Wifi, PhoneCall, BookOpen, BarChart3, Settings, Truck, Fuel, Ca
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-export const metadata: Metadata = {
-  title: "Services - Crescent Tracking Pvt Ltd",
-  description: "Comprehensive vehicle tracking and fleet management services including Fuel Monitoring, Asset Tracking, and Dash Cam installations.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Services",
+  description:
+    "Comprehensive vehicle tracking and fleet management services including fuel monitoring, asset tracking, and dash cam installations across Pakistan.",
+  path: "/services",
+});
 
 const services = [
   {

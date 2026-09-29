@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowRight, TrendingDown, Shield, Clock } from "lucide-react";
@@ -6,10 +7,12 @@ import CTABanner from "@/components/sections/CTABanner";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Case Studies",
-  description: "Real results from real businesses. See how Crescent Tracking helped reduce fuel costs, prevent theft, and improve delivery performance.",
-};
+  description:
+    "Real results from real businesses. See how Crescent Tracking helped reduce fuel costs, prevent theft, and improve delivery performance.",
+  path: "/case-studies",
+});
 
 const caseStudies = [
   {

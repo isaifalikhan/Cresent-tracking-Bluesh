@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Fleet Management System - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Fleet Management System in Pakistan",
   description:
-    "Fleet management solution with latest mobile applications and web tracking to increase productivity, cut costs and improve safety.",
-};
+    "Fleet management solution with the latest mobile applications and web tracking to increase productivity, cut fuel costs and improve driver safety.",
+  path: "/fleet-management",
+});
 
 const platformScreens = [
   { src: "/images/fleeymonitoring.jpeg", label: "Fleet monitoring" },
@@ -36,6 +38,7 @@ export default function FleetManagementPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Solutions"
             title="Fleet Management System"
             description="Fleet management solution with latest mobile applications and web tracking."

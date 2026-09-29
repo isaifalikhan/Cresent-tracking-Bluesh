@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms of Service",
-  description: "Crescent Tracking Terms of Service — subscription terms, acceptable use, and service conditions.",
-};
+  description:
+    "Crescent Tracking Terms of Service — subscription terms, acceptable use, and service conditions.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

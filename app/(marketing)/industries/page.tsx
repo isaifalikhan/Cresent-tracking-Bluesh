@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import IndustriesSection from "@/components/sections/IndustriesSection";
 import CTABanner from "@/components/sections/CTABanner";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Industries",
-  description: "GPS tracking solutions for fleet & logistics, corporate, construction, personal, cold chain, and agriculture industries in Pakistan.",
-};
+  description:
+    "GPS tracking solutions for fleet & logistics, corporate, construction, personal, cold chain, and agriculture industries in Pakistan.",
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (

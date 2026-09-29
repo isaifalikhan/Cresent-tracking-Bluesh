@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Fuel Level Sensors - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Fuel Level Sensors & Fuel Monitoring",
   description:
-    "Fuel level sensors integrated with Crescent Tracking platform to monitor fuel usage, detect theft and control costs.",
-};
+    "Fuel level sensors integrated with the Crescent Tracking platform to monitor fuel usage, detect fuel theft and control fleet costs.",
+  path: "/fuel-sensors",
+});
 
 export default function FuelSensorsPage() {
   return (
@@ -29,6 +31,7 @@ export default function FuelSensorsPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Sensors"
             title="Fuel Level Sensors"
             description="Gain full visibility into fuel usage and detect theft or leakage in real time."

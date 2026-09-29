@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-export const metadata: Metadata = {
-  title: "Quick Links - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Quick Links – Web Tracking & Mobile Apps",
   description:
     "Direct access to Crescent Tracking web platforms and mobile apps for Web Track 1, Web Track 2, and Web Track 3.",
-};
+  path: "/quick-links",
+});
 
 const quickLinks = [
   {
@@ -70,6 +72,7 @@ export default function QuickLinksPage() {
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Quick Links"
             title="Stay close to your vehicles"
             description="Use these direct links to access Crescent Tracking web portals and mobile applications."

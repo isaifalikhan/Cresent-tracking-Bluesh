@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
@@ -6,10 +7,12 @@ import { cities } from "@/lib/cities";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Blog",
-  description: "Fleet management insights, GPS tracking tips, fuel saving strategies, and industry news from Crescent Tracking.",
-};
+  description:
+    "Fleet management insights, GPS tracking tips, fuel saving strategies, and industry news from Crescent Tracking.",
+  path: "/blog",
+});
 
 export const posts = [
   {

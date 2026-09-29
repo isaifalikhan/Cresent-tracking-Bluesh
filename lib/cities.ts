@@ -1,4 +1,4 @@
-export const CITY_EMAIL = "info@crescenttrack.com";
+export const CITY_EMAIL = "babar.ali@crescenttrack.com";
 export const CITY_PHONE_DISPLAY = "0309-6964141";
 export const CITY_PHONE_TEL = "+923096964141";
 export const CITY_WHATSAPP_URL = "https://wa.me/923096964141";

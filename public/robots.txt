@@ -1,6 +1,10 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
 
 # Host
 Host: https://crescenttracking.com

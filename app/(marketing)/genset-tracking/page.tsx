@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Gen-Set Tracking - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Gen-Set Tracking & Generator Monitoring",
   description:
-    "Monitor generator sets and stationary power equipment with GPS tracking, sensors and remote status visibility.",
-};
+    "Monitor generator sets and stationary power equipment with GPS tracking, fuel and runtime sensors and remote status visibility.",
+  path: "/genset-tracking",
+});
 
 export default function GensetTrackingPage() {
   return (
@@ -29,6 +31,7 @@ export default function GensetTrackingPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Solutions"
             title="Gen-Set Tracking"
             description="Track and monitor generator sets and other stationary powered assets."

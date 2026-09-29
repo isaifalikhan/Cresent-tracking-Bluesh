@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { OG_IMAGE } from "@/lib/seo";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
@@ -40,6 +41,8 @@ export const metadata: Metadata = {
     "geo-fencing",
   ],
   authors: [{ name: "Crescent Tracking (Pvt) Ltd" }],
+  applicationName: "Crescent Tracking",
+  publisher: "Crescent Tracking (Pvt) Ltd",
   icons: {
     icon: "/Logo.png",
     shortcut: "/Logo.png",
@@ -48,26 +51,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://crescenttracking.com",
     siteName: "Crescent Tracking",
     title: "Crescent Tracking | GPS Fleet Management & Asset Protection",
     description:
       "Pakistan's leading GPS tracking and fleet management company. Real-time tracking, fuel monitoring, and complete asset protection.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Crescent Tracking - GPS Fleet Management",
-      },
-    ],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Crescent Tracking | GPS Fleet Management Pakistan",
     description:
       "Real-time GPS tracking, fleet management, and asset protection solutions across Pakistan.",
-    images: ["/og-image.png"],
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,

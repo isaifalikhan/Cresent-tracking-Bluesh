@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Axle Load Sensors - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Axle Load Sensors",
   description:
-    "Axle load sensors integrated with Crescent Tracking to monitor vehicle load, protect infrastructure and improve safety.",
-};
+    "Axle load sensors integrated with Crescent Tracking to monitor vehicle load in real time, prevent overloading, protect infrastructure and improve safety.",
+  path: "/axle-load-sensors",
+});
 
 export default function AxleLoadSensorsPage() {
   return (
@@ -29,6 +31,7 @@ export default function AxleLoadSensorsPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Sensors"
             title="Axle Load Sensors"
             description="Monitor vehicle load in real time to improve safety and protect your assets."

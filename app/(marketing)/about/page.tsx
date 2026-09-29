@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
@@ -7,11 +8,12 @@ import { Shield, Target, Users, Award } from "lucide-react";
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About Us",
   description:
     "Learn about Crescent Tracking — Pakistan's leading GPS fleet management and asset protection company, serving businesses since 2011.",
-};
+  path: "/about",
+});
 
 const groupOfCompanies = [
   "Crescent Tracking",

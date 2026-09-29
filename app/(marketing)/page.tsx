@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import HeroSection from "@/components/sections/HeroSection";
 import SocialProofStrip from "@/components/sections/SocialProofStrip";
 import BenefitsSection from "@/components/sections/BenefitsSection";
@@ -12,10 +13,17 @@ import PricingTeaser from "@/components/sections/PricingTeaser";
 import FAQSection from "@/components/sections/FAQSection";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Crescent Tracking Pvt Ltd | Vehicle Tracking & Fleet Management",
+const homeMetadata = pageMetadata({
+  title: "Crescent Tracking Pvt Ltd | Vehicle Tracking & Fleet Management in Pakistan",
   description:
-    "Crescent Tracking Pvt Ltd provides vehicle tracking and fleet management services in Pakistan. Monitor vehicles, assets, and fleet operations in real time.",
+    "Crescent Tracking Pvt Ltd provides vehicle tracking, car trackers, bike trackers and fleet management services in Pakistan. Monitor vehicles, assets, and fleet operations in real time with 24/7 control room support.",
+  path: "/",
+});
+
+export const metadata: Metadata = {
+  ...homeMetadata,
+  // Home title already contains the brand, so skip the "| Crescent Tracking" template.
+  title: { absolute: homeMetadata.title as string },
 };
 
 export default function HomePage() {

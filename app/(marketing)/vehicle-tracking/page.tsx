@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Vehicle Tracking - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Vehicle Tracking System in Pakistan",
   description:
-    "The best vehicle tracking solution in Pakistan with real-time GPS / GPRS monitoring, immobilization and 24/7 control room support.",
-};
+    "The best vehicle tracking solution in Pakistan with real-time GPS / GPRS monitoring, remote immobilization and 24/7 control room support.",
+  path: "/vehicle-tracking",
+});
 
 export default function VehicleTrackingPage() {
   return (
@@ -32,6 +34,7 @@ export default function VehicleTrackingPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Solutions"
             title="Vehicle Tracking"
             description="The best vehicle tracking solution with unbreakable services and real-time visibility."

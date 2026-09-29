@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
@@ -6,10 +7,12 @@ import { Satellite, Fuel, Car, Map, Zap, Package, Bell, Wrench, LayoutDashboard,
 
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 
-export const metadata: Metadata = {
-  title: "Solutions - Crescent Tracking Pvt Ltd",
-  description: "Web-based fleet management platform, real-time tracking, SMS alerts, and comprehensive reporting.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Solutions",
+  description:
+    "Web-based fleet management platform, real-time GPS tracking, SMS alerts, and comprehensive reporting from Crescent Tracking.",
+  path: "/solutions",
+});
 
 const solutions = [
   {

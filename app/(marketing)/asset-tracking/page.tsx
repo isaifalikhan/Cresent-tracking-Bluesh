@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Asset Tracking - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Asset Tracking in Pakistan",
   description:
-    "Track trailers, containers, generators and high-value mobile assets with long-life GPS tracking devices and web / mobile access.",
-};
+    "Track trailers, containers, generators and high-value mobile assets with long-life GPS tracking devices, geo-fencing, tamper alerts and web / mobile access.",
+  path: "/asset-tracking",
+});
 
 export default function AssetTrackingPage() {
   return (
@@ -29,6 +31,7 @@ export default function AssetTrackingPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Solutions"
             title="Assets Tracking"
             description="Protect your high-value mobile assets with reliable GPS / GSM–GPRS tracking."

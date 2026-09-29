@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/sections/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Bike Tracking - Crescent Tracking",
+export const metadata: Metadata = pageMetadata({
+  title: "Bike Tracker in Pakistan",
   description:
-    "Bike tracking solution in Pakistan with latest GPS tracking equipment and high location accuracy for individual and commercial use.",
-};
+    "Bike tracking solution in Pakistan with the latest GPS tracking equipment, high location accuracy, mobile app access and 24/7 control room support.",
+  path: "/bike-tracking",
+});
 
 export default function BikeTrackingPage() {
   return (
@@ -29,6 +31,7 @@ export default function BikeTrackingPage() {
       <section className="py-16 lg:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
+            as="h1"
             badge="Solutions"
             title="Bike Tracking"
             description="Providing the best bike tracking solution in Pakistan with the latest and most advanced tracking equipment."
