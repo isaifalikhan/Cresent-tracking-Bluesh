@@ -5,133 +5,7 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-
-export const packagesList = [
-  {
-    name: "Bike Tracking",
-    features: [
-      { name: "24/7 Real Time Tracking", available: true },
-      { name: "24/7 Call Center Facility", available: true },
-      { name: "Geo Fence & Battery Temper Call", available: false },
-      {
-        name: "Theft/Snatched Vehicle Recovery Assistance",
-        available: true,
-      },
-      { name: "Built-In Jammer detector", available: false },
-      {
-        name: "Web Access for Self Tracking (For Laptop/PC)",
-        available: true,
-      },
-      {
-        name: "Mobile Application for Self Tracking (Android/iOS)",
-        available: true,
-      },
-      {
-        name: "SMS Engine Kill Through Mobile Application",
-        available: false,
-      },
-      { name: "History & Trip Reports", available: false },
-      { name: "SMS Alerts (ACC On/Off)", available: false },
-      { name: "In-Vehicle Microphone & Speaker", available: false },
-      { name: "In-Vehicle Camera", available: false },
-      { name: "Door Alert Via SMS", available: false },
-      { name: "Panic Button", available: false },
-    ],
-  },
-  {
-    name: "Vehicle Track - Basic",
-    features: [
-      { name: "24/7 Real Time Tracking", available: true },
-      { name: "24/7 Call Center Facility", available: true },
-      { name: "Geo Fence & Battery Temper Call", available: true },
-      {
-        name: "Theft/Snatched Vehicle Recovery Assistance",
-        available: true,
-      },
-      { name: "Built-In Jammer detector", available: false },
-      {
-        name: "Web Access for Self Tracking (For Laptop/PC)",
-        available: true,
-      },
-      {
-        name: "Mobile Application for Self Tracking (Android/iOS)",
-        available: true,
-      },
-      {
-        name: "SMS Engine Kill Through Mobile Application",
-        available: true,
-      },
-      { name: "History & Trip Reports", available: false },
-      { name: "SMS Alerts (ACC On/Off)", available: false },
-      { name: "In-Vehicle Microphone & Speaker", available: false },
-      { name: "In-Vehicle Camera", available: false },
-      { name: "Door Alert Via SMS", available: false },
-      { name: "Panic Button", available: false },
-    ],
-  },
-  {
-    name: "Vehicle Track - VIP",
-    features: [
-      { name: "24/7 Real Time Tracking", available: true },
-      { name: "24/7 Call Center Facility", available: true },
-      { name: "Geo Fence & Battery Temper Call", available: true },
-      {
-        name: "Theft/Snatched Vehicle Recovery Assistance",
-        available: true,
-      },
-      { name: "Built-In Jammer detector", available: true },
-      {
-        name: "Web Access for Self Tracking (For Laptop/PC)",
-        available: true,
-      },
-      {
-        name: "Mobile Application for Self Tracking (Android/iOS)",
-        available: true,
-      },
-      {
-        name: "SMS Engine Kill Through Mobile Application",
-        available: true,
-      },
-      { name: "History & Trip Reports", available: true },
-      { name: "SMS Alerts (ACC On/Off)", available: true },
-      { name: "In-Vehicle Microphone & Speaker", available: true },
-      { name: "In-Vehicle Camera", available: false },
-      { name: "Door Alert Via SMS", available: false },
-      { name: "Panic Button", available: true },
-    ],
-  },
-  {
-    name: "Vehicle Track - Executive",
-    features: [
-      { name: "24/7 Real Time Tracking", available: true },
-      { name: "24/7 Call Center Facility", available: true },
-      { name: "Geo Fence & Battery Temper Call", available: true },
-      {
-        name: "Theft/Snatched Vehicle Recovery Assistance",
-        available: true,
-      },
-      { name: "Built-In Jammer detector", available: true },
-      {
-        name: "Web Access for Self Tracking (For Laptop/PC)",
-        available: true,
-      },
-      {
-        name: "Mobile Application for Self Tracking (Android/iOS)",
-        available: true,
-      },
-      {
-        name: "SMS Engine Kill Through Mobile Application",
-        available: true,
-      },
-      { name: "History & Trip Reports", available: true },
-      { name: "SMS Alerts (ACC On/Off)", available: true },
-      { name: "In-Vehicle Microphone & Speaker", available: true },
-      { name: "In-Vehicle Camera", available: true },
-      { name: "Door Alert Via SMS", available: true },
-      { name: "Panic Button", available: true },
-    ],
-  },
-];
+import { plans, featuresForPlan } from "@/lib/packages";
 
 export const packageExtras = [
   {
@@ -163,22 +37,6 @@ export const packageExtras = [
   },
 ];
 
-function getPackageTagline(name: string) {
-  if (name === "Bike Tracking") {
-    return "For individual bike and personal use";
-  }
-  if (name === "Vehicle Track - Basic") {
-    return "Essential tracking and security for vehicles";
-  }
-  if (name === "Vehicle Track - VIP") {
-    return "Advanced tracking with more security features";
-  }
-  if (name === "Vehicle Track - Executive") {
-    return "Full-featured tracking with all sensors and accessories";
-  }
-  return "";
-}
-
 export default function PricingTeaser() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -188,14 +46,14 @@ export default function PricingTeaser() {
         <SectionHeading
           badge="Our Packages"
           title="Choose the right tracking package"
-          description="Compare Bike Tracking and Vehicle Track packages, then talk to our team to find the best fit for your needs."
+          description="Compare Bike Tracking (Basic), Basic Plus, VIP and Executive packages, then talk to our team to find the best fit for your needs."
         />
 
         <div
           ref={ref}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
         >
-          {packagesList.map((pkg, i) => (
+          {plans.map((pkg, i) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 40 }}
@@ -208,20 +66,18 @@ export default function PricingTeaser() {
                   {pkg.name}
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  {getPackageTagline(pkg.name)}
+                  {pkg.tagline}
                 </p>
               </div>
 
               <ul className="space-y-4 mb-8 flex-1">
-                {pkg.features
-                  .filter((feature) => feature.available)
-                  .map((feature) => (
+                {featuresForPlan(i).map((feature) => (
                     <li
-                      key={feature.name}
+                      key={feature}
                       className="flex items-start gap-3 text-sm text-muted-foreground"
                     >
                       <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      {feature.name}
+                      {feature}
                     </li>
                   ))}
               </ul>

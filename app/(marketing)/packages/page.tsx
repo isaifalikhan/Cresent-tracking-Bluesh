@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import PricingTeaser from "@/components/sections/PricingTeaser";
+import PackageComparison from "@/components/sections/PackageComparison";
 import FAQSection from "@/components/sections/FAQSection";
 import CTABanner from "@/components/sections/CTABanner";
 
@@ -42,7 +43,7 @@ const packageExtras = [
 export const metadata: Metadata = pageMetadata({
   title: "Vehicle & Bike Tracker Packages",
   description:
-    "Compare Bike Tracking and Vehicle Track (Basic, VIP, Executive) packages plus available extras for Crescent Tracking services in Pakistan.",
+    "Compare Bike Tracking (Basic), Basic Plus, VIP and Executive packages plus available extras for Crescent Tracking services in Pakistan.",
   path: "/packages",
 });
 
@@ -63,12 +64,13 @@ export default function PackagesPage() {
               Packages for every need
             </h1>
             <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-              Choose between Bike Tracking and Vehicle Track packages (Basic, VIP, Executive) and add extras as needed.
+              Choose between Bike Tracking (Basic), Basic Plus, VIP and Executive packages and add extras as needed.
             </p>
           </div>
         </div>
       </section>
       <PricingTeaser />
+      <PackageComparison />
 
       {/* Add-ons */}
       <section className="py-16 bg-muted/30">

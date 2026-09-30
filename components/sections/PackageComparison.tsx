@@ -1,31 +1,6 @@
 import { Check, Minus } from "lucide-react";
 
-const plans = ["Bike Tracking (Basic)", "Basic Plus", "VIP", "Executive"];
-
-// Each row lists which plans include the feature, in the same order as `plans`.
-const features: { label: string; included: boolean[] }[] = [
-  { label: "Real Time Tracking 24x7x365", included: [true, true, true, true] },
-  { label: "24hr Call Centre Facility", included: [true, true, true, true] },
-  { label: "Geo-Fencing/Out Zone Movement Alert via Call", included: [true, true, true, true] },
-  { label: "Battery and Device Tamper Alert via Call", included: [false, true, true, true] },
-  { label: "Automatic Power Saving", included: [true, true, true, true] },
-  { label: "Automatic GPRS/SMS Status Reporting", included: [true, true, true, true] },
-  { label: "Vehicle Recovery Assistance", included: [true, true, true, true] },
-  { label: "Tamper Alert", included: [true, true, true, true] },
-  { label: "Technical Support All Over Pakistan", included: [true, true, true, true] },
-  { label: "Web Access with Reports", included: [true, true, true, true] },
-  { label: "Mobile Application for Real Time Tracking", included: [true, true, true, true] },
-  { label: "Route History Replay", included: [true, true, true, true] },
-  { label: "Vehicle Trip Report", included: [true, true, true, true] },
-  { label: "All Vehicles Tracking Under One Window", included: [true, true, true, true] },
-  { label: "Manageable Notifications", included: [false, true, true, true] },
-  { label: "Multiple Geo Fences", included: [false, false, true, true] },
-  { label: "In Vehicle Microphone", included: [false, false, true, true] },
-  { label: "Panic Button", included: [false, false, true, true] },
-  { label: "Dash Cam (Dual Side Camera)", included: [false, false, false, true] },
-  { label: "Two Way Communication", included: [false, false, false, true] },
-  { label: "In Device DVR", included: [false, false, false, true] },
-];
+import { plans, planFeatures } from "@/lib/packages";
 
 export default function PackageComparison({ cityName }: { cityName?: string }) {
   return (
@@ -45,7 +20,7 @@ export default function PackageComparison({ cityName }: { cityName?: string }) {
                 <th scope="col" className="text-left font-semibold px-4 py-3">
                   Features
                 </th>
-                {plans.map((p) => (
+                {plans.map(({ name: p }) => (
                   <th key={p} scope="col" className="font-semibold px-3 py-3 text-center whitespace-nowrap">
                     {p}
                   </th>
@@ -53,13 +28,13 @@ export default function PackageComparison({ cityName }: { cityName?: string }) {
               </tr>
             </thead>
             <tbody>
-              {features.map((f) => (
+              {planFeatures.map((f) => (
                 <tr key={f.label} className="border-t border-border even:bg-green-500/[0.03]">
                   <th scope="row" className="text-left font-normal text-foreground px-4 py-3">
                     {f.label}
                   </th>
                   {f.included.map((yes, i) => (
-                    <td key={plans[i]} className="px-3 py-3 text-center">
+                    <td key={plans[i].name} className="px-3 py-3 text-center">
                       {yes ? (
                         <Check className="inline w-5 h-5 text-green-500" aria-label="Included" />
                       ) : (
