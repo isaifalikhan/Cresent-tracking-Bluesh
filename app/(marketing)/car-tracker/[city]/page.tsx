@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -21,6 +20,7 @@ import {
 } from "lucide-react";
 import CTABanner from "@/components/sections/CTABanner";
 import PackageComparison from "@/components/sections/PackageComparison";
+import WhyCrescent from "@/components/sections/WhyCrescent";
 import {
   cities,
   getCity,
@@ -522,26 +522,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
         </div>
       </section>
 
-      {/* Awards */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display font-bold text-3xl text-foreground mb-3">
-            Why {city.shortName} Trusts Crescent Tracking
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            16 years of success, Brand of the Year 2025, PTA approved and PTCA member, ISO certified European
-            standard devices, and the largest branch network in Pakistan.
-          </p>
-          <Image
-            src="/images/crescent-tracking-awards.webp"
-            alt={`Crescent Tracking awards and certifications - best vehicle tracking company in ${city.shortName}: 16 years of success, Brand of the Year 2025, PTA approved, ISO certified`}
-            width={1004}
-            height={548}
-            sizes="(min-width: 1024px) 960px, 100vw"
-            className="w-full h-auto rounded-2xl border border-border"
-          />
-        </div>
-      </section>
+      <WhyCrescent cityName={city.shortName} />
 
       <PackageComparison cityName={city.shortName} />
 
