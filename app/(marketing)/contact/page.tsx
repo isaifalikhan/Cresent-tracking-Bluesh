@@ -44,8 +44,8 @@ const branches: Branch[] = [
   {
     type: "Multan Branch",
     city: "Multan",
-    address: "Office No. 10, 1st Floor, Khilji Arcade, Near Cantt Railway Station, Akbar Road, Multan.",
-    phone: ["0341-6964141"],
+    address: "Office No. 18, 1st Floor, Khilji Arcade, Near Cantt Railway Station, Akbar Road, Multan.",
+    phone: ["0309-6964141"],
     email: "multan@crescenttrack.com",
   },
   {
@@ -65,7 +65,7 @@ const branches: Branch[] = [
   {
     type: "Islamabad Branch",
     city: "Islamabad",
-    address: "Office No. 4, 2nd Floor, Raja Haq Nawaz Plaza, G-11 Markaz, Islamabad.",
+    address: "E2, 5th Floor, Land Square, Top City-1, Islamabad.",
     phone: ["0300-5262712"],
     email: "isb@crescenttrack.com",
   },
