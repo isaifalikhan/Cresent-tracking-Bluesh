@@ -64,6 +64,9 @@ export const metadata: Metadata = {
       "Real-time GPS tracking, fleet management, and asset protection solutions across Pakistan.",
     images: [OG_IMAGE.url],
   },
+  verification: {
+    google: "L2egibZS4xQiVrnncC-HyCLzAd0wv8UjfmFu7L_yU2I",
+  },
   robots: {
     index: true,
     follow: true,
