@@ -7,7 +7,7 @@ Disallow: /dashboard
 Disallow: /login
 
 # Host
-Host: https://crescenttracking.com
+Host: https://www.crescenttrack.com
 
 # Sitemaps
-Sitemap: https://crescenttracking.com/sitemap.xml
+Sitemap: https://www.crescenttrack.com/sitemap.xml

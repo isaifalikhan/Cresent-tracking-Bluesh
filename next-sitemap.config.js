@@ -2,7 +2,7 @@
 const privatePaths = ["/admin", "/admin/*", "/dashboard", "/dashboard/*", "/login", "/tracking", "/tracking/*"];
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://crescenttracking.com",
+  siteUrl: process.env.SITE_URL || "https://www.crescenttrack.com",
   generateRobotsTxt: true,
   exclude: ["/api/*", "/opengraph-image*", "/twitter-image*", ...privatePaths],
   transform: async (config, path) => {

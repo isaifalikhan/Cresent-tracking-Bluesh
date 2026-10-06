@@ -24,7 +24,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://crescenttracking.com"),
+  metadataBase: new URL("https://www.crescenttrack.com"),
   title: {
     default: "Crescent Tracking | GPS Fleet Management & Asset Protection Pakistan",
     template: "%s | Crescent Tracking",

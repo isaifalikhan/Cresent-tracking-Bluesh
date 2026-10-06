@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://crescenttracking.com";
+export const SITE_URL = "https://www.crescenttrack.com";
 export const SITE_NAME = "Crescent Tracking";
 export const OG_IMAGE = {
   url: "/og-image.png",

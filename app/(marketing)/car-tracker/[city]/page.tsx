@@ -117,7 +117,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
   const faqs = getFaqs(city);
   const otherCities = cities.filter((c) => c.slug !== city.slug);
-  const pageUrl = `https://crescenttracking.com/car-tracker/${city.slug}`;
+  const pageUrl = `https://www.crescenttrack.com/car-tracker/${city.slug}`;
   const mapEmbed = city.geo
     ? `https://www.google.com/maps?q=${city.geo.lat},${city.geo.lng}&z=17&output=embed`
     : null;
@@ -130,8 +130,8 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
       name: `Crescent Tracking - ${city.name}`,
       description: city.intro,
       url: pageUrl,
-      image: "https://crescenttracking.com/Logo.png",
-      logo: "https://crescenttracking.com/Logo.png",
+      image: "https://www.crescenttrack.com/Logo.png",
+      logo: "https://www.crescenttrack.com/Logo.png",
       telephone: CITY_PHONE_TEL,
       email: CITY_EMAIL,
       ...(city.address && {
@@ -148,7 +148,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
         geo: { "@type": "GeoCoordinates", latitude: city.geo.lat, longitude: city.geo.lng },
       }),
       areaServed: { "@type": "City", name: city.shortName },
-      parentOrganization: { "@id": "https://crescenttracking.com/#organization" },
+      parentOrganization: { "@id": "https://www.crescenttrack.com/#organization" },
     },
     {
       "@context": "https://schema.org",
@@ -163,8 +163,8 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://crescenttracking.com" },
-        { "@type": "ListItem", position: 2, name: "Car Tracker", item: "https://crescenttracking.com/car-tracker" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.crescenttrack.com" },
+        { "@type": "ListItem", position: 2, name: "Car Tracker", item: "https://www.crescenttrack.com/car-tracker" },
         { "@type": "ListItem", position: 3, name: city.shortName, item: pageUrl },
       ],
     },

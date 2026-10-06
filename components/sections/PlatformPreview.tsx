@@ -62,7 +62,7 @@ export default function PlatformPreview() {
                 <span className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
               <div className="flex-1 mx-4 h-6 rounded-md bg-background/80 flex items-center px-3 border border-border/50">
-                <span className="text-muted-foreground text-xs font-mono">app.crescenttracking.com</span>
+                <span className="text-muted-foreground text-xs font-mono">app.crescenttrack.com</span>
               </div>
             </div>
             <div className="relative w-full aspect-[2/1] min-h-[320px] sm:min-h-[400px] lg:min-h-[480px] bg-muted/30">

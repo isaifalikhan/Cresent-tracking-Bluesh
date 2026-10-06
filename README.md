@@ -91,5 +91,5 @@ npm start
 ## Environment Variables
 
 ```env
-SITE_URL=https://crescenttracking.com
+SITE_URL=https://www.crescenttrack.com
 ```
