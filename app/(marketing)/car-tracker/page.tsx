@@ -6,9 +6,17 @@ import CTABanner from "@/components/sections/CTABanner";
 import { cities, CITY_PHONE_TEL, CITY_WHATSAPP_URL } from "@/lib/cities";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Car Tracker & Vehicle Tracking Company Across Pakistan",
-  description: `Find Crescent Tracking's car tracker and vehicle tracking services in Islamabad, Rawalpindi, Lahore, Faisalabad, Multan, Sialkot, Peshawar and more cities. Call or WhatsApp us today.`,
+  title: "Best Car Tracker in Pakistan | Vehicle Tracking Company in All Major Cities",
+  description: `Looking for the best car tracker in Pakistan? Crescent Tracking has offices in Islamabad, Rawalpindi, Lahore, Faisalabad, Multan, Sialkot, Gujranwala, Sahiwal and serves Peshawar and more cities. Call or WhatsApp us today.`,
   path: "/car-tracker",
+  keywords: [
+    "best car tracker in Pakistan",
+    "best tracker in Pakistan",
+    "car tracker Pakistan",
+    "vehicle tracking company Pakistan",
+    "tracker company in Pakistan",
+    ...cities.map((c) => `best tracker in ${c.shortName}`),
+  ],
 });
 
 export default function CarTrackerCitiesPage() {
@@ -22,7 +30,7 @@ export default function CarTrackerCitiesPage() {
             Our Cities
           </span>
           <h1 className="font-display font-bold text-4xl sm:text-5xl text-foreground leading-tight mb-5">
-            Car Tracker &amp; Vehicle Tracking Company Across Pakistan
+            Best Car Tracker &amp; Vehicle Tracking Company Across Pakistan
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">
             Crescent Tracking provides GPS car trackers, bike trackers and fleet management services in cities

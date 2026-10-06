@@ -25,6 +25,7 @@ import {
   cities,
   getCity,
   CITY_EMAIL,
+  CITY_PHONE_DISPLAY,
   CITY_PHONE_TEL,
   CITY_WHATSAPP_URL,
   type City,
@@ -40,13 +41,16 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { city: string } }): Metadata {
   const city = getCity(params.city);
   if (!city) return {};
-  const title = `Best Vehicle Tracking Company in ${city.shortName} | Car Tracker ${city.shortName}`;
-  const description = `Looking for a car tracker in ${city.shortName}? Crescent Tracking offers GPS vehicle tracking, anti-theft immobilizer & fleet management in ${city.shortName}. Call or WhatsApp us today.`;
+  const title = `Best Car Tracker in ${city.shortName} | Vehicle Tracking Company ${city.shortName}`;
+  const description = `Looking for the best tracker in ${city.shortName}? Crescent Tracking offers GPS car & bike trackers, anti-theft immobilizer & fleet management in ${city.shortName}. Call ${CITY_PHONE_DISPLAY} or WhatsApp us today.`;
   const url = `/car-tracker/${city.slug}`;
   return {
     title: { absolute: title },
     description,
     keywords: [
+      `best tracker in ${city.shortName}`,
+      `best car tracker in ${city.shortName}`,
+      `tracker company in ${city.shortName}`,
       `car tracker in ${city.shortName}`,
       `vehicle tracking company in ${city.shortName}`,
       `best vehicle tracking company in ${city.shortName}`,
@@ -85,7 +89,7 @@ const services = [
 function getFaqs(city: City) {
   return [
     {
-      q: `Which is the best vehicle tracking company in ${city.shortName}?`,
+      q: `Which is the best car tracker company in ${city.shortName}?`,
       a: `Crescent Tracking is one of the most trusted vehicle tracking companies in ${city.shortName}, offering live GPS tracking, remote engine immobilization, fuel monitoring and a 24/7 control room. Call or WhatsApp us to get started.`,
     },
     {
@@ -127,6 +131,8 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
       description: city.intro,
       url: pageUrl,
       image: "https://crescenttracking.com/Logo.png",
+      logo: "https://crescenttracking.com/Logo.png",
+      telephone: CITY_PHONE_TEL,
       email: CITY_EMAIL,
       ...(city.address && {
         address: {
@@ -142,7 +148,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
         geo: { "@type": "GeoCoordinates", latitude: city.geo.lat, longitude: city.geo.lng },
       }),
       areaServed: { "@type": "City", name: city.shortName },
-      parentOrganization: { "@type": "Organization", name: "Crescent Tracking (Pvt) Ltd", url: "https://crescenttracking.com" },
+      parentOrganization: { "@id": "https://crescenttracking.com/#organization" },
     },
     {
       "@context": "https://schema.org",
@@ -188,7 +194,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
           </span>
 
           <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight mb-6">
-            Best Vehicle Tracking Company in {city.shortName}
+            Best Car Tracker &amp; Vehicle Tracking Company in {city.shortName}
           </h1>
 
           <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">{city.intro}</p>

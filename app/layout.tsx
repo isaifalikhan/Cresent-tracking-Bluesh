@@ -88,6 +88,14 @@ export default function RootLayout({
       className={`${manrope.variable} ${syne.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7165996801022980"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="font-sans antialiased text-foreground overflow-x-hidden">
         <ThemeProvider
           attribute="class"

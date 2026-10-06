@@ -15,9 +15,9 @@ import FAQSection from "@/components/sections/FAQSection";
 import CTABanner from "@/components/sections/CTABanner";
 
 const homeMetadata = pageMetadata({
-  title: "Crescent Tracking Pvt Ltd | Vehicle Tracking & Fleet Management in Pakistan",
+  title: "Crescent Tracking Pvt Ltd | Best Car Tracker & Vehicle Tracking Company in Pakistan",
   description:
-    "Crescent Tracking Pvt Ltd provides vehicle tracking, car trackers, bike trackers and fleet management services in Pakistan. Monitor vehicles, assets, and fleet operations in real time with 24/7 control room support.",
+    "Crescent Tracking Pvt Ltd provides the best car trackers, bike trackers, vehicle tracking and fleet management services in Pakistan. Monitor vehicles, assets, and fleet operations in real time with 24/7 control room support.",
   path: "/",
 });
 

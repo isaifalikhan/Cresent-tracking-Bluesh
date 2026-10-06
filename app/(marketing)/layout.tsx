@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-import { CITY_EMAIL, CITY_PHONE_TEL } from "@/lib/cities";
+import { cities, CITY_EMAIL, CITY_PHONE_TEL } from "@/lib/cities";
 
 const siteJsonLd = [
   {
@@ -22,6 +22,11 @@ const siteJsonLd = [
       areaServed: "PK",
       availableLanguage: ["English", "Urdu"],
     },
+    telephone: CITY_PHONE_TEL,
+    // Each city office page publishes its own LocalBusiness with this @id.
+    subOrganization: cities
+      .filter((c) => c.address)
+      .map((c) => ({ "@id": `${SITE_URL}/car-tracker/${c.slug}#business` })),
   },
   {
     "@context": "https://schema.org",
