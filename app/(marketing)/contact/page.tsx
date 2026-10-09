@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Phone, Mail, MessageCircle, MapPin, CheckCircle2, Building2, ChevronDown } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle2, Building2, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -37,7 +37,7 @@ const branches: Branch[] = [
   {
     type: "Lahore Branch",
     city: "Lahore",
-    address: "1st Floor, 273 Y Block Commercial Area, DHA Phase 3, Lahore.",
+    address: "Office No. 614, 6th Floor, Eden Heights, Jail Road, Lahore.",
     phone: ["0321-9536786"],
     email: "lahore@crescenttrack.com",
   },
@@ -52,14 +52,14 @@ const branches: Branch[] = [
     type: "Sialkot Branch",
     city: "Sialkot",
     address: "Al Khalil Center, Kashmir Road, Sialkot.",
-    phone: ["0346-8222135"],
+    phone: ["0309-6964141"],
     email: "mubeen.skt@crescenttrack.com",
   },
   {
     type: "Sahiwal Branch",
     city: "Sahiwal",
     address: "Office No. 1, 2, 3, Hassan Market, Karbala Road, Sahiwal.",
-    phone: ["0300-5130181"],
+    phone: ["0309-6964141"],
     email: "sahiwal@crescenttrack.com",
   },
   {
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     //   href: "tel:042111111278",
                     // },
                     {
-                      icon: MessageCircle,
+                      icon: Phone,
                       label: "Helpline (24/7)",
                       value: "0344-2222233",
                       href: "tel:03442222233",

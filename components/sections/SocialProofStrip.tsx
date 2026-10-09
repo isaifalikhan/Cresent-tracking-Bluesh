@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const stats = [
   { value: 72000, suffix: "+", label: "Vehicles Tracked" },
   { value: 99.9, suffix: "%", label: "Platform Uptime", decimals: 1 },
-  { value: 15, suffix: "+", label: "Years Experience" },
+  { value: 16, suffix: "+", label: "Years Experience" },
   { value: 40, suffix: "%", label: "Avg Fuel Savings" },
   { value: 72000, suffix: "+", label: "Happy Clients" },
 ];
@@ -32,6 +32,8 @@ const clientLogos = [
   "/clients/client16.png",
   "/clients/client17.png",
   "/clients/client18.png",
+  "/clients/daraz.jpg",
+  "/clients/punjab-food-authority.png",
 ];
 
 export default function SocialProofStrip() {

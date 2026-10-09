@@ -43,11 +43,11 @@ export const cities: City[] = [
     name: "Lahore",
     shortName: "Lahore",
     region: "Punjab",
-    address: "1st Floor, 273 Y Block Commercial Area, DHA Phase 3, Lahore",
-    mapUrl: "https://maps.app.goo.gl/R3eXGMdtURXmd6XSA",
-    geo: { lat: 31.4711544, lng: 74.3734831 },
+    address: "Office No. 614, 6th Floor, Eden Heights, Jail Road, Lahore",
+    mapUrl: "https://www.google.com/maps/place/Eden+Heights/@31.5340989,74.3461105,17z/data=!4m6!3m5!1s0x391904ef42936c05:0x691bc82a69f47fb5!8m2!3d31.5340989!4d74.3461105",
+    geo: { lat: 31.5340989, lng: 74.3461105 },
     intro:
-      "Crescent Tracking is one of the best vehicle tracking companies in Lahore, offering an advanced car tracker with live location, geo-fencing, engine kill and instant theft alerts. From DHA to Johar Town, our Lahore office supports individual car owners and large fleets alike.",
+      "Crescent Tracking is one of the best vehicle tracking companies in Lahore, offering an advanced car tracker with live location, geo-fencing, engine kill and instant theft alerts. From our office on Jail Road, Gulberg, we support individual car owners and large fleets across the city.",
     localNeed:
       "As Pakistan's second-largest city, Lahore has some of the heaviest traffic in the country and a constant risk of car and bike theft. Businesses running delivery vans, trucks and staff cars across the Ring Road and Canal Road need live visibility to cut fuel waste and respond quickly to any incident.",
     areas: ["DHA (all phases)", "Gulberg & Model Town", "Johar Town & Wapda Town", "Bahria Town Lahore", "Cantt & Walton", "Iqbal Town & Township"],

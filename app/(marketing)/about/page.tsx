@@ -86,7 +86,7 @@ export default function AboutPage() {
                 <p className="text-sm text-muted-foreground mt-1">Happy Clients</p>
               </div>
               <div className="rounded-2xl border border-border bg-card p-6">
-                <p className="text-3xl font-display font-bold text-foreground">15+</p>
+                <p className="text-3xl font-display font-bold text-foreground">16+</p>
                 <p className="text-sm text-muted-foreground mt-1">Years in Business</p>
               </div>
               <div className="rounded-2xl border border-border bg-card p-6">

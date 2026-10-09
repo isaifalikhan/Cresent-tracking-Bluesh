@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
-import { MapPin, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { MapPin, Phone, ArrowRight } from "lucide-react";
 import CTABanner from "@/components/sections/CTABanner";
-import { cities, CITY_PHONE_TEL, CITY_WHATSAPP_URL } from "@/lib/cities";
+import { cities, CITY_PHONE_TEL } from "@/lib/cities";
 
 export const metadata: Metadata = pageMetadata({
   title: "Best Car Tracker in Pakistan | Vehicle Tracking Company in All Major Cities",
-  description: `Looking for the best car tracker in Pakistan? Crescent Tracking has offices in Islamabad, Rawalpindi, Lahore, Faisalabad, Multan, Sialkot, Gujranwala, Sahiwal and serves Peshawar and more cities. Call or WhatsApp us today.`,
+  description: `Looking for the best car tracker in Pakistan? Crescent Tracking has offices in Islamabad, Rawalpindi, Lahore, Faisalabad, Multan, Sialkot, Gujranwala, Sahiwal and serves Peshawar and more cities. Call 0309-6964141 today.`,
   path: "/car-tracker",
   keywords: [
     "best car tracker in Pakistan",
@@ -43,15 +43,6 @@ export default function CarTrackerCitiesPage() {
             >
               <Phone className="w-4 h-4" />
               Call Now
-            </a>
-            <a
-              href={CITY_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-6 py-3 transition-colors"
-            >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp Us
             </a>
           </div>
         </div>

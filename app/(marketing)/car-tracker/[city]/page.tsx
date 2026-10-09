@@ -90,11 +90,11 @@ function getFaqs(city: City) {
   return [
     {
       q: `Which is the best car tracker company in ${city.shortName}?`,
-      a: `Crescent Tracking is one of the most trusted vehicle tracking companies in ${city.shortName}, offering live GPS tracking, remote engine immobilization, fuel monitoring and a 24/7 control room. Call or WhatsApp us to get started.`,
+      a: `Crescent Tracking is one of the most trusted vehicle tracking companies in ${city.shortName}, offering live GPS tracking, remote engine immobilization, fuel monitoring and a 24/7 control room. Call or WhatsApp us on ${CITY_PHONE_DISPLAY} to get started.`,
     },
     {
       q: `How can I install a car tracker in ${city.shortName}?`,
-      a: `Simply call or WhatsApp us${city.address ? ` or visit our office at ${city.address}` : ""}. Our team will guide you on the right package and schedule the installation of your car tracker.`,
+      a: `Simply call or WhatsApp us on ${CITY_PHONE_DISPLAY}${city.address ? ` or visit our office at ${city.address}` : ""}. Our team will guide you on the right package and schedule the installation of your car tracker.`,
     },
     {
       q: `Can I track my car from my mobile phone?`,
@@ -109,6 +109,26 @@ function getFaqs(city: City) {
       a: `Contact our 24/7 control room immediately. We can track your vehicle's live location, remotely immobilize the engine and coordinate with the authorities to support recovery.`,
     },
   ];
+}
+
+const contactLinkClass = "text-green-600 dark:text-green-400 font-medium underline underline-offset-2";
+
+/** Turns "call or WhatsApp us on <number>" in an FAQ answer into tap-to-call and WhatsApp links. */
+function linkContacts(text: string) {
+  const match = text.match(/(call) or (WhatsApp) us on ([\d-]+)/i);
+  if (!match || match.index === undefined) return text;
+  const [whole, call, whatsapp, number] = match;
+  return (
+    <>
+      {text.slice(0, match.index)}
+      <a href={`tel:${CITY_PHONE_TEL}`} className={contactLinkClass}>{call}</a>
+      {" or "}
+      <a href={CITY_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={contactLinkClass}>{whatsapp}</a>
+      {" us on "}
+      <a href={`tel:${CITY_PHONE_TEL}`} className={contactLinkClass}>{number}</a>
+      {text.slice(match.index + whole.length)}
+    </>
+  );
 }
 
 export default function CityTrackerPage({ params }: { params: { city: string } }) {
@@ -503,7 +523,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
                   {f.q}
                   <span className="text-green-500 transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-muted-foreground leading-relaxed">{f.a}</p>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{linkContacts(f.a)}</p>
               </details>
             ))}
           </div>
@@ -532,7 +552,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
 
       <PackageComparison cityName={city.shortName} />
 
-      <CTABanner />
+      <CTABanner showWhatsApp />
     </div>
   );
 }
