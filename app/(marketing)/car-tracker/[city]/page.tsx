@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -357,6 +358,25 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
             transforming raw location data into actionable insights that protect your investments and optimize
             your daily operations.
           </p>
+
+          <div className="grid sm:grid-cols-2 gap-5 pt-4">
+            <Image
+              src="/images/real-time-vehicle-tracking.jpg"
+              alt={`Real-time vehicle tracking in ${city.shortName} with the Crescent Tracking mobile app`}
+              width={1066}
+              height={1600}
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="w-full h-auto rounded-2xl border border-border"
+            />
+            <Image
+              src="/images/fleet-management.jpg"
+              alt={`Fleet management in ${city.shortName} with Crescent Tracking`}
+              width={1066}
+              height={1600}
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="w-full h-auto rounded-2xl border border-border"
+            />
+          </div>
 
           <h2 className="font-display font-bold text-2xl lg:text-3xl text-foreground pt-6">
             Key Services Offered by Crescent Tracking Pvt Ltd
