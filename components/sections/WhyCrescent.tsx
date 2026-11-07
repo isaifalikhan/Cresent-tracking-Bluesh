@@ -8,7 +8,7 @@ const reasons = [
   },
   {
     image: "award",
-    title: "Brand of the Year 2025",
+    title: "Brand of the Year 2026",
     text: "Recognized nationally for excellence and market leadership.",
   },
   {

@@ -264,6 +264,32 @@ export const cities: City[] = [
     routes: ["Multan–Vehari Road", "Vehari–Burewala Road", "Mailsi Road", "Arifwala Road", "Hasilpur Road"],
     industries: ["Cotton & ginning", "Agriculture", "Tractors & pickups", "Goods transporters", "Personal cars"],
   },
+  {
+    slug: "okara",
+    name: "Okara",
+    shortName: "Okara",
+    region: "Punjab",
+    intro:
+      "Looking for the best car tracker in Okara? Crescent Tracking provides GPS vehicle tracking, remote engine immobilizer, fuel monitoring and fleet management for cars, bikes, tractors and commercial vehicles across Okara district.",
+    localNeed:
+      "Okara lies on the N-5 between Lahore and Sahiwal and is one of Punjab's leading districts for potatoes, dairy and textiles. Milk collection vans, potato and grain trucks and mill transport run daily to Lahore and Faisalabad, and GPS tracking helps owners monitor routes, control fuel and protect vehicles from theft.",
+    areas: ["Okara City & Cantt", "Renala Khurd", "Depalpur", "Haveli Lakha", "Basirpur", "Hujra Shah Muqeem"],
+    routes: ["N-5 National Highway", "Okara–Faisalabad Road", "Depalpur Road", "Renala Khurd Road", "Haveli Lakha Road"],
+    industries: ["Dairy & milk collection", "Potato & agriculture transport", "Textile mills", "Tractors & pickups", "Personal cars & bikes"],
+  },
+  {
+    slug: "sukkur",
+    name: "Sukkur",
+    shortName: "Sukkur",
+    region: "Sindh",
+    intro:
+      "Crescent Tracking offers a reliable car tracker and vehicle tracking service in Sukkur and Rohri, with live GPS location, theft alerts, geo-fencing, remote engine lock and a 24/7 control room for personal cars and commercial fleets in Upper Sindh.",
+    localNeed:
+      "Sukkur is the commercial hub of Upper Sindh, where the M-5 Motorway meets the N-5 and the road to Quetta. Trucks, oil tankers and date and cement carriers cross the Indus here every day, and GPS tracking gives transporters and families live visibility on long intercity routes to Karachi, Multan and Balochistan.",
+    areas: ["Military Road", "Barrage Colony", "Minara Road", "Old Sukkur", "Rohri", "New Pind & Airport Road"],
+    routes: ["M-5 Motorway", "N-5 National Highway", "N-65 (Sukkur–Shikarpur–Jacobabad)", "Sukkur Barrage Road", "Rohri Bypass"],
+    industries: ["Dates processing & export", "Cement & industry", "Oil tankers & trucks", "Goods transporters", "Personal cars & rent-a-car"],
+  },
 ];
 
 export function getCity(slug: string) {

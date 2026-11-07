@@ -64,7 +64,24 @@ export function generateMetadata({ params }: { params: { city: string } }): Meta
     alternates: { canonical: url },
     openGraph: { title, description, url, type: "website", siteName: SITE_NAME, locale: "en_US", images: [OG_IMAGE] },
     twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE.url] },
+    other: {
+      "geo.region": regionCode(city.region),
+      "geo.placename": city.shortName,
+      ...(city.geo && {
+        "geo.position": `${city.geo.lat};${city.geo.lng}`,
+        ICBM: `${city.geo.lat}, ${city.geo.lng}`,
+      }),
+    },
   };
+}
+
+/** ISO 3166-2 code for the geo.region meta tag. */
+function regionCode(region: string) {
+  if (region.startsWith("Islamabad")) return "PK-IS";
+  if (region === "Sindh") return "PK-SD";
+  if (region === "Khyber Pakhtunkhwa") return "PK-KP";
+  if (region === "Balochistan") return "PK-BA";
+  return "PK-PB";
 }
 
 const features = [
@@ -109,6 +126,18 @@ function getFaqs(city: City) {
       q: `What happens if my car is stolen in ${city.shortName}?`,
       a: `Contact our 24/7 control room immediately. We can track your vehicle's live location, remotely immobilize the engine and coordinate with the authorities to support recovery.`,
     },
+    {
+      q: `What is the price of a car tracker in ${city.shortName}?`,
+      a: `The price of a car tracker in ${city.shortName} depends on the package you choose, from basic live tracking to packages with engine immobilizer, fuel monitoring and fleet reports. Compare our packages on this page, or call or WhatsApp us on ${CITY_PHONE_DISPLAY} for the latest price.`,
+    },
+    {
+      q: `Do you provide bike trackers in ${city.shortName}?`,
+      a: `Yes. Along with car trackers, we install GPS bike trackers in ${city.shortName} with live location, ignition alerts and theft protection, all visible on the same mobile app.`,
+    },
+    {
+      q: `Will my tracker work outside ${city.shortName}?`,
+      a: `Yes. Your tracker works on routes such as ${city.routes.slice(0, 2).join(" and ")} and anywhere across Pakistan with mobile network coverage, so you can follow every intercity trip live.`,
+    },
   ];
 }
 
@@ -143,33 +172,73 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
     ? `https://www.google.com/maps?q=${city.geo.lat},${city.geo.lng}&z=17&output=embed`
     : null;
 
+  const areaServed = {
+    "@type": "City",
+    name: city.shortName,
+    containedInPlace: { "@type": "AdministrativeArea", name: city.region },
+  };
+
   const jsonLd = [
+    // Google only accepts LocalBusiness with a real street address, so it is limited to cities with an office.
+    ...(city.address
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": `${pageUrl}#business`,
+            name: `Crescent Tracking - ${city.name}`,
+            description: city.intro,
+            url: pageUrl,
+            image: "https://www.crescenttrack.com/Logo.png",
+            logo: "https://www.crescenttrack.com/Logo.png",
+            telephone: CITY_PHONE_TEL,
+            email: CITY_EMAIL,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: city.address,
+              addressLocality: city.shortName,
+              addressRegion: city.region,
+              addressCountry: "PK",
+            },
+            ...(city.mapUrl && { hasMap: city.mapUrl }),
+            ...(city.geo && {
+              geo: { "@type": "GeoCoordinates", latitude: city.geo.lat, longitude: city.geo.lng },
+            }),
+            areaServed,
+            parentOrganization: { "@id": "https://www.crescenttrack.com/#organization" },
+          },
+        ]
+      : []),
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": `${pageUrl}#business`,
-      name: `Crescent Tracking - ${city.name}`,
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: `Car Tracker & Vehicle Tracking in ${city.shortName}`,
+      serviceType: "GPS Vehicle Tracking",
       description: city.intro,
       url: pageUrl,
-      image: "https://www.crescenttrack.com/Logo.png",
-      logo: "https://www.crescenttrack.com/Logo.png",
-      telephone: CITY_PHONE_TEL,
-      email: CITY_EMAIL,
-      ...(city.address && {
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: city.address,
-          addressLocality: city.shortName,
-          addressRegion: city.region,
-          addressCountry: "PK",
-        },
-      }),
-      ...(city.mapUrl && { hasMap: city.mapUrl }),
-      ...(city.geo && {
-        geo: { "@type": "GeoCoordinates", latitude: city.geo.lat, longitude: city.geo.lng },
-      }),
-      areaServed: { "@type": "City", name: city.shortName },
-      parentOrganization: { "@id": "https://www.crescenttrack.com/#organization" },
+      provider: { "@id": city.address ? `${pageUrl}#business` : "https://www.crescenttrack.com/#organization" },
+      areaServed,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `Tracking services in ${city.shortName}`,
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: `${s.label} in ${city.shortName}` },
+        })),
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": pageUrl,
+      url: pageUrl,
+      name: `Best Car Tracker in ${city.shortName} | Vehicle Tracking Company ${city.shortName}`,
+      description: city.intro,
+      inLanguage: "en",
+      isPartOf: { "@id": "https://www.crescenttrack.com/#website" },
+      about: { "@id": `${pageUrl}#service` },
+      breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
     },
     {
       "@context": "https://schema.org",
@@ -183,6 +252,7 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.crescenttrack.com" },
         { "@type": "ListItem", position: 2, name: "Car Tracker", item: "https://www.crescenttrack.com/car-tracker" },
@@ -200,13 +270,23 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
         <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-50 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="mb-8">
-            <Link
-              href="/car-tracker"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              All Cities
-            </Link>
+            <ol className="flex flex-wrap items-center gap-2 text-muted-foreground text-sm">
+              <li>
+                <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link
+                  href="/car-tracker"
+                  className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Car Tracker
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground">{city.shortName}</li>
+            </ol>
           </nav>
 
           <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 font-medium mb-6">
@@ -266,6 +346,15 @@ export default function CityTrackerPage({ params }: { params: { city: string } }
                     </div>
                   </li>
                 )}
+                <li className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Phone / WhatsApp</p>
+                    <a href={`tel:${CITY_PHONE_TEL}`} className="text-foreground font-medium hover:text-green-500">
+                      {CITY_PHONE_DISPLAY}
+                    </a>
+                  </div>
+                </li>
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <div>

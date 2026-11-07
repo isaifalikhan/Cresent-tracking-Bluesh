@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
 import Link from "next/link";
 import { MapPin, Phone, ArrowRight } from "lucide-react";
 import CTABanner from "@/components/sections/CTABanner";
@@ -7,7 +7,7 @@ import { cities, CITY_PHONE_TEL } from "@/lib/cities";
 
 export const metadata: Metadata = pageMetadata({
   title: "Best Car Tracker in Pakistan | Vehicle Tracking Company in All Major Cities",
-  description: `Looking for the best car tracker in Pakistan? Crescent Tracking has offices in Islamabad, Rawalpindi, Lahore, Faisalabad, Multan, Sialkot, Gujranwala, Sahiwal and serves Peshawar and more cities. Call 0309-6964141 today.`,
+  description: `Looking for the best car tracker in Pakistan? Crescent Tracking has offices in Islamabad, Rawalpindi, Lahore, Faisalabad, Multan, Sialkot, Gujranwala, Sahiwal and serves Peshawar, Sukkur, Okara and more cities. Call 0309-6964141 today.`,
   path: "/car-tracker",
   keywords: [
     "best car tracker in Pakistan",
@@ -19,9 +19,32 @@ export const metadata: Metadata = pageMetadata({
   ],
 });
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Crescent Tracking car tracker cities",
+    itemListElement: cities.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `Car Tracker in ${c.shortName}`,
+      url: `${SITE_URL}/car-tracker/${c.slug}`,
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Car Tracker", item: `${SITE_URL}/car-tracker` },
+    ],
+  },
+];
+
 export default function CarTrackerCitiesPage() {
   return (
     <div className="pt-24 bg-background min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden py-16 lg:py-20">
         <div className="absolute inset-0 bg-grid-light dark:bg-grid opacity-50 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
