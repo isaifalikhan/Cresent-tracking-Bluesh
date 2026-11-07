@@ -21,12 +21,13 @@ type NewsGroup = {
 
 /** Prepended to the news grid so the newest story appears first. */
 const latestNews: NewsItem = {
-  dateLabel: "Aug 14, 2026",
-  title: "humanity and service",
+  dateLabel: "Nov 05, 2026",
+  title: "Nation’s Leader Awards NLA 6.0 2026 — Video Highlights",
   postedBy: "Crescent HR Team",
   description:
-    "A proud moment of humanity and service. Nasir Khan, CEO Crescent Tracking, presenting a tricycle(trike) motorcycle specifically configured for a person with a disability, helping him move toward greater independence and a better future.",
-  image: "/new/680.jpeg",
+    "CEO Nasir Khan is honoured at the Nation’s Leader Awards (NLA 6.0 – 2026) by PBCF for Excellence in Fleet Management & Smart Tracking Solutions, and for outstanding contributions to Pakistan’s business landscape.",
+  image: "/new/event_video_nov_2026.jpg",
+  video: "/new/event_video_nov_2026.mp4",
 };
 
 // Data adapted from legacy news.html timeline
